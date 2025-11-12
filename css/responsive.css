@@ -1,0 +1,450 @@
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+
+/* Base Mobile Styles */
+@media (max-width: 768px) {
+  /* General Typography */
+  h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  /* Header & Navigation */
+  .site-header {
+    padding: 12px 0;
+  }
+  
+  .logo img {
+    height: 35px;
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 85%;
+    height: calc(100vh - 70px);
+    background-color: var(--white);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    z-index: 999;
+    overflow-y: auto;
+  }
+  
+  .main-nav.active {
+    left: 0;
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    padding: 30px 20px;
+    align-items: flex-start;
+  }
+  
+  .main-nav li {
+    margin: 0 0 25px 0;
+    width: 100%;
+  }
+  
+  .main-nav a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+  }
+  
+  .main-nav .btn-primary {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    width: 24px;
+    height: 24px;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .mobile-menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    border-radius: 2px;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding: 120px 0 60px;
+    min-height: 70vh;
+    text-align: center;
+  }
+  
+  .hero-content {
+    padding: 0 15px;
+  }
+  
+  .hero-title h1 {
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  
+  .hero-description p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-btns {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .hero-btns .btn-primary,
+  .hero-btns .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 25px;
+    font-size: 1rem;
+  }
+  
+  /* About Section */
+  .about {
+    padding: 60px 0;
+  }
+  
+  .about-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-text {
+    text-align: center;
+  }
+  
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .stat {
+    padding: 25px 15px;
+  }
+  
+  .stat h3 {
+    font-size: 2rem;
+  }
+  
+  /* Why DCM Section */
+  .specialties {
+    padding: 60px 0;
+  }
+  
+  .specialties-list {
+    max-width: 100%;
+  }
+  
+  .specialty-item {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    flex-direction: row;
+  }
+  
+  .specialty-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .specialty-item i {
+    font-size: 1.8rem !important;
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+    flex-shrink: 0;
+    margin-top: 2px;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  
+  .specialty-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    margin-left: 65px;
+    max-height: none;
+    opacity: 1;
+    padding: 0;
+  }
+  
+  /* Remove hover effects on mobile */
+  .specialty-item:hover {
+    transform: none;
+    padding-bottom: 25px;
+  }
+  
+  .specialty-item:hover h3 {
+    margin-bottom: 10px;
+  }
+  
+  /* Services Section */
+  .services {
+    padding: 60px 0;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .service-card {
+    max-width: 100%;
+  }
+  
+  .service-image {
+    height: 180px;
+  }
+  
+  /* Financing Approach Section */
+  .approach-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .approach-text {
+    text-align: center;
+  }
+  
+  .custom-capital-emphasis {
+    font-size: 1.8rem;
+    margin: 20px 0;
+  }
+  
+  .thinking-points {
+    margin-bottom: 30px;
+  }
+  
+  .thinking-point {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  /* Recent Loans Section */
+  .recent-loans-preview {
+    padding: 60px 0;
+  }
+  
+  .loans-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .loan-image {
+    height: 180px;
+  }
+  
+  /* Process Section */
+  .process-steps {
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+  }
+  
+  .process-step {
+    padding: 25px 20px;
+  }
+  
+  .process-step i {
+    font-size: 2.5rem;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    padding: 60px 0;
+  }
+  
+  .testimonials-slider {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .testimonial-card {
+    padding: 40px 25px;
+  }
+  
+  /* Contact Section */
+  .contact {
+    padding: 60px 0;
+  }
+  
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .contact-form {
+    padding: 30px 20px;
+  }
+  
+  /* Footer */
+  .site-footer {
+    padding: 50px 0 20px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  /* Animation adjustments for mobile */
+  .fade-in, .slide-in-left, .slide-in-right {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .hero-title h1 {
+    font-size: 2rem;
+  }
+  
+  .specialty-item {
+    padding: 20px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .specialty-item h3 {
+    font-size: 1.2rem;
+    gap: 10px;
+  }
+  
+  .specialty-item i {
+    font-size: 1.6rem !important;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .specialty-item p {
+    font-size: 0.9rem;
+    margin-left: 57px;
+  }
+  
+  .custom-capital-emphasis {
+    font-size: 1.5rem;
+  }
+  
+  .process-step i {
+    font-size: 2rem;
+  }
+  
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+  
+  .contact-form {
+    padding: 25px 15px;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 360px) {
+  .hero-title h1 {
+    font-size: 1.8rem;
+  }
+  
+  .specialty-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .specialty-item i {
+    font-size: 1.4rem !important;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .specialty-item p {
+    font-size: 0.85rem;
+    margin-left: 52px;
+  }
+  
+  .custom-capital-emphasis {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet Styles (for reference) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .container {
+    padding: 0 30px;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .loans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .specialty-item {
+    padding: 25px;
+  }
+}
