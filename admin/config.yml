@@ -5,8 +5,8 @@ backend:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'
 
-site_url: https://YOUR_SITE_NAME.netlify.app
-display_url: https://YOUR_SITE_NAME.netlify.app
+site_url: https://dc-finance.netlify.app
+display_url: https://dc-finance.netlify.app
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
