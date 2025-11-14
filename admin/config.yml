@@ -1,4 +1,24 @@
 
+# backend:
+#   name: git-gateway
+#   branch: main 
+
+# media_folder: "assets/uploads"
+# public_folder: "/assets/uploads"
+
+# collections:
+#   - name: "pages"
+#     label: "Pages"
+#     files:
+#       - name: "home"
+#         label: "Home Page"
+#         file: "content/pages/home.json"
+#         fields:
+#           - { label: "Hero Title", name: "heroTitle", widget: "string" }
+#           - { label: "Hero Description", name: "heroDescription", widget: "text" }
+#           - { label: "Hero Button", name: "heroButton", widget: "string" }
+#           - { label: "Section Title", name: "sectionTitle", widget: "string" }
+#           - { label: "Section Description", name: "sectionDescription", widget: "text" }
 backend:
   name: git-gateway
   branch: main 
@@ -14,8 +34,100 @@ collections:
         label: "Home Page"
         file: "content/pages/home.json"
         fields:
-          - { label: "Hero Title", name: "heroTitle", widget: "string" }
-          - { label: "Hero Description", name: "heroDescription", widget: "text" }
-          - { label: "Hero Button", name: "heroButton", widget: "string" }
-          - { label: "Section Title", name: "sectionTitle", widget: "string" }
-          - { label: "Section Description", name: "sectionDescription", widget: "text" }
+          # Hero Section
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Primary Button Text", name: "btn_primary_text", widget: "string" }
+              - { label: "Primary Button Link", name: "btn_primary_link", widget: "string" }
+              - { label: "Secondary Button Text", name: "btn_secondary_text", widget: "string" }
+              - { label: "Secondary Button Link", name: "btn_secondary_link", widget: "string" }
+
+          # About Section
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Text Paragraphs"
+                name: "text_paragraphs"
+                widget: "list"
+                fields:
+                  - { label: "Paragraph", name: "paragraph", widget: "text" }
+              - label: "Statistics"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+              - { label: "Learn More Link", name: "learn_more_link", widget: "string" }
+
+          # Specialties Section
+          - label: "Specialties"
+            name: "specialties"
+            widget: "list"
+            fields:
+              - { label: "Icon Class", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          # Services Section
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Link", name: "link", widget: "string" }
+
+          # Financing Approach Section
+          - label: "Financing Approach"
+            name: "financing_approach"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Subheading", name: "subheading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Thinking Points"
+                name: "thinking_points"
+                widget: "list"
+                fields:
+                  - { label: "Point", name: "point", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "CTA Text", name: "cta_text", widget: "string" }
+              - { label: "CTA Link", name: "cta_link", widget: "string" }
+
+          # Recent Loans Section
+          - label: "Recent Loans"
+            name: "recent_loans"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Amount", name: "amount", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+
+          # Process Steps Section
+          - label: "Process Steps"
+            name: "process_steps"
+            widget: "list"
+            fields:
+              - { label: "Icon Class", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          # Testimonials Section
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Stars", name: "stars", widget: "number", value_type: "float", min: 0, max: 5, step: 0.5 }
+              - { label: "Text", name: "text", widget: "text" }
