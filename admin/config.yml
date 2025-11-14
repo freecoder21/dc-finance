@@ -14,5 +14,8 @@ collections:
         label: "Home Page"
         file: "content/pages/home.json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Hero Title", name: "heroTitle", widget: "string" }
+          - { label: "Hero Description", name: "heroDescription", widget: "text" }
+          - { label: "Hero Button", name: "heroButton", widget: "string" }
+          - { label: "Section Title", name: "sectionTitle", widget: "string" }
+          - { label: "Section Description", name: "sectionDescription", widget: "text" }

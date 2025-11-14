@@ -1,4 +1,7 @@
 {
-  "title": "Hello World!",
-  "description": "This is my editable homepage content."
+  "heroTitle": "Welcome to My Website!",
+  "heroDescription": "This is an advanced homepage layout editable via Netlify CMS.",
+  "heroButton": "Get Started",
+  "sectionTitle": "About This Page",
+  "sectionDescription": "All content on this page can be edited directly in Netlify CMS under the pages collection."
 }
