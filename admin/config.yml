@@ -10,11 +10,9 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "content/pages/home.md"
-        label: "Homepage"
-        name: "homepage"
+      - name: "home"
+        label: "Home Page"
+        file: "content/pages/home.json"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Publish Date", name: "date", widget: "datetime" }
-          - { label: "Hero Heading", name: "hero_heading", widget: "string" }
-          - { label: "Page Content", name: "body", widget: "markdown" }
+          - { label: "Description", name: "description", widget: "text" }
