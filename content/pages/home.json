@@ -1,12 +1,4 @@
 {
-  "hero": {
-    "title": "FINANCING SOLUTIONS FOR SEASONED INVESTORS1",
-    "description": "We help experienced developers and investors secure the right capital for their commercial real estate projects with customized financing solutions.",
-    "btn_primary_text": "Contact Us Now",
-    "btn_primary_link": "index2.html",
-    "btn_secondary_text": "Our Services",
-    "btn_secondary_link": "#services"
-  },
   "about": {
     "heading": "What We Do",
     "description": "We help experienced developers and investors secure the right capital for their deals. Every project is different, so we design structures around your asset, plan, and timeline.",
@@ -37,6 +29,149 @@
       }
     ],
     "learn_more_link": "about.html"
+  },
+  "financing_approach": {
+    "heading": "Financing Approach",
+    "subheading": "Custom capital, not cookie-cutter",
+    "description": "We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.",
+    "thinking_points": [
+      {
+        "point": "Understand the deal story and risks early"
+      },
+      {
+        "point": "Map the capital stack to the timeline and exit"
+      },
+      {
+        "point": "Target lenders who already like this exact profile"
+      },
+      {
+        "point": "Negotiate for speed, certainty, and flexibility"
+      }
+    ],
+    "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    "cta_text": "Contact us now",
+    "cta_link": "#contact"
+  },
+  "testimonials": [
+    {
+      "author": "Michael Johnson",
+      "role": "CEO, Tech Innovations Inc.",
+      "photo": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80",
+      "stars": 5,
+      "text": "DCM Financing provided the capital we needed to acquire our new headquarters. Their team was professional, responsive, and delivered exactly what they promised."
+    },
+    {
+      "author": "Sarah Williams",
+      "role": "Owner, Retail Properties Group",
+      "photo": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80",
+      "stars": 4.5,
+      "text": "The refinancing solution from DCM helped us improve cash flow during a challenging period. Their expertise in commercial real estate was evident throughout the process."
+    },
+    {
+      "author": "Robert Chen",
+      "role": "Managing Partner, Industrial Logistics Co.",
+      "photo": "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=200&q=80",
+      "stars": 5,
+      "text": "We've worked with several lenders over the years, but DCM's approach is different. They truly understand our business and provide solutions that support our growth."
+    }
+  ],
+  "process_steps": [
+    {
+      "icon": "fas fa-search",
+      "title": "Discovery",
+      "description": "Share your project, timeline, and goals. We give fast feedback on fit."
+    },
+    {
+      "icon": "fas fa-sitemap",
+      "title": "Structure",
+      "description": "We shape the capital plan and target the right lenders. You receive a clear path forward."
+    },
+    {
+      "icon": "fas fa-file-contract",
+      "title": "Process and close",
+      "description": "We manage diligence, negotiate terms, and keep closing on schedule."
+    }
+  ],
+  "hero": {
+    "title": "FINANCING SOLUTIONS FOR SEASONED INVESTORS1",
+    "description": "We help experienced developers and investors secure the right capital for their commercial real estate projects with customized financing solutions.",
+    "btn_primary_text": "Contact Us Now",
+    "btn_primary_link": "index2.html",
+    "btn_secondary_text": "Our Services",
+    "btn_secondary_link": "#services"
+  },
+  "footer": {
+    "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
+    "address": "123 Financial District, Suite 500<br>New York, NY 10005",
+    "phone": "+237695357471",
+    "email": "info@dcmfinancing.com",
+    "social_links": [
+      {
+        "platform": "LinkedIn",
+        "url": "#",
+        "icon": "fab fa-linkedin"
+      },
+      {
+        "platform": "Twitter",
+        "url": "#",
+        "icon": "fab fa-twitter"
+      },
+      {
+        "platform": "Facebook",
+        "url": "#",
+        "icon": "fab fa-facebook"
+      },
+      {
+        "platform": "Instagram",
+        "url": "#",
+        "icon": "fab fa-instagram"
+      }
+    ],
+    "quick_links": [
+      {
+        "label": "Home",
+        "url": "index.html"
+      },
+      {
+        "label": "About Us",
+        "url": "about.html"
+      },
+      {
+        "label": "Services",
+        "url": "#services"
+      },
+      {
+        "label": "Recent Loans",
+        "url": "news-updates.html"
+      },
+      {
+        "label": "Blog",
+        "url": "blog.html"
+      }
+    ],
+    "service_links": [
+      {
+        "label": "Commercial Real Estate",
+        "url": "#services"
+      },
+      {
+        "label": "Ground-Up Development",
+        "url": "#services"
+      },
+      {
+        "label": "Conversions",
+        "url": "#services"
+      },
+      {
+        "label": "Hotel Financing",
+        "url": "#services"
+      },
+      {
+        "label": "Nursing Home Facilities",
+        "url": "#services"
+      }
+    ],
+    "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
   },
   "specialties": [
     {
@@ -103,28 +238,6 @@
       "link": "#contact"
     }
   ],
-  "financing_approach": {
-    "heading": "Financing Approach",
-    "subheading": "Custom capital, not cookie-cutter",
-    "description": "We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.",
-    "thinking_points": [
-      {
-        "point": "Understand the deal story and risks early"
-      },
-      {
-        "point": "Map the capital stack to the timeline and exit"
-      },
-      {
-        "point": "Target lenders who already like this exact profile"
-      },
-      {
-        "point": "Negotiate for speed, certainty, and flexibility"
-      }
-    ],
-    "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-    "cta_text": "Contact us now",
-    "cta_link": "#contact"
-  },
   "recent_loans": [
     {
       "title": "Downtown Office Tower",
@@ -144,72 +257,5 @@
       "location": "Miami, FL",
       "image": "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1465&q=80"
     }
-  ],
-  "process_steps": [
-    {
-      "icon": "fas fa-search",
-      "title": "Discovery",
-      "description": "Share your project, timeline, and goals. We give fast feedback on fit."
-    },
-    {
-      "icon": "fas fa-sitemap",
-      "title": "Structure",
-      "description": "We shape the capital plan and target the right lenders. You receive a clear path forward."
-    },
-    {
-      "icon": "fas fa-file-contract",
-      "title": "Process and close",
-      "description": "We manage diligence, negotiate terms, and keep closing on schedule."
-    }
-  ],
-  "testimonials": [
-    {
-      "author": "Michael Johnson",
-      "role": "CEO, Tech Innovations Inc.",
-      "photo": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80",
-      "stars": 5,
-      "text": "DCM Financing provided the capital we needed to acquire our new headquarters. Their team was professional, responsive, and delivered exactly what they promised."
-    },
-    {
-      "author": "Sarah Williams",
-      "role": "Owner, Retail Properties Group",
-      "photo": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80",
-      "stars": 4.5,
-      "text": "The refinancing solution from DCM helped us improve cash flow during a challenging period. Their expertise in commercial real estate was evident throughout the process."
-    },
-    {
-      "author": "Robert Chen",
-      "role": "Managing Partner, Industrial Logistics Co.",
-      "photo": "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=200&q=80",
-      "stars": 5,
-      "text": "We've worked with several lenders over the years, but DCM's approach is different. They truly understand our business and provide solutions that support our growth."
-    }
-  ],
-  "footer": {
-    "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
-    "address": "123 Financial District, Suite 500<br>New York, NY 10005",
-    "phone": "+1 (212) 555-7890",
-    "email": "info@dcmfinancing.com",
-    "social_links": [
-      { "platform": "LinkedIn", "url": "#", "icon": "fab fa-linkedin" },
-      { "platform": "Twitter", "url": "#", "icon": "fab fa-twitter" },
-      { "platform": "Facebook", "url": "#", "icon": "fab fa-facebook" },
-      { "platform": "Instagram", "url": "#", "icon": "fab fa-instagram" }
-    ],
-    "quick_links": [
-      { "label": "Home", "url": "index.html" },
-      { "label": "About Us", "url": "about.html" },
-      { "label": "Services", "url": "#services" },
-      { "label": "Recent Loans", "url": "news-updates.html" },
-      { "label": "Blog", "url": "blog.html" }
-    ],
-    "service_links": [
-      { "label": "Commercial Real Estate", "url": "#services" },
-      { "label": "Ground-Up Development", "url": "#services" },
-      { "label": "Conversions", "url": "#services" },
-      { "label": "Hotel Financing", "url": "#services" },
-      { "label": "Nursing Home Facilities", "url": "#services" }
-    ],
-    "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
-  }
+  ]
 }
