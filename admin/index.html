@@ -26,6 +26,13 @@
 
   <!-- Auto redirect after login -->
   <script>
+  const currentHash = window.location.hash;
+  if (currentHash.includes("_token")) {
+    window.location.href = "/admin/" + currentHash;
+  }
+</script>
+
+  <!-- <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", (user) => {
         if (!user) {
@@ -35,7 +42,7 @@
         }
       });
     }
-  </script>
+  </script> -->
 
 </body>
 </html>
