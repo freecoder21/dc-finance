@@ -6,9 +6,6 @@ backend:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'
 
-site_url: https://dc-finance.netlify.app/
-display_url: https://dc-finance.netlify.app/
-
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -20,6 +17,149 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      
+      # Hero Section
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Main Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "text" }
+          - { label: "Primary Button Text", name: "primary_button", widget: "string" }
+          - { label: "Secondary Button Text", name: "secondary_button", widget: "string" }
+
+      # About Section
+      - label: "About Section"
+        name: "about"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Content Paragraph 1", name: "paragraph1", widget: "text" }
+          - { label: "Content Paragraph 2", name: "paragraph2", widget: "text" }
+          - { label: "Learn More Button Text", name: "button_text", widget: "string" }
+
+      # Statistics
+      - label: "Statistics"
+        name: "stats"
+        widget: "object"
+        fields:
+          - { label: "Total Loans (Billions)", name: "loans", widget: "string" }
+          - { label: "Successful Projects", name: "projects", widget: "string" }
+          - { label: "Years of Experience", name: "experience", widget: "string" }
+          - { label: "Client Satisfaction (%)", name: "satisfaction", widget: "string" }
+
+      # Why DCM Section
+      - label: "Why DCM Section"
+        name: "why_dcm"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Feature Title", name: "title", widget: "string" }
+              - { label: "Feature Description", name: "description", widget: "text" }
+
+      # Services Section
+      - label: "Services Section"
+        name: "services"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Services"
+            name: "services_list"
+            widget: "list"
+            fields:
+              - { label: "Service Name", name: "name", widget: "string" }
+              - { label: "Service Description", name: "description", widget: "text" }
+              - { label: "Service Image", name: "image", widget: "image" }
+
+      # Financing Approach
+      - label: "Financing Approach"
+        name: "financing_approach"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Custom Capital Text", name: "custom_capital", widget: "string" }
+          - { label: "Approach Description", name: "description", widget: "text" }
+          - label: "Thinking Points"
+            name: "thinking_points"
+            widget: "list"
+            fields:
+              - { label: "Point", name: "point", widget: "string" }
+
+      # Recent Loans
+      - label: "Recent Loans"
+        name: "recent_loans"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Loans"
+            name: "loans_list"
+            widget: "list"
+            fields:
+              - { label: "Property Name", name: "property", widget: "string" }
+              - { label: "Loan Amount", name: "amount", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Property Image", name: "image", widget: "image" }
+
+      # Process Section
+      - label: "Process Section"
+        name: "process"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Steps"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Step Number", name: "number", widget: "string" }
+              - { label: "Step Title", name: "title", widget: "string" }
+              - { label: "Step Description", name: "description", widget: "text" }
+
+      # Testimonials
+      - label: "Testimonials"
+        name: "testimonials"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Testimonials List"
+            name: "testimonials_list"
+            widget: "list"
+            fields:
+              - { label: "Client Name", name: "name", widget: "string" }
+              - { label: "Client Role", name: "role", widget: "string" }
+              - { label: "Testimonial Text", name: "text", widget: "text" }
+              - { label: "Client Photo", name: "photo", widget: "image" }
+              - { label: "Rating (1-5)", name: "rating", widget: "number", value_type: "int", min: 1, max: 5 }
+
+      # Contact Section
+      - label: "Contact Section"
+        name: "contact"
+        widget: "object"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Office Address", name: "address", widget: "text" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Email Address", name: "email", widget: "string" }
+
+      # Footer
+      - label: "Footer"
+        name: "footer"
+        widget: "object"
+        fields:
+          - { label: "Footer Description", name: "description", widget: "text" }
+          - { label: "Copyright Text", name: "copyright", widget: "string" }
+
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "blog"

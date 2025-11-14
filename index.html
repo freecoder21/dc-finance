@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Add Showdown.js and js-yaml libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    
     <style>
         /* Additional styles for new sections */
         .process-steps {
@@ -126,130 +131,128 @@
             transform: translateX(0);
         }
         
-
-
-/* NEW: Custom capital emphasis styling */
-.custom-capital-emphasis {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--secondary-color);
-  text-align: center;
-  margin: 30px 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.custom-capital-emphasis:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: var(--secondary-color);
-  border-radius: 2px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero {
-    padding: 80px 15px;
-  }
-
-  .hero-title h1 {
-    font-size: 2.6rem;
-    text-align: center;
-  }
-
-  .hero-description p {
-    text-align: center;
-    font-size: 1.1rem;
-  }
-
-  .hero-btns {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .hero-btns .btn-primary,
-  .hero-btns .btn-secondary {
-    width: 100%;
-    max-width: 280px;
-  }
-  
-  .custom-capital-emphasis {
-    font-size: 1.8rem;
-  }
-  /* Additional mobile-specific styles */
-@media (max-width: 768px) {
-  /* Improve the hero section for mobile */
-  .hero {
-    background-attachment: scroll; /* Prevents performance issues on mobile */
-  }
-  
-  /* Better spacing for mobile */
-  .section-footer {
-    margin-top: 30px;
-  }
-  
-  /* Optimize the process steps for mobile */
-  .process-step {
-    margin-bottom: 20px;
-  }
-  
-  /* Improve the financing approach section */
-  .approach-intro p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  /* Make the custom capital emphasis more prominent */
-  .custom-capital-emphasis {
-    line-height: 1.3;
-    padding: 0 10px 15px;
-  }
-  
-  /* Better button contrast */
-  .btn-primary {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Improve form appearance */
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  /* Add subtle background to form for better visibility */
-  .contact-form {
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-}
-
-/* Prevent text size adjustment on orientation change */
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
-/* Improve tap targets for mobile */
-@media (max-width: 768px) {
-  a, button, .btn-primary, .btn-secondary, .read-more-btn {
-    min-height: 44px;
-    min-width: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Special handling for navigation links */
-  .main-nav a {
-    min-height: 50px;
-  }
-}
-}
-
+        /* NEW: Custom capital emphasis styling */
+        .custom-capital-emphasis {
+          font-size: 2.2rem;
+          font-weight: 700;
+          color: var(--secondary-color);
+          text-align: center;
+          margin: 30px 0;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          position: relative;
+          padding-bottom: 15px;
+        }
+        
+        .custom-capital-emphasis:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 4px;
+          background: var(--secondary-color);
+          border-radius: 2px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+          .hero {
+            padding: 80px 15px;
+          }
+        
+          .hero-title h1 {
+            font-size: 2.6rem;
+            text-align: center;
+          }
+        
+          .hero-description p {
+            text-align: center;
+            font-size: 1.1rem;
+          }
+        
+          .hero-btns {
+            flex-direction: column;
+            gap: 15px;
+          }
+        
+          .hero-btns .btn-primary,
+          .hero-btns .btn-secondary {
+            width: 100%;
+            max-width: 280px;
+          }
+          
+          .custom-capital-emphasis {
+            font-size: 1.8rem;
+          }
+          
+          /* Additional mobile-specific styles */
+          @media (max-width: 768px) {
+            /* Improve the hero section for mobile */
+            .hero {
+              background-attachment: scroll; /* Prevents performance issues on mobile */
+            }
+            
+            /* Better spacing for mobile */
+            .section-footer {
+              margin-top: 30px;
+            }
+            
+            /* Optimize the process steps for mobile */
+            .process-step {
+              margin-bottom: 20px;
+            }
+            
+            /* Improve the financing approach section */
+            .approach-intro p {
+              font-size: 1rem;
+              line-height: 1.6;
+            }
+            
+            /* Make the custom capital emphasis more prominent */
+            .custom-capital-emphasis {
+              line-height: 1.3;
+              padding: 0 10px 15px;
+            }
+            
+            /* Better button contrast */
+            .btn-primary {
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* Improve form appearance */
+            .form-group {
+              margin-bottom: 15px;
+            }
+            
+            /* Add subtle background to form for better visibility */
+            .contact-form {
+              background-color: rgba(255, 255, 255, 0.95);
+            }
+          }
+        
+          /* Prevent text size adjustment on orientation change */
+          html {
+            -webkit-text-size-adjust: 100%;
+          }
+        
+          /* Improve tap targets for mobile */
+          @media (max-width: 768px) {
+            a, button, .btn-primary, .btn-secondary, .read-more-btn {
+              min-height: 44px;
+              min-width: 44px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+            }
+            
+            /* Special handling for navigation links */
+            .main-nav a {
+              min-height: 50px;
+            }
+          }
+        }
         
         @media (max-width: 768px) {
             .process-steps {
@@ -314,56 +317,54 @@ html {
 
     <!-- Hero Section -->
     <section class="hero">
-  <div class="hero-content">
-    <div class="hero-title">
-      <h1>
-        FINANCING SOLUTIONS <br>
-        FOR SEASONED <br>
-        INVESTORS
-      </h1>
-    </div>
-    <div class="hero-description">
-      <p>
-        We help experienced developers and investors secure the right capital for their commercial real estate projects with customized financing solutions.
-      </p>
-    </div>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Contact Us Now</a>
-      <a href="#services" class="btn-secondary">Our Services</a>
-    </div>
-  </div>
-</section>
+        <div class="hero-content">
+            <div class="hero-title">
+                <h1 id="hero-heading">
+                    FINANCING SOLUTIONS <br>
+                    FOR SEASONED <br>
+                    INVESTORS
+                </h1>
+            </div>
+            <div class="hero-description">
+                <p id="hero-subheading">
+                    We help experienced developers and investors secure the right capital for their commercial real estate projects with customized financing solutions.
+                </p>
+            </div>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary" id="hero-primary-btn">Contact Us Now</a>
+                <a href="#services" class="btn-secondary" id="hero-secondary-btn">Our Services</a>
+            </div>
+        </div>
+    </section>
 
-
-    <!-- Rest of the page content remains the same -->
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>What We Do</h2>
-                <p>We help experienced developers and investors secure the right capital for their deals. Every project is different, so we design structures around your asset, plan, and timeline.</p>
+                <h2 id="about-title">What We Do</h2>
+                <p id="about-description">We help experienced developers and investors secure the right capital for their deals. Every project is different, so we design structures around your asset, plan, and timeline.</p>
             </div>
             <div class="about-content">
                 <div class="about-text slide-in-left">
-                    <p>DCM Financing is a premier commercial lending firm that provides customized financing solutions for seasoned investors and developers across various industries. With years of experiences we  understands the unique challenges and opportunities in complex commercial real estate financing.</p>
-                    <p>We work closely with our clients to structure loans that align with their business objectives, whether they're acquiring new properties, refinancing existing debt, or funding development projects.</p>
-                    <a href="about.html" class="btn-primary">Learn More About Us</a>
+                    <p id="about-paragraph1">DCM Financing is a premier commercial lending firm that provides customized financing solutions for seasoned investors and developers across various industries. With years of experiences we understands the unique challenges and opportunities in complex commercial real estate financing.</p>
+                    <p id="about-paragraph2">We work closely with our clients to structure loans that align with their business objectives, whether they're acquiring new properties, refinancing existing debt, or funding development projects.</p>
+                    <a href="about.html" class="btn-primary" id="about-button">Learn More About Us</a>
                 </div>
                 <div class="about-stats slide-in-right">
                     <div class="stat">
-                        <h3 class="counter" data-target="2.5">0</h3>
+                        <h3 class="counter" data-target="2.5" id="stat-loans">0</h3>
                         <p>Total Loans Funded (Billions)</p>
                     </div>
                     <div class="stat">
-                        <h3 class="counter" data-target="500">0</h3>
+                        <h3 class="counter" data-target="500" id="stat-projects">0</h3>
                         <p>Successful Projects</p>
                     </div>
                     <div class="stat">
-                        <h3 class="counter" data-target="15">0</h3>
+                        <h3 class="counter" data-target="15" id="stat-experience">0</h3>
                         <p>Years of Experience</p>
                     </div>
                     <div class="stat">
-                        <h3 class="counter" data-target="98">0</h3>
+                        <h3 class="counter" data-target="98" id="stat-satisfaction">0</h3>
                         <p>Client Satisfaction</p>
                     </div>
                 </div>
@@ -375,11 +376,12 @@ html {
     <section class="specialties">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Why DCM</h2>
-                <p>What sets us apart in commercial real estate financing</p>
+                <h2 id="why-dcm-title">Why DCM</h2>
+                <p id="why-dcm-subtitle">What sets us apart in commercial real estate financing</p>
             </div>
             <div class="specialties-content">
-                <div class="specialties-list">
+                <div class="specialties-list" id="features-list">
+                    <!-- Features will be populated by JavaScript -->
                     <div class="specialty-item fade-in">
                         <h3><i class="fas fa-user-tie"></i> Personal service</h3>
                         <p>Direct access to decision-makers throughout your financing process.</p>
@@ -409,58 +411,11 @@ html {
     <section class="services" id="services">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 style="color: white;">Our Services</h2>
-                <p style="color:#f0f0f0;">Comprehensive financing solutions for all your commercial needs</p>
+                <h2 style="color: white;" id="services-title">Our Services</h2>
+                <p style="color:#f0f0f0;" id="services-subtitle">Comprehensive financing solutions for all your commercial needs</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Commercial Real Estate Acquisition">
-                    </div>
-                    <h3>Commercial Real Estate Acquisition</h3>
-                    <p>We secure purchase financing through our direct relationships with lenders and banks that fund stabilized and value-add assets. Clean packaging and quick answers so you can close with confidence.</p>
-                    <a href="#contact" class="read-more-btn">Get in Touch</a>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-image">
-                        <img src="assets\groundup dev.jpg" alt="Ground-Up Development">
-                    </div>
-                    <h3>Ground-Up Development</h3>
-                    <p>We line up construction lenders and banks we work with directly. Draws, contingencies, and interest reserves are matched to your build schedule.</p>
-                    <a href="#contact" class="read-more-btn">Get in Touch</a>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-image">
-                        <img src="assets\conversion.jpg" alt="Conversions">
-                    </div>
-                    <h3>Conversions</h3>
-                    <p>We speak directly with lenders and banks that understand change-of-use risk. We address permits, phasing, and lease-up to reach firm terms.</p>
-                    <a href="#contact" class="read-more-btn">Get in Touch</a>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-image">
-                        <img src="assets\hotel financing.jpg" alt="Hotel Financing">
-                    </div>
-                    <h3>Hotel Financing</h3>
-                    <p>We work daily with hotel lenders and banks. We present brand, management, and market performance the way credit teams expect.</p>
-                    <a href="#contact" class="read-more-btn">Get in Touch</a>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Nursing Home Facilities">
-                    </div>
-                    <h3>Nursing Home Facilities</h3>
-                    <p>We have direct lines to healthcare lenders and banks. We package census, reimbursements, and operator track record to support reliable capital.</p>
-                    <a href="#contact" class="read-more-btn">Get in Touch</a>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-image">
-                        <img src="assets\south ameria.jpg" alt="South America Hotel Financing">
-                    </div>
-                    <h3>South America Hotel Financing</h3>
-                    <p>For select projects, we coordinate with banks and capital partners active in key South American markets. We handle cross-border details to keep the deal moving.</p>
-                    <a href="#contact" class="read-more-btn">Get in Touch</a>
-                </div>
+            <div class="services-grid" id="services-grid">
+                <!-- Services will be populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -469,39 +424,25 @@ html {
     <section class="about" style="background-color: var(--light-bg);">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 style="color: white;">Financing Approach</h2>
+                <h2 style="color: white;" id="approach-title">Financing Approach</h2>
                 <p style="color: var(--light-text);"></p>
             </div>
             
             <!-- NEW: Emphasized custom capital text -->
-            <div class="custom-capital-emphasis fade-in">
+            <div class="custom-capital-emphasis fade-in" id="custom-capital-text">
                 Custom capital, not cookie-cutter
             </div>
-                <div class="approach-intro fade-in" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
-            <p style="color: white; font-size: 1.1rem; line-height: 1.7;">
-                We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.
-            </p>
-        </div>
+            <div class="approach-intro fade-in" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+                <p style="color: white; font-size: 1.1rem; line-height: 1.7;" id="approach-description">
+                    We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.
+                </p>
+            </div>
             <div class="approach-content">
                 <div class="approach-text slide-in-left">
-                    <!-- <p>We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.</p> -->
-                    
                     <h3 style="color: white; margin-top: 30px;">How we think</h3>
-                    <div class="thinking-points">
-                        <div class="thinking-point">
-                            <p>Understand the deal story and risks early</p>
-                        </div>
-                        <div class="thinking-point">
-                            <p>Map the capital stack to the timeline and exit</p>
-                        </div>
-                        <div class="thinking-point">
-                            <p>Target lenders who already like this exact profile</p>
-                        </div>
-                        <div class="thinking-point">
-                            <p>Negotiate for speed, certainty, and flexibility</p>
-                        </div>
+                    <div class="thinking-points" id="thinking-points">
+                        <!-- Thinking points will be populated by JavaScript -->
                     </div>
-                    
                     <a href="#contact" class="btn-primary">Contact us now</a>
                 </div>
                 <div class="approach-image slide-in-right">
@@ -511,44 +452,15 @@ html {
         </div>
     </section>
 
-    <!-- Recent Loans Preview - MOVED BEFORE PROCESS SECTION -->
+    <!-- Recent Loans Preview -->
     <section class="recent-loans-preview">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Recent Closed Loans</h2>
-                <p>A glimpse of our recent successful financing deals</p>
+                <h2 id="loans-title">Recent Closed Loans</h2>
+                <p id="loans-subtitle">A glimpse of our recent successful financing deals</p>
             </div>
-            <div class="loans-grid">
-                <div class="loan-card fade-in">
-                    <div class="loan-image">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Office Building">
-                    </div>
-                    <div class="loan-details">
-                        <h3>Downtown Office Tower</h3>
-                        <p class="loan-amount">$25M Acquisition Loan</p>
-                        <p class="loan-location">New York, NY</p>
-                    </div>
-                </div>
-                <div class="loan-card fade-in">
-                    <div class="loan-image">
-                        <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Industrial Facility">
-                    </div>
-                    <div class="loan-details">
-                        <h3>Industrial Distribution Center</h3>
-                        <p class="loan-amount">$18M Construction Loan</p>
-                        <p class="loan-location">Chicago, IL</p>
-                    </div>
-                </div>
-                <div class="loan-card fade-in">
-                    <div class="loan-image">
-                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1465&q=80" alt="Retail Center">
-                    </div>
-                    <div class="loan-details">
-                        <h3>Regional Shopping Center</h3>
-                        <p class="loan-amount">$32M Refinancing</p>
-                        <p class="loan-location">Miami, FL</p>
-                    </div>
-                </div>
+            <div class="loans-grid" id="loans-grid">
+                <!-- Loans will be populated by JavaScript -->
             </div>
             <div class="section-footer">
                 <a href="news-updates.html" class="btn-primary">View All Transactions</a>
@@ -556,29 +468,15 @@ html {
         </div>
     </section>
 
-    <!-- Process Section - MOVED AFTER RECENT LOANS -->
+    <!-- Process Section -->
     <section class="specialties">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Process</h2>
-                <p>Simple path to close</p>
+                <h2 id="process-title">Process</h2>
+                <p id="process-subtitle">Simple path to close</p>
             </div>
-            <div class="process-steps">
-                <div class="process-step fade-in">
-                    <i class="fas fa-search"></i>
-                    <h3>1. Discovery</h3>
-                    <p>Share your project, timeline, and goals. We give fast feedback on fit.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <i class="fas fa-sitemap"></i>
-                    <h3>2. Structure</h3>
-                    <p>We shape the capital plan and target the right lenders. You receive a clear path forward.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <i class="fas fa-file-contract"></i>
-                    <h3>3. Process and close</h3>
-                    <p>We manage diligence, negotiate terms, and keep closing on schedule.</p>
-                </div>
+            <div class="process-steps" id="process-steps">
+                <!-- Process steps will be populated by JavaScript -->
             </div>
             <div class="section-footer">
                 <a href="#contact" class="btn-primary">Contact us now</a>
@@ -590,67 +488,11 @@ html {
     <section class="testimonials">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 style="color: white">Client Testimonials</h2>
-                <p style="color: white">What our clients say about working with DCM Financing</p>
+                <h2 style="color: white" id="testimonials-title">Client Testimonials</h2>
+                <p style="color: white" id="testimonials-subtitle">What our clients say about working with DCM Financing</p>
             </div>
-
-            <div class="testimonials-slider">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card fade-in">
-                    <div class="author-photo">
-                        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80" alt="Michael Johnson">
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "DCM Financing provided the capital we needed to acquire our new headquarters. Their team was professional, responsive, and delivered exactly what they promised."
-                    </p>
-                    <h4 class="client-name">Michael Johnson</h4>
-                    <p class="client-role">CEO, Tech Innovations Inc.</p>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card fade-in">
-                    <div class="author-photo">
-                        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80" alt="Sarah Williams">
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "The refinancing solution from DCM helped us improve cash flow during a challenging period. Their expertise in commercial real estate was evident throughout the process."
-                    </p>
-                    <h4 class="client-name">Sarah Williams</h4>
-                    <p class="client-role">Owner, Retail Properties Group</p>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card fade-in">
-                    <div class="author-photo">
-                        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=200&q=80" alt="Robert Chen">
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">
-                        "We've worked with several lenders over the years, but DCM's approach is different. They truly understand our business and provide solutions that support our growth."
-                    </p>
-                    <h4 class="client-name">Robert Chen</h4>
-                    <p class="client-role">Managing Partner, Industrial Logistics Co.</p>
-                </div>
+            <div class="testimonials-slider" id="testimonials-slider">
+                <!-- Testimonials will be populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -659,8 +501,8 @@ html {
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Get In Touch</h2>
-                <p>Ready to discuss your financing needs? Contact us today.</p>
+                <h2 id="contact-title">Get In Touch</h2>
+                <p id="contact-subtitle">Ready to discuss your financing needs? Contact us today.</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info slide-in-left">
@@ -670,7 +512,7 @@ html {
                         </div>
                         <div class="contact-details">
                             <h3>Our Office</h3>
-                            <p>123 Financial District, Suite 500<br>New York, NY 10005</p>
+                            <p id="contact-address">123 Financial District, Suite 500<br>New York, NY 10005</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -679,7 +521,7 @@ html {
                         </div>
                         <div class="contact-details">
                             <h3>Phone Number</h3>
-                            <p>+1 (212) 555-7890</p>
+                            <p id="contact-phone">+1 (212) 555-7890</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -688,7 +530,7 @@ html {
                         </div>
                         <div class="contact-details">
                             <h3>Email Address</h3>
-                            <p>info@dcmfinancing.com</p>
+                            <p id="contact-email">info@dcmfinancing.com</p>
                         </div>
                     </div>
                 </div>
@@ -738,7 +580,7 @@ html {
                     <div class="footer-logo">
                         <img src="assets/dcm_logo.png" alt="DCM Financing">
                     </div>
-                    <p>Providing innovative commercial financing solutions for seasoned investors and developers.</p>
+                    <p id="footer-description">Providing innovative commercial financing solutions for seasoned investors and developers.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -769,88 +611,306 @@ html {
                 <div class="footer-section">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, NY 10005</li>
-                        <li><i class="fas fa-phone-alt"></i> +1 (212) 555-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@dcmfinancing.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="footer-address">123 Financial District, NY 10005</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span id="footer-phone">+1 (212) 555-7890</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="footer-email">info@dcmfinancing.com</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DCM Financing. All Rights Reserved.</p>
+                <p id="footer-copyright">&copy; 2025 DCM Financing. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Load CMS content function
+        async function loadCMSContent() {
+            try {
+                // Fetch the home.md file
+                const response = await fetch('/content/pages/home.md');
+                const markdownContent = await response.text();
+                
+                // Parse YAML front matter and content
+                const parts = markdownContent.split('---');
+                if (parts.length >= 3) {
+                    const yamlContent = parts[1];
+                    const markdownBody = parts.slice(2).join('---');
+                    
+                    // Parse YAML
+                    const data = jsyaml.load(yamlContent);
+                    
+                    // Update Hero Section
+                    if (data.hero) {
+                        document.getElementById('hero-heading').innerHTML = data.hero.heading.replace(/\n/g, '<br>');
+                        document.getElementById('hero-subheading').textContent = data.hero.subheading;
+                        document.getElementById('hero-primary-btn').textContent = data.hero.primary_button;
+                        document.getElementById('hero-secondary-btn').textContent = data.hero.secondary_button;
+                    }
+                    
+                    // Update About Section
+                    if (data.about) {
+                        document.getElementById('about-title').textContent = data.about.title;
+                        document.getElementById('about-description').textContent = data.about.description;
+                        document.getElementById('about-paragraph1').textContent = data.about.paragraph1;
+                        document.getElementById('about-paragraph2').textContent = data.about.paragraph2;
+                        document.getElementById('about-button').textContent = data.about.button_text;
+                    }
+                    
+                    // Update Stats
+                    if (data.stats) {
+                        document.getElementById('stat-loans').setAttribute('data-target', data.stats.loans);
+                        document.getElementById('stat-projects').setAttribute('data-target', data.stats.projects);
+                        document.getElementById('stat-experience').setAttribute('data-target', data.stats.experience);
+                        document.getElementById('stat-satisfaction').setAttribute('data-target', data.stats.satisfaction);
+                    }
+                    
+                    // Update Why DCM Section
+                    if (data.why_dcm && data.why_dcm.features) {
+                        document.getElementById('why-dcm-title').textContent = data.why_dcm.title;
+                        document.getElementById('why-dcm-subtitle').textContent = data.why_dcm.subtitle;
+                        
+                        const featuresList = document.getElementById('features-list');
+                        featuresList.innerHTML = ''; // Clear existing content
+                        
+                        data.why_dcm.features.forEach(feature => {
+                            const featureItem = document.createElement('div');
+                            featureItem.className = 'specialty-item fade-in';
+                            featureItem.innerHTML = `
+                                <h3><i class="fas fa-check-circle"></i> ${feature.title}</h3>
+                                <p>${feature.description}</p>
+                            `;
+                            featuresList.appendChild(featureItem);
+                        });
+                    }
+                    
+                    // Update Services Section
+                    if (data.services && data.services.services_list) {
+                        document.getElementById('services-title').textContent = data.services.title;
+                        document.getElementById('services-subtitle').textContent = data.services.subtitle;
+                        
+                        const servicesGrid = document.getElementById('services-grid');
+                        servicesGrid.innerHTML = ''; // Clear existing content
+                        
+                        data.services.services_list.forEach(service => {
+                            const serviceCard = document.createElement('div');
+                            serviceCard.className = 'service-card fade-in';
+                            serviceCard.innerHTML = `
+                                <div class="service-image">
+                                    <img src="${service.image}" alt="${service.name}">
+                                </div>
+                                <h3>${service.name}</h3>
+                                <p>${service.description}</p>
+                                <a href="#contact" class="read-more-btn">Get in Touch</a>
+                            `;
+                            servicesGrid.appendChild(serviceCard);
+                        });
+                    }
+                    
+                    // Update Financing Approach
+                    if (data.financing_approach) {
+                        document.getElementById('approach-title').textContent = data.financing_approach.title;
+                        document.getElementById('custom-capital-text').textContent = data.financing_approach.custom_capital;
+                        document.getElementById('approach-description').textContent = data.financing_approach.description;
+                        
+                        const thinkingPoints = document.getElementById('thinking-points');
+                        thinkingPoints.innerHTML = ''; // Clear existing content
+                        
+                        if (data.financing_approach.thinking_points) {
+                            data.financing_approach.thinking_points.forEach(point => {
+                                const pointElement = document.createElement('div');
+                                pointElement.className = 'thinking-point';
+                                pointElement.innerHTML = `<p>${point.point}</p>`;
+                                thinkingPoints.appendChild(pointElement);
+                            });
+                        }
+                    }
+                    
+                    // Update Recent Loans
+                    if (data.recent_loans && data.recent_loans.loans_list) {
+                        document.getElementById('loans-title').textContent = data.recent_loans.title;
+                        document.getElementById('loans-subtitle').textContent = data.recent_loans.subtitle;
+                        
+                        const loansGrid = document.getElementById('loans-grid');
+                        loansGrid.innerHTML = ''; // Clear existing content
+                        
+                        data.recent_loans.loans_list.forEach(loan => {
+                            const loanCard = document.createElement('div');
+                            loanCard.className = 'loan-card fade-in';
+                            loanCard.innerHTML = `
+                                <div class="loan-image">
+                                    <img src="${loan.image}" alt="${loan.property}">
+                                </div>
+                                <div class="loan-details">
+                                    <h3>${loan.property}</h3>
+                                    <p class="loan-amount">${loan.amount}</p>
+                                    <p class="loan-location">${loan.location}</p>
+                                </div>
+                            `;
+                            loansGrid.appendChild(loanCard);
+                        });
+                    }
+                    
+                    // Update Process Section
+                    if (data.process && data.process.steps) {
+                        document.getElementById('process-title').textContent = data.process.title;
+                        document.getElementById('process-subtitle').textContent = data.process.subtitle;
+                        
+                        const processSteps = document.getElementById('process-steps');
+                        processSteps.innerHTML = ''; // Clear existing content
+                        
+                        const icons = ['fa-search', 'fa-sitemap', 'fa-file-contract'];
+                        
+                        data.process.steps.forEach((step, index) => {
+                            const stepElement = document.createElement('div');
+                            stepElement.className = 'process-step fade-in';
+                            stepElement.innerHTML = `
+                                <i class="fas ${icons[index]}"></i>
+                                <h3>${step.number}. ${step.title}</h3>
+                                <p>${step.description}</p>
+                            `;
+                            processSteps.appendChild(stepElement);
+                        });
+                    }
+                    
+                    // Update Testimonials
+                    if (data.testimonials && data.testimonials.testimonials_list) {
+                        document.getElementById('testimonials-title').textContent = data.testimonials.title;
+                        document.getElementById('testimonials-subtitle').textContent = data.testimonials.subtitle;
+                        
+                        const testimonialsSlider = document.getElementById('testimonials-slider');
+                        testimonialsSlider.innerHTML = ''; // Clear existing content
+                        
+                        data.testimonials.testimonials_list.forEach(testimonial => {
+                            const testimonialCard = document.createElement('div');
+                            testimonialCard.className = 'testimonial-card fade-in';
+                            
+                            // Generate star rating
+                            let stars = '';
+                            for (let i = 1; i <= 5; i++) {
+                                if (i <= testimonial.rating) {
+                                    stars += '<i class="fas fa-star"></i>';
+                                } else if (i - 0.5 === testimonial.rating) {
+                                    stars += '<i class="fas fa-star-half-alt"></i>';
+                                } else {
+                                    stars += '<i class="far fa-star"></i>';
+                                }
+                            }
+                            
+                            testimonialCard.innerHTML = `
+                                <div class="author-photo">
+                                    <img src="${testimonial.photo}" alt="${testimonial.name}">
+                                </div>
+                                <div class="stars">${stars}</div>
+                                <p class="testimonial-text">"${testimonial.text}"</p>
+                                <h4 class="client-name">${testimonial.name}</h4>
+                                <p class="client-role">${testimonial.role}</p>
+                            `;
+                            testimonialsSlider.appendChild(testimonialCard);
+                        });
+                    }
+                    
+                    // Update Contact Section
+                    if (data.contact) {
+                        document.getElementById('contact-title').textContent = data.contact.title;
+                        document.getElementById('contact-subtitle').textContent = data.contact.subtitle;
+                        document.getElementById('contact-address').innerHTML = data.contact.address.replace(/<br>/g, '<br>');
+                        document.getElementById('contact-phone').textContent = data.contact.phone;
+                        document.getElementById('contact-email').textContent = data.contact.email;
+                        
+                        // Update footer contact info
+                        document.getElementById('footer-address').textContent = data.contact.address.replace(/<br>/g, ', ');
+                        document.getElementById('footer-phone').textContent = data.contact.phone;
+                        document.getElementById('footer-email').textContent = data.contact.email;
+                    }
+                    
+                    // Update Footer
+                    if (data.footer) {
+                        document.getElementById('footer-description').textContent = data.footer.description;
+                        document.getElementById('footer-copyright').innerHTML = `&copy; ${data.footer.copyright}`;
+                    }
+                    
+                    console.log('CMS content loaded successfully!');
+                }
+            } catch (error) {
+                console.error('Error loading CMS content:', error);
+            }
+        }
+
         // Scroll animation functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Reset all animation classes on page load
-            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-                el.classList.remove('visible');
-            });
-            
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    } else {
-                        // Remove visible class when element leaves viewport
-                        // This allows animation to trigger again on next scroll
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all elements with animation classes
-            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Counter animation for stats
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            
-            function animateCounter(counter) {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / speed;
+            // Load CMS content first
+            loadCMSContent().then(() => {
+                // Then initialize animations
                 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(() => animateCounter(counter), 1);
-                } else {
-                    counter.innerText = target;
-                    // Add suffix for billions
-                    if (counter.getAttribute('data-target') === '2.5') {
-                        counter.innerText = target + 'B+';
-                    } else if (counter.getAttribute('data-target') === '98') {
-                        counter.innerText = target + '%';
+                // Reset all animation classes on page load
+                document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                    el.classList.remove('visible');
+                });
+                
+                // Intersection Observer for scroll animations
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        } else {
+                            // Remove visible class when element leaves viewport
+                            // This allows animation to trigger again on next scroll
+                            entry.target.classList.remove('visible');
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observe all elements with animation classes
+                document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                    observer.observe(el);
+                });
+                
+                // Counter animation for stats
+                const counters = document.querySelectorAll('.counter');
+                const speed = 200; // The lower the slower
+                
+                function animateCounter(counter) {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(() => animateCounter(counter), 1);
                     } else {
-                        counter.innerText = target + '+';
+                        counter.innerText = target;
+                        // Add suffix for billions
+                        if (counter.getAttribute('data-target') === '2.5') {
+                            counter.innerText = target + 'B+';
+                        } else if (counter.getAttribute('data-target') === '98') {
+                            counter.innerText = target + '%';
+                        } else {
+                            counter.innerText = target + '+';
+                        }
                     }
                 }
-            }
-            
-            // Observe counter elements
-            const counterObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Reset counter before animating
-                        entry.target.innerText = '0';
-                        animateCounter(entry.target);
-                    }
+                
+                // Observe counter elements
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Reset counter before animating
+                            entry.target.innerText = '0';
+                            animateCounter(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                
+                counters.forEach(counter => {
+                    counterObserver.observe(counter);
                 });
-            }, observerOptions);
-            
-            counters.forEach(counter => {
-                counterObserver.observe(counter);
             });
         });
     </script>
