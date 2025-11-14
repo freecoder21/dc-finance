@@ -1,0 +1,118 @@
+{
+  "page_header": {
+    "title": "News & Updates",
+    "description": "Stay informed with the latest from DCM Financing and the commercial lending industry"
+  },
+  "news_filters": [
+    { "label": "All Updates", "filter": "all" },
+    { "label": "Recent Transactions", "filter": "transactions" },
+    { "label": "Industry News", "filter": "industry" },
+    { "label": "Company News", "filter": "company" }
+  ],
+  "news_items": [
+    {
+      "category": "transactions",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "alt": "Commercial Real Estate Acquisition",
+      "date": "March 15, 2025",
+      "title": "$45M Commercial Real Estate Acquisition in Miami",
+      "description": "DCM Financing secured purchase financing through our direct relationships with lenders for this premier mixed-use property in Miami's Brickell financial district. Clean packaging and quick answers ensured the client closed with confidence.",
+      "read_more_link": "#"
+    },
+    {
+      "category": "industry",
+      "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+      "alt": "Ground-Up Development",
+      "date": "March 10, 2025",
+      "title": "Ground-Up Development Financing Trends 2025",
+      "description": "Analysis of emerging trends in ground-up development financing, including how construction lenders and banks we work with directly are matching draws, contingencies, and interest reserves to build schedules for complex projects.",
+      "read_more_link": "#"
+    },
+    {
+      "category": "company",
+      "image": "https://images.unsplash.com/photo-1503387769-00ec6e9e42f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "alt": "Conversions",
+      "date": "March 5, 2025",
+      "title": "DCM Financing Expands Conversion Financing Division",
+      "description": "We're excited to announce the expansion of our specialized conversion financing team to handle increasing demand for office-to-residential and adaptive reuse projects. We now speak directly with more lenders and banks that understand change-of-use risk.",
+      "read_more_link": "#"
+    },
+    {
+      "category": "transactions",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "alt": "Hotel Financing",
+      "date": "February 28, 2025",
+      "title": "$32M Luxury Hotel Acquisition Financing",
+      "description": "Financing secured for the acquisition of a 200-room luxury hotel in Austin, Texas. Our daily work with hotel lenders and banks ensured we presented brand, management, and market performance the way credit teams expect.",
+      "read_more_link": "#"
+    },
+    {
+      "category": "transactions",
+      "image": "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&auto=format&fit=crop&w=1474&q=80",
+      "alt": "Nursing Home Facilities",
+      "date": "February 22, 2025",
+      "title": "$28M Nursing Home Facility Refinancing",
+      "description": "Successful refinancing of a 150-bed skilled nursing facility in Phoenix, Arizona. Our direct lines to healthcare lenders and banks allowed us to package census, reimbursements, and operator track record to support reliable capital for facility upgrades.",
+      "read_more_link": "#"
+    },
+    {
+      "category": "transactions",
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "alt": "South America Hotel Financing",
+      "date": "February 15, 2025",
+      "title": "$65M South America Hotel Portfolio Financing",
+      "description": "DCM Financing arranged $65 million in financing for a portfolio of three boutique hotels across Brazil and Colombia. For this select project, we coordinated with banks and capital partners active in key South American markets, handling cross-border details to keep the deal moving.",
+      "read_more_link": "#"
+    },
+    {
+      "category": "transactions",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "alt": "Commercial Real Estate Acquisition",
+      "date": "February 8, 2025",
+      "title": "$38M Office Building Acquisition in Chicago",
+      "description": "DCM Financing provided acquisition financing for a Class A office building in Chicago's central business district. Our direct relationships with lenders funding stabilized assets ensured competitive terms and expedited approvals.",
+      "read_more_link": "#"
+    },
+    {
+      "category": "transactions",
+      "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+      "alt": "Ground-Up Development",
+      "date": "January 30, 2025",
+      "title": "$52M Mixed-Use Development in Denver",
+      "description": "Comprehensive financing secured for a new mixed-use development in Denver featuring retail, office, and residential components. We lined up construction lenders matching draws, contingencies, and interest reserves to the complex build schedule.",
+      "read_more_link": "#"
+    }
+  ],
+  "newsletter": {
+    "title": "Stay Updated",
+    "description": "Subscribe to our newsletter to receive the latest news and insights directly to your inbox."
+  },
+  "footer": {
+    "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
+    "address": "123 Financial District, NY 10005",
+    "phone": "+1 (212) 555-7890",
+    "email": "info@dcmfinancing.com",
+    "social_links": [
+      { "platform": "LinkedIn", "url": "#", "icon": "fab fa-linkedin" },
+      { "platform": "Twitter", "url": "#", "icon": "fab fa-twitter" },
+      { "platform": "Facebook", "url": "#", "icon": "fab fa-facebook" },
+      { "platform": "Instagram", "url": "#", "icon": "fab fa-instagram" }
+    ],
+    "quick_links": [
+      { "label": "Home", "url": "index.html" },
+      { "label": "About Us", "url": "about.html" },
+      { "label": "Services", "url": "#services" },
+      { "label": "Recent Loans", "url": "news-updates.html" },
+      { "label": "Blog", "url": "blog.html" }
+    ],
+    "service_links": [
+      { "label": "Commercial Real Estate Acquisition", "url": "#services" },
+      { "label": "Ground-Up Development", "url": "#services" },
+      { "label": "Conversions", "url": "#services" },
+      { "label": "Hotel Financing", "url": "#services" },
+      { "label": "Nursing Home Facilities", "url": "#services" },
+      { "label": "South America Hotel Financing", "url": "#services" }
+    ],
+    "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
+  }
+}

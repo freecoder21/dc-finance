@@ -1,0 +1,103 @@
+{
+  "page_header": {
+    "title": "About DCM Financing",
+    "description": "Your trusted partner for complex commercial real estate financing"
+  },
+  "main_content": {
+    "who_we_are": {
+      "heading": "Who we are",
+      "description": "DCM Financing is a commercial real estate finance partner for seasoned investors and developers. We live in the details, think creatively, and keep deals moving. Founded with the vision to provide sophisticated capital solutions for complex transactions, we've built our reputation on delivering results where others see obstacles."
+    },
+    "how_we_work": {
+      "heading": "How we work",
+      "description": "Personal, hands-on, and transparent. You always know where your deal stands and what is next. Our approach is built on direct communication, deep industry knowledge, and a commitment to finding creative solutions that get deals done."
+    },
+    "why_clients_stay": {
+      "heading": "Why clients stay",
+      "description": "Our clients return because we deliver exceptional value through:",
+      "closing_remark": "And on top of that, they stay for the results we deliver on every single deal."
+    },
+    "values": [
+      {
+        "icon": "fas fa-user-tie",
+        "title": "Very personal service",
+        "description": "Direct access to decision-makers and dedicated support throughout your financing journey."
+      },
+      {
+        "icon": "fas fa-chart-line",
+        "title": "Deep experience with complex structures",
+        "description": "Expertise in navigating challenging scenarios and creating innovative financing solutions."
+      },
+      {
+        "icon": "fas fa-network-wired",
+        "title": "Valuable lender network",
+        "description": "Direct relationships with capital sources that understand sophisticated commercial real estate."
+      },
+      {
+        "icon": "fas fa-comments",
+        "title": "Direct communication and clear timelines",
+        "description": "Transparent processes with regular updates and realistic expectations from start to finish."
+      }
+    ]
+  },
+  "financing_approach": {
+    "custom_capital_text": "Custom capital, not cookie-cutter",
+    "description": "We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.",
+    "how_we_think": {
+      "heading": "How we think",
+      "points": [
+        "Understand the deal story and risks early",
+        "Map the capital stack to the timeline and exit",
+        "Target lenders who already like this exact profile",
+        "Negotiate for speed, certainty, and flexibility"
+      ]
+    },
+    "cta_text": "Contact us now",
+    "cta_link": "index.html#contact"
+  },
+  "leadership": {
+    "heading": "Our Leadership",
+    "members": [
+      {
+        "name": "David Carter",
+        "title": "Founder & CEO",
+        "bio": "20+ years in commercial real estate finance with expertise in complex structured transactions across multiple asset classes including hospitality, healthcare, and ground-up development.",
+        "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+        "photo_alt": "David Carter"
+      }
+    ]
+  },
+  "cta_card": {
+    "heading": "Ready to Get Started?",
+    "description": "Contact us today to discuss your financing needs.",
+    "button_text": "Contact us now",
+    "button_link": "index.html#contact"
+  },
+  "footer": {
+    "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
+    "address": "123 Financial District, NY 10005",
+    "phone": "+1 (212) 555-7890",
+    "email": "info@dcmfinancing.com",
+    "social_links": [
+      { "platform": "LinkedIn", "url": "#", "icon": "fab fa-linkedin" },
+      { "platform": "Twitter", "url": "#", "icon": "fab fa-twitter" },
+      { "platform": "Facebook", "url": "#", "icon": "fab fa-facebook" },
+      { "platform": "Instagram", "url": "#", "icon": "fab fa-instagram" }
+    ],
+    "quick_links": [
+      { "label": "Home", "url": "index.html" },
+      { "label": "About Us", "url": "about.html" },
+      { "label": "Services", "url": "index.html#services" },
+      { "label": "Recent Loans", "url": "news-updates.html" },
+      { "label": "Blog", "url": "blog.html" }
+    ],
+    "service_links": [
+      { "label": "Commercial Real Estate", "url": "index.html#services" },
+      { "label": "Ground-Up Development", "url": "index.html#services" },
+      { "label": "Conversions", "url": "index.html#services" },
+      { "label": "Hotel Financing", "url": "index.html#services" },
+      { "label": "Nursing Home Facilities", "url": "index.html#services" }
+    ],
+    "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
+  }
+}

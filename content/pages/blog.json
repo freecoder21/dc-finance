@@ -1,0 +1,164 @@
+{
+  "page_header": {
+    "title": "DCM Financing Blog",
+    "description": "Expert insights for seasoned investors on commercial real estate acquisition, development, and specialized property financing"
+  },
+  "featured_post": {
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    "alt": "Commercial Real Estate Acquisition",
+    "category": "Commercial Acquisition",
+    "title": "Strategic Approaches to Commercial Real Estate Acquisition for Seasoned Investors",
+    "author": "Michael Rodriguez",
+    "date": "March 18, 2025",
+    "reading_time": "8 min read",
+    "excerpt": "Explore advanced strategies for successful commercial real estate acquisitions, including sophisticated due diligence practices, market timing for maximum ROI, and creative financing structures for office, retail, and mixed-use properties designed for experienced investors.",
+    "read_more_link": "#"
+  },
+  "blog_posts": [
+    {
+      "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+      "alt": "Ground-Up Development",
+      "category": "Ground-Up Development",
+      "title": "Navigating Complex Ground-Up Development Financing: From Land Acquisition to Completion",
+      "author": "Sarah Chen",
+      "date": "March 12, 2025",
+      "reading_time": "6 min read",
+      "excerpt": "Comprehensive guide to sophisticated ground-up development financing strategies, covering land acquisition loans, construction financing optimization, take-out loan structures, and managing the complete development lifecycle for complex projects.",
+      "read_more_link": "#"
+    },
+    {
+      "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
+      "alt": "Property Conversions",
+      "category": "Property Conversions",
+      "title": "The Strategic Advantage of Adaptive Reuse: Financing Complex Office-to-Residential Conversions",
+      "author": "David Thompson",
+      "date": "March 8, 2025",
+      "reading_time": "10 min read",
+      "excerpt": "Exploring the sophisticated financing strategies for converting underutilized office spaces into residential units, including navigating complex zoning challenges, creative capital stacking, and successful conversion case studies for experienced developers.",
+      "read_more_link": "#"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "alt": "Hotel Financing",
+      "category": "Hotel Financing",
+      "title": "Advanced Hotel Financing Strategies for Portfolio Growth and Repositioning",
+      "author": "Jennifer Martinez",
+      "date": "March 3, 2025",
+      "reading_time": "7 min read",
+      "excerpt": "Analysis of sophisticated hotel financing landscape, including acquisition financing for portfolio expansion, comprehensive renovation capital structures, and strategic repositioning financing for hospitality properties in competitive markets.",
+      "read_more_link": "#"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&auto=format&fit=crop&w=1474&q=80",
+      "alt": "Healthcare Facilities",
+      "category": "Healthcare Financing",
+      "title": "Strategic Financing for Nursing Home and Healthcare Facilities: Advanced Considerations",
+      "author": "Robert Kim",
+      "date": "February 26, 2025",
+      "reading_time": "9 min read",
+      "excerpt": "Specialized financing approaches for sophisticated healthcare investors, covering skilled nursing facilities, assisted living communities, and memory care centers, including regulatory compliance strategies and operational optimization financing.",
+      "read_more_link": "#"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "alt": "International Hotel Financing",
+      "category": "International Financing",
+      "title": "South America Hotel Financing: Advanced Opportunities in Emerging Markets",
+      "author": "Amanda Foster",
+      "date": "February 20, 2025",
+      "reading_time": "8 min read",
+      "excerpt": "Comprehensive analysis of sophisticated hotel financing opportunities across South American markets, including Brazil, Colombia, and Peru, with insights on cross-border financing structures, currency risk management, and market entry strategies.",
+      "read_more_link": "#"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1073&q=80",
+      "alt": "Commercial Real Estate Trends",
+      "category": "Market Analysis",
+      "title": "2025 Commercial Real Estate Outlook: Advanced Sector Performance and Financing Trends",
+      "author": "Thomas Wright",
+      "date": "February 15, 2025",
+      "reading_time": "6 min read",
+      "excerpt": "Detailed market analysis covering performance expectations across commercial real estate sectors and emerging sophisticated financing trends for experienced investors in the coming year.",
+      "read_more_link": "#"
+    }
+  ],
+  "sidebar": {
+    "search_placeholder": "Search articles...",
+    "categories": [
+      { "name": "Commercial Acquisition", "count": 8 },
+      { "name": "Ground-Up Development", "count": 6 },
+      { "name": "Property Conversions", "count": 5 },
+      { "name": "Hotel Financing", "count": 7 },
+      { "name": "Healthcare Financing", "count": 4 },
+      { "name": "International Financing", "count": 3 },
+      { "name": "Market Analysis", "count": 9 }
+    ],
+    "popular_posts": [
+      {
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+        "alt": "Commercial Acquisition",
+        "title": "Advanced Due Diligence Strategies for Complex Commercial Real Estate Acquisitions",
+        "date": "Feb 10, 2025"
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+        "alt": "Hotel Financing",
+        "title": "Sophisticated Hotel Performance Metrics for Institutional Investors",
+        "date": "Jan 28, 2025"
+      },
+      {
+        "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
+        "alt": "Property Conversions",
+        "title": "5 Advanced Office-to-Residential Conversion Case Studies for Experienced Developers",
+        "date": "Jan 15, 2025"
+      }
+    ],
+    "newsletter": {
+      "title": "Stay Informed",
+      "description": "Get the latest commercial lending insights for seasoned investors delivered to your inbox."
+    },
+    "popular_tags": [
+      "Commercial Acquisition",
+      "Ground-Up Development",
+      "Property Conversions",
+      "Hotel Financing",
+      "Healthcare Facilities",
+      "South America",
+      "Development",
+      "Due Diligence"
+    ]
+  },
+  "newsletter_section": {
+    "title": "Never Miss an Update",
+    "description": "Subscribe to our newsletter for expert commercial lending insights and market analysis for seasoned investors.",
+    "button_text": "Subscribe Now"
+  },
+  "footer": {
+    "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
+    "address": "123 Financial District, NY 10005",
+    "phone": "+1 (212) 555-7890",
+    "email": "info@dcmfinancing.com",
+    "social_links": [
+      { "platform": "LinkedIn", "url": "#", "icon": "fab fa-linkedin" },
+      { "platform": "Twitter", "url": "#", "icon": "fab fa-twitter" },
+      { "platform": "Facebook", "url": "#", "icon": "fab fa-facebook" },
+      { "platform": "Instagram", "url": "#", "icon": "fab fa-instagram" }
+    ],
+    "quick_links": [
+      { "label": "Home", "url": "index.html" },
+      { "label": "About Us", "url": "about.html" },
+      { "label": "Services", "url": "index.html#services" },
+      { "label": "Recent Loans", "url": "news-updates.html" },
+      { "label": "Blog", "url": "blog.html" }
+    ],
+    "service_links": [
+      { "label": "Commercial Real Estate Acquisition", "url": "index.html#services" },
+      { "label": "Ground-Up Development", "url": "index.html#services" },
+      { "label": "Conversions", "url": "index.html#services" },
+      { "label": "Hotel Financing", "url": "index.html#services" },
+      { "label": "Nursing Home Facilities", "url": "index.html#services" },
+      { "label": "South America Hotel Financing", "url": "index.html#services" }
+    ],
+    "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
+  }
+}

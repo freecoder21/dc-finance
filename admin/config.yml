@@ -137,3 +137,302 @@ collections:
                   - { label: "Label", name: "label", widget: "string" }
                   - { label: "URL", name: "url", widget: "string" }
               - { label: "Copyright Text", name: "copyright", widget: "string" }
+                    - name: "news-updates"
+        label: "News & Updates Page"
+        file: "content/pages/news-updates.json"
+        fields:
+          # Page Header
+          - label: "Page Header"
+            name: "page_header"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          # News Filters
+          - label: "News Filters"
+            name: "news_filters"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Filter Value", name: "filter", widget: "string" }
+
+          # News Items
+          - label: "News Items"
+            name: "news_items"
+            widget: "list"
+            fields:
+              - { label: "Category", name: "category", widget: "select", options: ["transactions", "industry", "company"] }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Read More Link", name: "read_more_link", widget: "string" }
+
+          # Newsletter Section
+          - label: "Newsletter Section"
+            name: "newsletter"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          # Footer Section
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Address", name: "address", widget: "text" }
+              - { label: "Phone Number", name: "phone", widget: "string" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - label: "Social Links"
+                name: "social_links"
+                widget: "list"
+                fields:
+                  - { label: "Platform", name: "platform", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Icon Class", name: "icon", widget: "string" }
+              - label: "Quick Links"
+                name: "quick_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - label: "Service Links"
+                name: "service_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - { label: "Copyright Text", name: "copyright", widget: "string" }
+                    - name: "about"
+        label: "About Page"
+        file: "content/pages/about.json"
+        fields:
+          # Page Header
+          - label: "Page Header"
+            name: "page_header"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          # Main Content
+          - label: "Main Content"
+            name: "main_content"
+            widget: "object"
+            fields:
+              - label: "Who We Are"
+                name: "who_we_are"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "How We Work"
+                name: "how_we_work"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "Why Clients Stay"
+                name: "why_clients_stay"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Closing Remark", name: "closing_remark", widget: "text" }
+              - label: "Values"
+                name: "values"
+                widget: "list"
+                fields:
+                  - { label: "Icon Class", name: "icon", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          # Financing Approach
+          - label: "Financing Approach"
+            name: "financing_approach"
+            widget: "object"
+            fields:
+              - { label: "Custom Capital Text", name: "custom_capital_text", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "How We Think"
+                name: "how_we_think"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string" }
+                  - label: "Points"
+                    name: "points"
+                    widget: "list"
+                    field: { label: "Point", name: "point", widget: "string" }
+              - { label: "CTA Text", name: "cta_text", widget: "string" }
+              - { label: "CTA Link", name: "cta_link", widget: "string" }
+
+          # Leadership
+          - label: "Leadership"
+            name: "leadership"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Bio", name: "bio", widget: "text" }
+                  - { label: "Photo", name: "photo", widget: "image" }
+                  - { label: "Photo Alt Text", name: "photo_alt", widget: "string" }
+
+          # CTA Card
+          - label: "CTA Card"
+            name: "cta_card"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Button Text", name: "button_text", widget: "string" }
+              - { label: "Button Link", name: "button_link", widget: "string" }
+
+          # Footer Section
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Address", name: "address", widget: "text" }
+              - { label: "Phone Number", name: "phone", widget: "string" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - label: "Social Links"
+                name: "social_links"
+                widget: "list"
+                fields:
+                  - { label: "Platform", name: "platform", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Icon Class", name: "icon", widget: "string" }
+              - label: "Quick Links"
+                name: "quick_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - label: "Service Links"
+                name: "service_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - { label: "Copyright Text", name: "copyright", widget: "string" }
+                    - name: "blog"
+        label: "Blog Page"
+        file: "content/pages/blog.json"
+        fields:
+          # Page Header
+          - label: "Page Header"
+            name: "page_header"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          # Featured Post
+          - label: "Featured Post"
+            name: "featured_post"
+            widget: "object"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Reading Time", name: "reading_time", widget: "string" }
+              - { label: "Excerpt", name: "excerpt", widget: "text" }
+              - { label: "Read More Link", name: "read_more_link", widget: "string" }
+
+          # Blog Posts
+          - label: "Blog Posts"
+            name: "blog_posts"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Reading Time", name: "reading_time", widget: "string" }
+              - { label: "Excerpt", name: "excerpt", widget: "text" }
+              - { label: "Read More Link", name: "read_more_link", widget: "string" }
+
+          # Sidebar
+          - label: "Sidebar"
+            name: "sidebar"
+            widget: "object"
+            fields:
+              - { label: "Search Placeholder", name: "search_placeholder", widget: "string" }
+              - label: "Categories"
+                name: "categories"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Count", name: "count", widget: "number" }
+              - label: "Popular Posts"
+                name: "popular_posts"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Image Alt Text", name: "alt", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Date", name: "date", widget: "string" }
+              - label: "Newsletter"
+                name: "newsletter"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "Popular Tags"
+                name: "popular_tags"
+                widget: "list"
+                field: { label: "Tag", name: "tag", widget: "string" }
+
+          # Newsletter Section
+          - label: "Newsletter Section"
+            name: "newsletter_section"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Button Text", name: "button_text", widget: "string" }
+
+          # Footer Section
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Address", name: "address", widget: "text" }
+              - { label: "Phone Number", name: "phone", widget: "string" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - label: "Social Links"
+                name: "social_links"
+                widget: "list"
+                fields:
+                  - { label: "Platform", name: "platform", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Icon Class", name: "icon", widget: "string" }
+              - label: "Quick Links"
+                name: "quick_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - label: "Service Links"
+                name: "service_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - { label: "Copyright Text", name: "copyright", widget: "string" }
