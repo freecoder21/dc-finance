@@ -514,54 +514,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="assets/dcm_logo.png" alt="DCM Financing">
-                    </div>
-                    <p>Providing innovative commercial financing solutions for seasoned investors and developers.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="news-updates.html">Recent Loans</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#services">Commercial Real Estate</a></li>
-                        <li><a href="#services">Ground-Up Development</a></li>
-                        <li><a href="#services">Conversions</a></li>
-                        <li><a href="#services">Hotel Financing</a></li>
-                        <li><a href="#services">Nursing Home Facilities</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, NY 10005</li>
-                        <li><i class="fas fa-phone-alt"></i> +1 (212) 555-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@dcmfinancing.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 DCM Financing. All Rights Reserved.</p>
-            </div>
-        </div>
+    <footer class="site-footer" id="site-footer">
+        <!-- Footer content will be populated by JavaScript -->
     </footer>
 
     <script>
@@ -586,7 +540,7 @@
                             </div>
                         </div>
                     `;
-
+                    
                     // Populate About Section
                     document.getElementById('about-heading').textContent = data.about.heading;
                     document.getElementById('about-description').textContent = data.about.description;
@@ -683,6 +637,53 @@
                             <p class="client-role">${testimonial.role}</p>
                         </div>
                     `).join('');
+
+                    // Populate Footer Section
+                    const footerSection = document.getElementById('site-footer');
+                    footerSection.innerHTML = `
+                        <div class="container">
+                            <div class="footer-content">
+                                <div class="footer-section">
+                                    <div class="footer-logo">
+                                        <img src="assets/dcm_logo.png" alt="DCM Financing">
+                                    </div>
+                                    <p>${data.footer.description}</p>
+                                    <div class="social-links">
+                                        ${data.footer.social_links.map(social => `
+                                            <a href="${social.url}"><i class="${social.icon}"></i></a>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                <div class="footer-section">
+                                    <h3>Quick Links</h3>
+                                    <ul>
+                                        ${data.footer.quick_links.map(link => `
+                                            <li><a href="${link.url}">${link.label}</a></li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                                <div class="footer-section">
+                                    <h3>Services</h3>
+                                    <ul>
+                                        ${data.footer.service_links.map(service => `
+                                            <li><a href="${service.url}">${service.label}</a></li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                                <div class="footer-section">
+                                    <h3>Contact Us</h3>
+                                    <ul class="contact-info">
+                                        <li><i class="fas fa-map-marker-alt"></i> ${data.footer.address}</li>
+                                        <li><i class="fas fa-phone-alt"></i> ${data.footer.phone}</li>
+                                        <li><i class="fas fa-envelope"></i> ${data.footer.email}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footer-bottom">
+                                <p>${data.footer.copyright}</p>
+                            </div>
+                        </div>
+                    `;
 
                     // Initialize animations after content is loaded
                     initializeAnimations();

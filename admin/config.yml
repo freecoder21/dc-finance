@@ -108,3 +108,32 @@ collections:
               - { label: "Photo", name: "photo", widget: "image" }
               - { label: "Stars", name: "stars", widget: "number", value_type: "float", min: 0, max: 5, step: 0.5 }
               - { label: "Text", name: "text", widget: "text" }
+                        # Footer Section
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Address", name: "address", widget: "text" }
+              - { label: "Phone Number", name: "phone", widget: "string" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - label: "Social Links"
+                name: "social_links"
+                widget: "list"
+                fields:
+                  - { label: "Platform", name: "platform", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+                  - { label: "Icon Class", name: "icon", widget: "string" }
+              - label: "Quick Links"
+                name: "quick_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - label: "Service Links"
+                name: "service_links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "URL", name: "url", widget: "string" }
+              - { label: "Copyright Text", name: "copyright", widget: "string" }

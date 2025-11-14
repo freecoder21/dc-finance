@@ -184,5 +184,32 @@
       "stars": 5,
       "text": "We've worked with several lenders over the years, but DCM's approach is different. They truly understand our business and provide solutions that support our growth."
     }
-  ]
+  ],
+  "footer": {
+    "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
+    "address": "123 Financial District, Suite 500<br>New York, NY 10005",
+    "phone": "+1 (212) 555-7890",
+    "email": "info@dcmfinancing.com",
+    "social_links": [
+      { "platform": "LinkedIn", "url": "#", "icon": "fab fa-linkedin" },
+      { "platform": "Twitter", "url": "#", "icon": "fab fa-twitter" },
+      { "platform": "Facebook", "url": "#", "icon": "fab fa-facebook" },
+      { "platform": "Instagram", "url": "#", "icon": "fab fa-instagram" }
+    ],
+    "quick_links": [
+      { "label": "Home", "url": "index.html" },
+      { "label": "About Us", "url": "about.html" },
+      { "label": "Services", "url": "#services" },
+      { "label": "Recent Loans", "url": "news-updates.html" },
+      { "label": "Blog", "url": "blog.html" }
+    ],
+    "service_links": [
+      { "label": "Commercial Real Estate", "url": "#services" },
+      { "label": "Ground-Up Development", "url": "#services" },
+      { "label": "Conversions", "url": "#services" },
+      { "label": "Hotel Financing", "url": "#services" },
+      { "label": "Nursing Home Facilities", "url": "#services" }
+    ],
+    "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
+  }
 }
