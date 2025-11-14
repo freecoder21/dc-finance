@@ -6,13 +6,25 @@
   <title>Content Manager</title>
 </head>
 <body>
+
   <!-- Identity widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Fix redirect for invitation + confirmation -->
+  <script>
+    if (
+      window.location.hash.startsWith("#confirmation_token") ||
+      window.location.hash.startsWith("#invite_token")
+    ) {
+      const token = window.location.hash;
+      window.location = `/admin/${token}`;
+    }
+  </script>
 
   <!-- Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
-  <!-- Fix redirect after signup/login -->
+  <!-- Auto redirect after login -->
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", (user) => {
@@ -24,5 +36,6 @@
       });
     }
   </script>
+
 </body>
 </html>
