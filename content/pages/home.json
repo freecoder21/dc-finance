@@ -1,7 +1,117 @@
 {
-  "heroTitle": "Welcome to My Website!",
-  "heroDescription": "This is an advanced homepage layout editable via Netlify CMS.",
-  "heroButton": "Get Started",
-  "sectionTitle": "About This Page",
-  "sectionDescription": "All content on this page can be edited directly in Netlify CMS under the pages collection."
+  "hero": {
+    "title": "FINANCING SOLUTIONS FOR SEASONED INVESTORS",
+    "description": "We help experienced developers and investors secure the right capital for their commercial real estate projects with customized financing solutions.",
+    "btn_primary_text": "Contact Us Now",
+    "btn_primary_link": "index2.html",
+    "btn_secondary_text": "Our Services",
+    "btn_secondary_link": "#services"
+  },
+  "about": {
+    "heading": "What We Do",
+    "description": "We help experienced developers and investors secure the right capital for their deals. Every project is different, so we design structures around your asset, plan, and timeline.",
+    "text_paragraphs": [
+      "DCM Financing is a premier commercial lending firm that provides customized financing solutions for seasoned investors and developers across various industries. With years of experiences we  understands the unique challenges and opportunities in complex commercial real estate financing.",
+      "We work closely with our clients to structure loans that align with their business objectives, whether they're acquiring new properties, refinancing existing debt, or funding development projects."
+    ],
+    "stats": [
+      { "title": "Total Loans Funded (Billions)", "value": "2.5B+" },
+      { "title": "Successful Projects", "value": "500+" },
+      { "title": "Years of Experience", "value": "15+" },
+      { "title": "Client Satisfaction", "value": "98%" }
+    ],
+    "learn_more_link": "about.html"
+  },
+  "specialties": [
+    { "icon": "fas fa-user-tie", "title": "Personal service", "description": "Direct access to decision-makers throughout your financing process." },
+    { "icon": "fas fa-chart-line", "title": "Highly experienced team", "description": "Deep expertise in complex deal structures and challenging scenarios." },
+    { "icon": "fas fa-trophy", "title": "Proven success with complex deals", "description": "Track record of closing transactions others consider too difficult." },
+    { "icon": "fas fa-network-wired", "title": "Valuable lender network", "description": "Direct relationships with capital sources that understand your asset class." },
+    { "icon": "fas fa-lightbulb", "title": "Creative thinking that gets to yes", "description": "Innovative approaches to structure deals that traditional lenders won't consider." }
+  ],
+  "services": [
+    {
+      "title": "Commercial Real Estate Acquisition",
+      "description": "We secure purchase financing through our direct relationships with lenders and banks that fund stabilized and value-add assets. Clean packaging and quick answers so you can close with confidence.",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "link": "#contact"
+    },
+    {
+      "title": "Ground-Up Development",
+      "description": "We line up construction lenders and banks we work with directly. Draws, contingencies, and interest reserves are matched to your build schedule.",
+      "image": "assets/groundup dev.jpg",
+      "link": "#contact"
+    },
+    {
+      "title": "Conversions",
+      "description": "We speak directly with lenders and banks that understand change-of-use risk. We address permits, phasing, and lease-up to reach firm terms.",
+      "image": "assets/conversion.jpg",
+      "link": "#contact"
+    },
+    {
+      "title": "Hotel Financing",
+      "description": "We work daily with hotel lenders and banks. We present brand, management, and market performance the way credit teams expect.",
+      "image": "assets/hotel financing.jpg",
+      "link": "#contact"
+    },
+    {
+      "title": "Nursing Home Facilities",
+      "description": "We have direct lines to healthcare lenders and banks. We package census, reimbursements, and operator track record to support reliable capital.",
+      "image": "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&auto=format&fit=crop&w=1474&q=80",
+      "link": "#contact"
+    },
+    {
+      "title": "South America Hotel Financing",
+      "description": "For select projects, we coordinate with banks and capital partners active in key South American markets. We handle cross-border details to keep the deal moving.",
+      "image": "assets/south ameria.jpg",
+      "link": "#contact"
+    }
+  ],
+  "financing_approach": {
+    "heading": "Financing Approach",
+    "subheading": "Custom capital, not cookie-cutter",
+    "description": "We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.",
+    "thinking_points": [
+      "Understand the deal story and risks early",
+      "Map the capital stack to the timeline and exit",
+      "Target lenders who already like this exact profile",
+      "Negotiate for speed, certainty, and flexibility"
+    ],
+    "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    "cta_text": "Contact us now",
+    "cta_link": "#contact"
+  },
+  "recent_loans": [
+    { "title": "Downtown Office Tower", "amount": "$25M Acquisition Loan", "location": "New York, NY", "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" },
+    { "title": "Industrial Distribution Center", "amount": "$18M Construction Loan", "location": "Chicago, IL", "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" },
+    { "title": "Regional Shopping Center", "amount": "$32M Refinancing", "location": "Miami, FL", "image": "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1465&q=80" }
+  ],
+  "process_steps": [
+    { "icon": "fas fa-search", "title": "Discovery", "description": "Share your project, timeline, and goals. We give fast feedback on fit." },
+    { "icon": "fas fa-sitemap", "title": "Structure", "description": "We shape the capital plan and target the right lenders. You receive a clear path forward." },
+    { "icon": "fas fa-file-contract", "title": "Process and close", "description": "We manage diligence, negotiate terms, and keep closing on schedule." }
+  ],
+  "testimonials": [
+    {
+      "author": "Michael Johnson",
+      "role": "CEO, Tech Innovations Inc.",
+      "photo": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80",
+      "stars": 5,
+      "text": "DCM Financing provided the capital we needed to acquire our new headquarters. Their team was professional, responsive, and delivered exactly what they promised."
+    },
+    {
+      "author": "Sarah Williams",
+      "role": "Owner, Retail Properties Group",
+      "photo": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80",
+      "stars": 4.5,
+      "text": "The refinancing solution from DCM helped us improve cash flow during a challenging period. Their expertise in commercial real estate was evident throughout the process."
+    },
+    {
+      "author": "Robert Chen",
+      "role": "Managing Partner, Industrial Logistics Co.",
+      "photo": "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=200&q=80",
+      "stars": 5,
+      "text": "We've worked with several lenders over the years, but DCM's approach is different. They truly understand our business and provide solutions that support our growth."
+    }
+  ]
 }
