@@ -1,24 +1,3 @@
-
-# backend:
-#   name: git-gateway
-#   branch: main 
-
-# media_folder: "assets/uploads"
-# public_folder: "/assets/uploads"
-
-# collections:
-#   - name: "pages"
-#     label: "Pages"
-#     files:
-#       - name: "home"
-#         label: "Home Page"
-#         file: "content/pages/home.json"
-#         fields:
-#           - { label: "Hero Title", name: "heroTitle", widget: "string" }
-#           - { label: "Hero Description", name: "heroDescription", widget: "text" }
-#           - { label: "Hero Button", name: "heroButton", widget: "string" }
-#           - { label: "Section Title", name: "sectionTitle", widget: "string" }
-#           - { label: "Section Description", name: "sectionDescription", widget: "text" }
 backend:
   name: git-gateway
   branch: main 
@@ -56,8 +35,7 @@ collections:
               - label: "Text Paragraphs"
                 name: "text_paragraphs"
                 widget: "list"
-                fields:
-                  - { label: "Paragraph", name: "paragraph", widget: "text" }
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
               - label: "Statistics"
                 name: "stats"
                 widget: "list"
@@ -96,8 +74,7 @@ collections:
               - label: "Thinking Points"
                 name: "thinking_points"
                 widget: "list"
-                fields:
-                  - { label: "Point", name: "point", widget: "string" }
+                field: { label: "Point", name: "point", widget: "string" }
               - { label: "Image", name: "image", widget: "image" }
               - { label: "CTA Text", name: "cta_text", widget: "string" }
               - { label: "CTA Link", name: "cta_link", widget: "string" }

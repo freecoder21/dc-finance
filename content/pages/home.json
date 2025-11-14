@@ -11,8 +11,12 @@
     "heading": "What We Do",
     "description": "We help experienced developers and investors secure the right capital for their deals. Every project is different, so we design structures around your asset, plan, and timeline.",
     "text_paragraphs": [
-      "DCM Financing is a premier commercial lending firm that provides customized financing solutions for seasoned investors and developers across various industries. With years of experiences we  understands the unique challenges and opportunities in complex commercial real estate financing.",
-      "We work closely with our clients to structure loans that align with their business objectives, whether they're acquiring new properties, refinancing existing debt, or funding development projects."
+      {
+        "paragraph": "DCM Financing is a premier commercial lending firm that provides customized financing solutions for seasoned investors and developers across various industries. With years of experiences we  understands the unique challenges and opportunities in complex commercial real estate financing."
+      },
+      {
+        "paragraph": "We work closely with our clients to structure loans that align with their business objectives, whether they're acquiring new properties, refinancing existing debt, or funding development projects."
+      }
     ],
     "stats": [
       { "title": "Total Loans Funded (Billions)", "value": "2.5B+" },
@@ -72,10 +76,10 @@
     "subheading": "Custom capital, not cookie-cutter",
     "description": "We do not push a product. We tailor capital to fit the asset and the business plan. That can include senior debt, construction financing, bridge solutions, takeout strategies, and creative gap coverage when needed. The goal is simple, get you closed on strong terms with clear execution.",
     "thinking_points": [
-      "Understand the deal story and risks early",
-      "Map the capital stack to the timeline and exit",
-      "Target lenders who already like this exact profile",
-      "Negotiate for speed, certainty, and flexibility"
+      { "point": "Understand the deal story and risks early" },
+      { "point": "Map the capital stack to the timeline and exit" },
+      { "point": "Target lenders who already like this exact profile" },
+      { "point": "Negotiate for speed, certainty, and flexibility" }
     ],
     "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
     "cta_text": "Contact us now",
