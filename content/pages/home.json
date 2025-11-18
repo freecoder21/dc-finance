@@ -102,9 +102,9 @@
   },
   "footer": {
     "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
-    "address": "123 Financial District, Suite 500<br>New York, NY 10005",
-    "phone": "+237 674-32-32",
-    "email": "info@dcmfinancing.com",
+    "address": "6 Shetland Cir, Highland Mills, NY 10930",
+    "phone": "(845) 751-9199",
+    "email": "isaac@dcmfinancing.com",
     "social_links": [
       {
         "platform": "LinkedIn",
@@ -117,14 +117,14 @@
         "icon": "fab fa-twitter"
       },
       {
-        "platform": "Facebook",
-        "url": "#",
-        "icon": "fab fa-facebook"
-      },
-      {
         "platform": "Instagram",
         "url": "#",
         "icon": "fab fa-instagram"
+      },
+      {
+        "platform": "Facebook",
+        "url": "#",
+        "icon": "fab fa-facebook"
       }
     ],
     "quick_links": [
@@ -159,11 +159,11 @@
         "url": "#services"
       },
       {
-        "label": "Conversions",
+        "label": "Hotel Financing",
         "url": "#services"
       },
       {
-        "label": "Hotel Financing",
+        "label": "Conversions",
         "url": "#services"
       },
       {
