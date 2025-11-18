@@ -75,28 +75,74 @@
   },
   "footer": {
     "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
-    "address": "123 Financial District, NY 10005",
-    "phone": "+1 (212) 555-7890",
-    "email": "info@dcmfinancing.com",
+    "address": "6 Shetland Cir, Highland Mills, NY 10930",
+    "phone": "(845) 751-9199",
+    "email": "Isaac@dcmfinancing.com",
     "social_links": [
-      { "platform": "LinkedIn", "url": "#", "icon": "fab fa-linkedin" },
-      { "platform": "Twitter", "url": "#", "icon": "fab fa-twitter" },
-      { "platform": "Facebook", "url": "#", "icon": "fab fa-facebook" },
-      { "platform": "Instagram", "url": "#", "icon": "fab fa-instagram" }
+      {
+        "platform": "LinkedIn",
+        "url": "#",
+        "icon": "fab fa-linkedin"
+      },
+      {
+        "platform": "Twitter",
+        "url": "#",
+        "icon": "fab fa-twitter"
+      },
+      {
+        "platform": "Facebook",
+        "url": "#",
+        "icon": "fab fa-facebook"
+      },
+      {
+        "platform": "Instagram",
+        "url": "#",
+        "icon": "fab fa-instagram"
+      }
     ],
     "quick_links": [
-      { "label": "Home", "url": "index.html" },
-      { "label": "About Us", "url": "about.html" },
-      { "label": "Services", "url": "index.html#services" },
-      { "label": "Recent Loans", "url": "news-updates.html" },
-      { "label": "Blog", "url": "blog.html" }
+      {
+        "label": "Home",
+        "url": "index.html"
+      },
+      {
+        "label": "About Us",
+        "url": "about.html"
+      },
+      {
+        "label": "Services",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Recent Loans",
+        "url": "news-updates.html"
+      },
+      {
+        "label": "Blog",
+        "url": "blog.html"
+      }
     ],
     "service_links": [
-      { "label": "Commercial Real Estate", "url": "index.html#services" },
-      { "label": "Ground-Up Development", "url": "index.html#services" },
-      { "label": "Conversions", "url": "index.html#services" },
-      { "label": "Hotel Financing", "url": "index.html#services" },
-      { "label": "Nursing Home Facilities", "url": "index.html#services" }
+      {
+        "label": "Commercial Real Estate",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Ground-Up Development",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Conversions",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Hotel Financing",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Nursing Home Facilities",
+        "url": "index.html#services"
+      }
     ],
     "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
   }
