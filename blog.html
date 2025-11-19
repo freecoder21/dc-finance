@@ -260,89 +260,154 @@
             });
     });
 
-    function initializeBlogFunctionality() {
-        // Blog search functionality
-        const searchForm = document.querySelector('.search-form');
-        if (searchForm) {
-            const searchInput = searchForm.querySelector('input');
-            
-            searchForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const searchTerm = searchInput.value.trim();
-                if (searchTerm) {
-                    // Show a temporary message since we don't have search functionality yet
-                    alert(`Search functionality coming soon! You searched for: "${searchTerm}"`);
-                    // In production, this would redirect to search results
-                }
-            });
+   // In your existing blog.html, update the initializeBlogFunctionality function:
+
+function initializeBlogFunctionality() {
+    // Update all blog post links to point to individual post pages
+    updateBlogPostLinks();
+    
+    // Update popular post links
+    updatePopularPostLinks();
+    
+    // Update category links to filter functionality
+    updateCategoryLinks();
+    
+    // Update tag links
+    updateTagLinks();
+    
+    // Keep existing functionality for search and newsletter
+    initializeSearchFunctionality();
+    initializeNewsletterForms();
+}
+
+function updateBlogPostLinks() {
+    const blogPostLinks = document.querySelectorAll('.blog-post .read-more, .featured-post .read-more');
+    blogPostLinks.forEach(link => {
+        const postTitle = link.closest('.blog-post, .featured-post').querySelector('h2, h3').textContent;
+        const slug = generateSlug(postTitle);
+        link.href = `blog-post.html?post=${slug}`;
+        
+        // Remove the temporary alert
+        link.removeEventListener('click', showTemporaryAlert);
+    });
+}
+
+function updatePopularPostLinks() {
+    const popularPostLinks = document.querySelectorAll('.popular-post a');
+    popularPostLinks.forEach(link => {
+        const postTitle = link.textContent;
+        const slug = generateSlug(postTitle);
+        link.href = `blog-post.html?post=${slug}`;
+        
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = this.href;
+        });
+    });
+}
+
+function updateCategoryLinks() {
+    const categoryLinks = document.querySelectorAll('.categories-list a');
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const category = this.querySelector('span:first-child').textContent.trim();
+            filterPostsByCategory(category);
+        });
+    });
+}
+
+function updateTagLinks() {
+    const tagLinks = document.querySelectorAll('.tag');
+    tagLinks.forEach(tag => {
+        tag.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tagName = this.textContent;
+            filterPostsByTag(tagName);
+        });
+    });
+}
+
+function filterPostsByCategory(category) {
+    const allPosts = document.querySelectorAll('.blog-post, .featured-post');
+    let hasVisiblePosts = false;
+    
+    allPosts.forEach(post => {
+        const postCategory = post.querySelector('.post-category').textContent;
+        if (postCategory === category) {
+            post.style.display = 'block';
+            hasVisiblePosts = true;
+        } else {
+            post.style.display = 'none';
         }
+    });
+    
+    showFilterMessage(`Showing posts in: ${category}`, hasVisiblePosts);
+}
 
-        // Category filtering - show temporary content
-        const categoryLinks = document.querySelectorAll('.categories-list a');
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const category = this.textContent.split(' ')[0];
-                alert(`Category filtering coming soon! You selected: ${category}\n\nFor now, all blog posts are shown on the main blog page.`);
-                // In production, this would filter blog posts
-            });
-        });
+function filterPostsByTag(tag) {
+    // This would require additional data attributes or API call
+    // For now, show a message and redirect to search
+    alert(`Tag filtering coming soon! Showing posts tagged: ${tag}\n\nFor now, please use the search functionality.`);
+}
 
-        // Popular posts - show temporary content
-        const popularPostLinks = document.querySelectorAll('.popular-post a');
-        popularPostLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const postTitle = this.textContent;
-                alert(`Individual blog post pages coming soon! You clicked on: "${postTitle}"\n\nThis will open the full article in the future.`);
-            });
-        });
+function showFilterMessage(message, hasPosts) {
+    // Create or update filter message
+    let messageEl = document.querySelector('.filter-message');
+    if (!messageEl) {
+        messageEl = document.createElement('div');
+        messageEl.className = 'filter-message';
+        document.querySelector('.blog-main').prepend(messageEl);
+    }
+    
+    messageEl.innerHTML = `
+        <p>${message}</p>
+        ${!hasPosts ? '<p>No posts found in this category.</p>' : ''}
+        <button onclick="clearFilters()" class="btn-secondary">Clear Filter</button>
+    `;
+}
 
-        // Tag filtering - show temporary content
-        const tagLinks = document.querySelectorAll('.tag');
-        tagLinks.forEach(tag => {
-            tag.addEventListener('click', function(e) {
-                e.preventDefault();
-                const tagName = this.textContent;
-                alert(`Tag filtering coming soon! You selected: ${tagName}\n\nThis will show all posts with this tag in the future.`);
-            });
-        });
+function clearFilters() {
+    const allPosts = document.querySelectorAll('.blog-post, .featured-post');
+    allPosts.forEach(post => post.style.display = 'block');
+    
+    const messageEl = document.querySelector('.filter-message');
+    if (messageEl) messageEl.remove();
+}
 
-        // Blog post links - show temporary content
-        const blogPostLinks = document.querySelectorAll('.blog-post .read-more, .featured-post .read-more');
-        blogPostLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const postTitle = this.closest('.blog-post, .featured-post').querySelector('h2, h3').textContent;
-                alert(`Individual blog post pages coming soon! You clicked on: "${postTitle}"\n\nThis will open the full article in the future.`);
-            });
-        });
+function generateSlug(title) {
+    return title.toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+}
 
-        // Pagination
-        const pageButtons = document.querySelectorAll('.page-btn');
-        pageButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (!this.classList.contains('active') && !this.classList.contains('next')) {
-                    pageButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    alert('Pagination coming soon! This would load more blog posts.');
-                    // In production, this would load the corresponding page
-                }
-            });
-        });
-
-        // Newsletter forms
-        const newsletterForms = document.querySelectorAll('.sidebar-newsletter, .newsletter-form');
-        newsletterForms.forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                alert(`Thank you for subscribing with: ${email}\n\nYou'll receive our latest insights soon!`);
-                this.reset();
-            });
+// Keep your existing search and newsletter functions
+function initializeSearchFunctionality() {
+    const searchForm = document.querySelector('.search-form');
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = this.querySelector('input').value.trim();
+            if (searchTerm) {
+                // Implement search functionality
+                performSearch(searchTerm);
+            }
         });
     }
+}
+
+function initializeNewsletterForms() {
+    const newsletterForms = document.querySelectorAll('.sidebar-newsletter, .newsletter-form');
+    newsletterForms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with: ${email}\n\nYou'll receive our latest insights soon!`);
+            this.reset();
+        });
+    });
+}
 </script>
 </body>
 </html>

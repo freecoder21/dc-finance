@@ -4,6 +4,7 @@
     "description": "Expert insights for seasoned investors on commercial real estate acquisition, development, and specialized property financing"
   },
   "featured_post": {
+    "slug": "strategic-approaches-commercial-real-estate",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
     "alt": "Commercial Real Estate Acquisition",
     "category": "Commercial Acquisition",
@@ -11,11 +12,11 @@
     "author": "Michael Rodriguez", 
     "date": "March 18, 2025",
     "reading_time": "8 min read",
-    "excerpt": "Explore advanced strategies for successful commercial real estate acquisitions, including sophisticated due diligence practices, market timing for maximum ROI, and creative financing structures for office, retail, and mixed-use properties designed for experienced investors.",
-    "read_more_link": "blog-post-1.html"
+    "excerpt": "Explore advanced strategies for successful commercial real estate acquisitions, including sophisticated due diligence practices, market timing for maximum ROI, and creative financing structures for office, retail, and mixed-use properties designed for experienced investors."
   },
   "blog_posts": [
     {
+      "slug": "navigating-ground-up-development-financing",
       "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
       "alt": "Ground-Up Development", 
       "category": "Ground-Up Development",
@@ -23,10 +24,10 @@
       "author": "Sarah Chen",
       "date": "March 12, 2025", 
       "reading_time": "6 min read",
-      "excerpt": "Comprehensive guide to sophisticated ground-up development financing strategies, covering land acquisition loans, construction financing optimization, take-out loan structures, and managing the complete development lifecycle for complex projects.",
-      "read_more_link": "blog-post-2.html"
+      "excerpt": "Comprehensive guide to sophisticated ground-up development financing strategies, covering land acquisition loans, construction financing optimization, take-out loan structures, and managing the complete development lifecycle for complex projects."
     },
     {
+      "slug": "adaptive-reuse-office-residential-conversions",
       "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
       "alt": "Property Conversions",
       "category": "Property Conversions", 
@@ -34,35 +35,34 @@
       "author": "David Thompson",
       "date": "March 8, 2025",
       "reading_time": "10 min read", 
-      "excerpt": "Exploring the sophisticated financing strategies for converting underutilized office spaces into residential units, including navigating complex zoning challenges, creative capital stacking, and successful conversion case studies for experienced developers.",
-      "read_more_link": "blog-post-3.html"
+      "excerpt": "Exploring the sophisticated financing strategies for converting underutilized office spaces into residential units, including navigating complex zoning challenges, creative capital stacking, and successful conversion case studies for experienced developers."
     }
   ],
   "sidebar": {
     "search_placeholder": "Search articles...",
     "categories": [
-      { "name": "Commercial Acquisition", "count": 8, "url": "#" },
-      { "name": "Ground-Up Development", "count": 6, "url": "#" }, 
-      { "name": "Property Conversions", "count": 5, "url": "#" },
-      { "name": "Hotel Financing", "count": 7, "url": "#" },
-      { "name": "Healthcare Financing", "count": 4, "url": "#" },
-      { "name": "International Financing", "count": 3, "url": "#" },
-      { "name": "Market Analysis", "count": 9, "url": "#" }
+      { "name": "Commercial Acquisition", "count": 8, "slug": "commercial-acquisition" },
+      { "name": "Ground-Up Development", "count": 6, "slug": "ground-up-development" }, 
+      { "name": "Property Conversions", "count": 5, "slug": "property-conversions" },
+      { "name": "Hotel Financing", "count": 7, "slug": "hotel-financing" },
+      { "name": "Healthcare Financing", "count": 4, "slug": "healthcare-financing" },
+      { "name": "International Financing", "count": 3, "slug": "international-financing" },
+      { "name": "Market Analysis", "count": 9, "slug": "market-analysis" }
     ],
     "popular_posts": [
       {
+        "slug": "advanced-due-diligence-strategies",
         "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
         "alt": "Commercial Acquisition",
         "title": "Advanced Due Diligence Strategies for Complex Commercial Real Estate Acquisitions", 
-        "date": "Feb 10, 2025",
-        "url": "#"
+        "date": "Feb 10, 2025"
       },
       {
+        "slug": "hotel-performance-metrics",
         "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
         "alt": "Hotel Financing",
         "title": "Sophisticated Hotel Performance Metrics for Institutional Investors",
-        "date": "Jan 28, 2025",
-        "url": "#"
+        "date": "Jan 28, 2025"
       }
     ],
     "newsletter": {
