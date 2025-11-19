@@ -12,16 +12,12 @@
     ],
     "stats": [
       {
-        "title": "Total Loans Funded (Billions)",
+        "title": "Total Loans Funded",
         "value": "2.5B+"
       },
       {
         "title": "Successful Projects",
         "value": "500+"
-      },
-      {
-        "title": "Years of Experience",
-        "value": "15+"
       },
       {
         "title": "Client Satisfaction",
@@ -93,7 +89,7 @@
     }
   ],
   "hero": {
-    "title": "FINANCING SOLUTIONS FOR SEASONED frecoder",
+    "title": "FINANCING SOLUTIONS FOR SEASONED INVESTORS",
     "description": "We help experienced developers and investors secure the right capital for their commercial real estate projects with customized financing solutions.",
     "btn_primary_text": "Contact Us Now",
     "btn_primary_link": "index2.html",
@@ -102,24 +98,14 @@
   },
   "footer": {
     "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
-    "address": "123 Financial District, Suite 500<br>New York, NY 10005",
-    "phone": "+237 674-32-32",
-    "email": "info@dcmfinancing.com",
+    "address": "6 Shetland Cir, Highland Mills, NY 10930",
+    "phone": "(845) 751-9199",
+    "email": "isaac@dcmfinancing.com",
     "social_links": [
       {
         "platform": "LinkedIn",
-        "url": "#",
+        "url": "https://www.linkedin.com/company/dcm-financing/",
         "icon": "fab fa-linkedin"
-      },
-      {
-        "platform": "Twitter",
-        "url": "#",
-        "icon": "fab fa-twitter"
-      },
-      {
-        "platform": "Facebook",
-        "url": "#",
-        "icon": "fab fa-facebook"
       },
       {
         "platform": "Instagram",
@@ -159,11 +145,11 @@
         "url": "#services"
       },
       {
-        "label": "Conversions",
+        "label": "Hotel Financing",
         "url": "#services"
       },
       {
-        "label": "Hotel Financing",
+        "label": "Conversions",
         "url": "#services"
       },
       {

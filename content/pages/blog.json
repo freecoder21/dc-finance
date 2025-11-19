@@ -4,82 +4,82 @@
     "description": "Expert insights for seasoned investors on commercial real estate acquisition, development, and specialized property financing"
   },
   "featured_post": {
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-    "alt": "Commercial Real Estate Acquisition",
-    "category": "Commercial Acquisition",
-    "title": "Strategic Approaches to Commercial Real Estate Acquisition for Seasoned Investors",
-    "author": "Michael Rodriguez",
-    "date": "March 18, 2025",
     "reading_time": "8 min read",
     "excerpt": "Explore advanced strategies for successful commercial real estate acquisitions, including sophisticated due diligence practices, market timing for maximum ROI, and creative financing structures for office, retail, and mixed-use properties designed for experienced investors.",
-    "read_more_link": "#featured-post"
+    "alt": "Commercial Real Estate Acquisition",
+    "author": "Isaac Gestetner",
+    "date": "March 18, 2025",
+    "title": "Strategic Approaches to Commercial Real Estate Acquisition for Seasoned Investors",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    "read_more_link": "#featured-post",
+    "category": "Commercial Acquisition"
   },
   "blog_posts": [
     {
-      "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
-      "alt": "Ground-Up Development",
-      "category": "Ground-Up Development",
-      "title": "Navigating Complex Ground-Up Development Financing: From Land Acquisition to Completion",
-      "author": "Sarah Chen",
-      "date": "March 12, 2025",
       "reading_time": "6 min read",
       "excerpt": "Comprehensive guide to sophisticated ground-up development financing strategies, covering land acquisition loans, construction financing optimization, take-out loan structures, and managing the complete development lifecycle for complex projects.",
-      "read_more_link": "#ground-up-development"
+      "alt": "Ground-Up Development",
+      "author": "Sarah Chen",
+      "date": "March 12, 2025",
+      "title": "Navigating Complex Ground-Up Development Financing: From Land Acquisition to Completion",
+      "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+      "read_more_link": "#ground-up-development",
+      "category": "Ground-Up Development"
     },
     {
-      "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
-      "alt": "Property Conversions",
-      "category": "Property Conversions",
-      "title": "The Strategic Advantage of Adaptive Reuse: Financing Complex Office-to-Residential Conversions",
-      "author": "David Thompson",
-      "date": "March 8, 2025",
       "reading_time": "10 min read",
       "excerpt": "Exploring the sophisticated financing strategies for converting underutilized office spaces into residential units, including navigating complex zoning challenges, creative capital stacking, and successful conversion case studies for experienced developers.",
-      "read_more_link": "#property-conversions"
+      "alt": "Property Conversions",
+      "author": "David Thompson",
+      "date": "March 8, 2025",
+      "title": "The Strategic Advantage of Adaptive Reuse: Financing Complex Office-to-Residential Conversions",
+      "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
+      "read_more_link": "#property-conversions",
+      "category": "Property Conversions"
     },
     {
-      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      "alt": "Hotel Financing",
-      "category": "Hotel Financing",
-      "title": "Advanced Hotel Financing Strategies for Portfolio Growth and Repositioning",
-      "author": "Jennifer Martinez",
-      "date": "March 3, 2025",
       "reading_time": "7 min read",
       "excerpt": "Analysis of sophisticated hotel financing landscape, including acquisition financing for portfolio expansion, comprehensive renovation capital structures, and strategic repositioning financing for hospitality properties in competitive markets.",
-      "read_more_link": "#hotel-financing"
+      "alt": "Hotel Financing",
+      "author": "Jennifer Martinez",
+      "date": "March 3, 2025",
+      "title": "Advanced Hotel Financing Strategies for Portfolio Growth and Repositioning",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "read_more_link": "#hotel-financing",
+      "category": "Hotel Financing"
     },
     {
-      "image": "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&auto=format&fit=crop&w=1474&q=80",
-      "alt": "Healthcare Facilities",
-      "category": "Healthcare Financing",
-      "title": "Strategic Financing for Nursing Home and Healthcare Facilities: Advanced Considerations",
-      "author": "Robert Kim",
-      "date": "February 26, 2025",
       "reading_time": "9 min read",
       "excerpt": "Specialized financing approaches for sophisticated healthcare investors, covering skilled nursing facilities, assisted living communities, and memory care centers, including regulatory compliance strategies and operational optimization financing.",
-      "read_more_link": "#healthcare-financing"
+      "alt": "Healthcare Facilities",
+      "author": "Robert Kim",
+      "date": "February 26, 2025",
+      "title": "Strategic Financing for Nursing Home and Healthcare Facilities: Advanced Considerations",
+      "image": "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&auto=format&fit=crop&w=1474&q=80",
+      "read_more_link": "#healthcare-financing",
+      "category": "Healthcare Financing"
     },
     {
-      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      "alt": "International Hotel Financing",
-      "category": "International Financing",
-      "title": "South America Hotel Financing: Advanced Opportunities in Emerging Markets",
-      "author": "Amanda Foster",
-      "date": "February 20, 2025",
       "reading_time": "8 min read",
       "excerpt": "Comprehensive analysis of sophisticated hotel financing opportunities across South American markets, including Brazil, Colombia, and Peru, with insights on cross-border financing structures, currency risk management, and market entry strategies.",
-      "read_more_link": "#international-financing"
+      "alt": "International Hotel Financing",
+      "author": "Amanda Foster",
+      "date": "February 20, 2025",
+      "title": "South America Hotel Financing: Advanced Opportunities in Emerging Markets",
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "read_more_link": "#international-financing",
+      "category": "International Financing"
     },
     {
-      "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1073&q=80",
-      "alt": "Commercial Real Estate Trends",
-      "category": "Market Analysis",
-      "title": "2025 Commercial Real Estate Outlook: Advanced Sector Performance and Financing Trends",
-      "author": "Thomas Wright",
-      "date": "February 15, 2025",
       "reading_time": "6 min read",
       "excerpt": "Detailed market analysis covering performance expectations across commercial real estate sectors and emerging sophisticated financing trends for experienced investors in the coming year.",
-      "read_more_link": "#market-analysis"
+      "alt": "Commercial Real Estate Trends",
+      "author": "Thomas Wright",
+      "date": "February 15, 2025",
+      "title": "2025 Commercial Real Estate Outlook: Advanced Sector Performance and Financing Trends",
+      "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1073&q=80",
+      "read_more_link": "#market-analysis",
+      "category": "Market Analysis"
     }
   ],
   "sidebar": {
@@ -162,6 +162,6 @@
       { "label": "Nursing Home Facilities", "url": "index.html#services" },
       { "label": "South America Hotel Financing", "url": "index.html#services" }
     ],
-    "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
+    "copyright": "© 2025 DCM Financing. All Rights Reserved."
   }
 }
