@@ -59,11 +59,11 @@
     "heading": "Our Leadership",
     "members": [
       {
-        "name": "David Carter",
+        "name": "Isaac Gestetner",
         "title": "Founder & CEO",
-        "bio": "20+ years in commercial real estate finance with expertise in complex structured transactions across multiple asset classes including hospitality, healthcare, and ground-up development.",
-        "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        "photo_alt": "David Carter"
+        "bio": "Experienced in commercial real estate finance with expertise in complex structured transactions across multiple asset classes including hospitality, healthcare, and ground-up development.",
+        "photo": "/assets/uploads/1747620824123.jpeg",
+        "photo_alt": "Isaac"
       }
     ]
   },
