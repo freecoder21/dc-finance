@@ -104,23 +104,13 @@
     "social_links": [
       {
         "platform": "LinkedIn",
-        "url": "#",
+        "url": "https://www.linkedin.com/company/dcm-financing/",
         "icon": "fab fa-linkedin"
-      },
-      {
-        "platform": "Twitter",
-        "url": "#",
-        "icon": "fab fa-twitter"
       },
       {
         "platform": "Instagram",
         "url": "#",
         "icon": "fab fa-instagram"
-      },
-      {
-        "platform": "Facebook",
-        "url": "#",
-        "icon": "fab fa-facebook"
       }
     ],
     "quick_links": [
