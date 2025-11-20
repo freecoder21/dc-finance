@@ -295,7 +295,7 @@
             document.getElementById('featured-meta').innerHTML = `By <strong>${featuredPost.author}</strong> | ${featuredPost.date} | ${featuredPost.reading_time}`;
             document.getElementById('featured-excerpt').innerHTML = `<p>${featuredPost.excerpt}</p>`;
             
-            // ✅ UPDATED: Set featured post read more link to use URL parameters
+            // ✅ FIXED: Set featured post read more link to use URL parameters
             const featuredReadMore = document.getElementById('featured-read-more');
             featuredReadMore.href = `blog-post.html?slug=${featuredPost.slug}`;
 
@@ -359,7 +359,7 @@
             const uniqueTags = Array.from(allTags).slice(0, 8);
             uniqueTags.forEach(tag => {
                 const tagElement = document.createElement('a');
-                tagElement.href = '#';
+                tagElement.href = '#'; // You can implement tag filtering here
                 tagElement.className = 'tag';
                 tagElement.textContent = tag;
                 tagElement.dataset.tag = tag.toLowerCase().replace(/\s+/g, '-');
@@ -554,7 +554,7 @@
         // Previous button
         if (currentPage > 1) {
             const prevBtn = document.createElement('a');
-            prevBtn.href = '#';
+            prevBtn.href = '#'; 
             prevBtn.className = 'page-btn prev';
             prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i> Prev';
             prevBtn.addEventListener('click', function(e) {
