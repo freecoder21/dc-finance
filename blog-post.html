@@ -513,7 +513,11 @@
             margin-bottom: 30px;
             font-size: 1.1rem;
         }
-
+        .logo img, .footer-logo img {
+              border: 2px solid red; /* This will show if the image space is there */
+              background-color: #f0f0f0; /* This will show if the image is missing */
+              min-height: 40px; /* Ensure space is reserved */
+}
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 768px) {
             .mobile-menu-toggle {
@@ -596,8 +600,7 @@
             <div class="header-inner">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="assets\dcm_logo.png" alt="DCM Financing">
-                        
+                        <img src="assets/dcm_logo.png" alt="DCM Financing">
                     </a>
                 </div>
                 <nav class="main-nav">
