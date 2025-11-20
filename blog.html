@@ -8,6 +8,128 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional Blog Styles */
+        .blog-post {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post-content {
+            position: relative;
+        }
+        
+        .post-excerpt {
+            position: relative;
+            max-height: 100px;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+        }
+        
+        .post-excerpt.collapsed {
+            max-height: 100px;
+        }
+        
+        .post-excerpt.expanded {
+            max-height: 500px;
+        }
+        
+        .post-excerpt::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(transparent, rgba(255,255,255,0.9));
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .post-excerpt.expanded::after {
+            opacity: 0;
+        }
+        
+        .toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .toggle-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+        
+        .toggle-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .toggle-btn.expanded i {
+            transform: rotate(180deg);
+        }
+        
+        /* Featured Post Styles */
+        .featured-post {
+            position: relative;
+            margin-bottom: 60px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background-color: var(--white);
+        }
+        
+        .featured-post .post-excerpt {
+            max-height: 120px;
+        }
+        
+        .featured-post .post-excerpt.expanded {
+            max-height: 600px;
+        }
+        
+        .featured-post .toggle-btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        /* Animation for expanding content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .post-excerpt.expanded p {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Loading States */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .loading::after {
+            content: 'Loading...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -40,8 +162,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>DCM Financing Blog</h1>
-            <p>Expert insights for seasoned investors on commercial real estate acquisition, development, and specialized property financing</p>
+            <h1 id="page-title">Loading...</h1>
+            <p id="page-description">Loading...</p>
         </div>
     </section>
 
@@ -52,104 +174,24 @@
                 <!-- Main Blog Posts -->
                 <div class="blog-main">
                     <!-- Featured Post -->
-                    <div class="featured-post">
+                    <div class="featured-post" id="featured-post">
                         <div class="featured-image">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Commercial Real Estate Acquisition">
+                            <img id="featured-image" src="" alt="">
                         </div>
                         <div class="featured-content">
-                            <span class="post-category">Commercial Acquisition</span>
-                            <h2>Strategic Approaches to Commercial Real Estate Acquisition for Seasoned Investors</h2>
-                            <p class="post-meta">By <strong>Michael Rodriguez</strong> | March 18, 2025 | 8 min read</p>
-                            <p class="post-excerpt">Explore advanced strategies for successful commercial real estate acquisitions, including sophisticated due diligence practices, market timing for maximum ROI, and creative financing structures for office, retail, and mixed-use properties designed for experienced investors.</p>
-                            <a href="#" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                            <span class="post-category" id="featured-category"></span>
+                            <h2 id="featured-title"></h2>
+                            <p class="post-meta" id="featured-meta"></p>
+                            <div class="post-excerpt collapsed" id="featured-excerpt"></div>
+                            <button class="toggle-btn" id="featured-toggle">
+                                Show Full Article <i class="fas fa-chevron-down"></i>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Blog Posts Grid -->
-                    <div class="blog-grid">
-                        <!-- Post 1 -->
-                        <article class="blog-post">
-                            <div class="post-image">
-                                <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Ground-Up Development">
-                            </div>
-                            <div class="post-content">
-                                <span class="post-category">Ground-Up Development</span>
-                                <h3>Navigating Complex Ground-Up Development Financing: From Land Acquisition to Completion</h3>
-                                <p class="post-meta">By <strong>Sarah Chen</strong> | March 12, 2025 | 6 min read</p>
-                                <p class="post-excerpt">Comprehensive guide to sophisticated ground-up development financing strategies, covering land acquisition loans, construction financing optimization, take-out loan structures, and managing the complete development lifecycle for complex projects.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-
-                        <!-- Post 2 -->
-                        <article class="blog-post">
-                            <div class="post-image">
-                                <img src="https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg" alt="Property Conversions">
-                            </div>
-                            <div class="post-content">
-                                <span class="post-category">Property Conversions</span>
-                                <h3>The Strategic Advantage of Adaptive Reuse: Financing Complex Office-to-Residential Conversions</h3>
-                                <p class="post-meta">By <strong>David Thompson</strong> | March 8, 2025 | 10 min read</p>
-                                <p class="post-excerpt">Exploring the sophisticated financing strategies for converting underutilized office spaces into residential units, including navigating complex zoning challenges, creative capital stacking, and successful conversion case studies for experienced developers.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-
-                        <!-- Post 3 -->
-                        <article class="blog-post">
-                            <div class="post-image">
-                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Hotel Financing">
-                            </div>
-                            <div class="post-content">
-                                <span class="post-category">Hotel Financing</span>
-                                <h3>Advanced Hotel Financing Strategies for Portfolio Growth and Repositioning</h3>
-                                <p class="post-meta">By <strong>Jennifer Martinez</strong> | March 3, 2025 | 7 min read</p>
-                                <p class="post-excerpt">Analysis of sophisticated hotel financing landscape, including acquisition financing for portfolio expansion, comprehensive renovation capital structures, and strategic repositioning financing for hospitality properties in competitive markets.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-
-                        <!-- Post 4 -->
-                        <article class="blog-post">
-                            <div class="post-image">
-                                <img src="https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?ixlib=rb-4.0.3&auto=format&fit=crop&w=1474&q=80" alt="Healthcare Facilities">
-                            </div>
-                            <div class="post-content">
-                                <span class="post-category">Healthcare Financing</span>
-                                <h3>Strategic Financing for Nursing Home and Healthcare Facilities: Advanced Considerations</h3>
-                                <p class="post-meta">By <strong>Robert Kim</strong> | February 26, 2025 | 9 min read</p>
-                                <p class="post-excerpt">Specialized financing approaches for sophisticated healthcare investors, covering skilled nursing facilities, assisted living communities, and memory care centers, including regulatory compliance strategies and operational optimization financing.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-
-                        <!-- Post 5 -->
-                        <article class="blog-post">
-                            <div class="post-image">
-                                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="International Hotel Financing">
-                            </div>
-                            <div class="post-content">
-                                <span class="post-category">International Financing</span>
-                                <h3>South America Hotel Financing: Advanced Opportunities in Emerging Markets</h3>
-                                <p class="post-meta">By <strong>Amanda Foster</strong> | February 20, 2025 | 8 min read</p>
-                                <p class="post-excerpt">Comprehensive analysis of sophisticated hotel financing opportunities across South American markets, including Brazil, Colombia, and Peru, with insights on cross-border financing structures, currency risk management, and market entry strategies.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-
-                        <!-- Post 6 -->
-                        <article class="blog-post">
-                            <div class="post-image">
-                                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1073&q=80" alt="Commercial Real Estate Trends">
-                            </div>
-                            <div class="post-content">
-                                <span class="post-category">Market Analysis</span>
-                                <h3>2025 Commercial Real Estate Outlook: Advanced Sector Performance and Financing Trends</h3>
-                                <p class="post-meta">By <strong>Thomas Wright</strong> | February 15, 2025 | 6 min read</p>
-                                <p class="post-excerpt">Detailed market analysis covering performance expectations across commercial real estate sectors and emerging sophisticated financing trends for experienced investors in the coming year.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
+                    <div class="blog-grid" id="blog-grid">
+                        <!-- Posts will be dynamically inserted here -->
                     </div>
 
                     <!-- Pagination -->
@@ -167,81 +209,42 @@
                     <div class="sidebar-widget">
                         <h3>Search Blog</h3>
                         <div class="search-form">
-                            <input type="text" placeholder="Search articles...">
+                            <input type="text" placeholder="Search articles..." id="search-input">
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
 
-                    <!-- Categories - Updated to match new services -->
+                    <!-- Categories -->
                     <div class="sidebar-widget">
                         <h3>Categories</h3>
-                        <ul class="categories-list">
-                            <li><a href="#">Commercial Acquisition <span>8</span></a></li>
-                            <li><a href="#">Ground-Up Development <span>6</span></a></li>
-                            <li><a href="#">Property Conversions <span>5</span></a></li>
-                            <li><a href="#">Hotel Financing <span>7</span></a></li>
-                            <li><a href="#">Healthcare Financing <span>4</span></a></li>
-                            <li><a href="#">International Financing <span>3</span></a></li>
-                            <li><a href="#">Market Analysis <span>9</span></a></li>
+                        <ul class="categories-list" id="categories-list">
+                            <!-- Categories will be dynamically inserted here -->
                         </ul>
                     </div>
 
-                    <!-- Popular Posts - Updated to match new services -->
+                    <!-- Popular Posts -->
                     <div class="sidebar-widget">
                         <h3>Popular Posts</h3>
-                        <div class="popular-posts">
-                            <div class="popular-post">
-                                <div class="popular-image">
-                                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Commercial Acquisition">
-                                </div>
-                                <div class="popular-content">
-                                    <h4><a href="#">Advanced Due Diligence Strategies for Complex Commercial Real Estate Acquisitions</a></h4>
-                                    <span class="post-date">Feb 10, 2025</span>
-                                </div>
-                            </div>
-                            <div class="popular-post">
-                                <div class="popular-image">
-                                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Hotel Financing">
-                                </div>
-                                <div class="popular-content">
-                                    <h4><a href="#">Sophisticated Hotel Performance Metrics for Institutional Investors</a></h4>
-                                    <span class="post-date">Jan 28, 2025</span>
-                                </div>
-                            </div>
-                            <div class="popular-post">
-                                <div class="popular-image">
-                                    <img src="https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg" alt="Property Conversions">
-                                </div>
-                                <div class="popular-content">
-                                    <h4><a href="#">5 Advanced Office-to-Residential Conversion Case Studies for Experienced Developers</a></h4>
-                                    <span class="post-date">Jan 15, 2025</span>
-                                </div>
-                            </div>
+                        <div class="popular-posts" id="popular-posts">
+                            <!-- Popular posts will be dynamically inserted here -->
                         </div>
                     </div>
 
                     <!-- Newsletter -->
                     <div class="sidebar-widget newsletter-widget">
-                        <h3>Stay Informed</h3>
-                        <p>Get the latest commercial lending insights for seasoned investors delivered to your inbox.</p>
+                        <h3 id="newsletter-title">Stay Informed</h3>
+                        <p id="newsletter-description">Get the latest commercial lending insights for seasoned investors delivered to your inbox.</p>
                         <form class="sidebar-newsletter">
                             <input type="email" placeholder="Your email address" required>
                             <button type="submit" class="btn-primary">Subscribe</button>
                         </form>
                     </div>
 
-                    <!-- Tags - Updated to match new services -->
+                    <!-- Tags -->
                     <div class="sidebar-widget">
                         <h3>Popular Tags</h3>
-                        <div class="tags">
-                            <a href="#" class="tag">Commercial Acquisition</a>
-                            <a href="#" class="tag">Ground-Up Development</a>
-                            <a href="#" class="tag">Property Conversions</a>
-                            <a href="#" class="tag">Hotel Financing</a>
-                            <a href="#" class="tag">Healthcare Facilities</a>
-                            <a href="#" class="tag">South America</a>
-                            <a href="#" class="tag">Development</a>
-                            <a href="#" class="tag">Due Diligence</a>
+                        <div class="tags" id="popular-tags">
+                            <!-- Tags will be dynamically inserted here -->
                         </div>
                     </div>
                 </aside>
@@ -253,11 +256,11 @@
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-content">
-                <h2>Never Miss an Update</h2>
-                <p>Subscribe to our newsletter for expert commercial lending insights and market analysis for seasoned investors.</p>
+                <h2 id="newsletter-section-title">Never Miss an Update</h2>
+                <p id="newsletter-section-description">Subscribe to our newsletter for expert commercial lending insights and market analysis for seasoned investors.</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn-primary">Subscribe Now</button>
+                    <button type="submit" class="btn-primary" id="newsletter-button">Subscribe Now</button>
                 </form>
             </div>
         </div>
@@ -271,56 +274,213 @@
                     <div class="footer-logo">
                         <img src="assets/dcm_logo.png" alt="DCM Financing">
                     </div>
-                    <p>Providing innovative commercial financing solutions for seasoned investors and developers.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    <p id="footer-description">Providing innovative commercial financing solutions for seasoned investors and developers.</p>
+                    <div class="social-links" id="social-links">
+                        <!-- Social links will be dynamically inserted here -->
                     </div>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="news-updates.html">Recent Loans</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                    <ul id="quick-links">
+                        <!-- Quick links will be dynamically inserted here -->
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Services</h3>
-                    <ul>
-                        <li><a href="#services">Commercial Real Estate Acquisition</a></li>
-                        <li><a href="#services">Ground-Up Development</a></li>
-                        <li><a href="#services">Conversions</a></li>
-                        <li><a href="#services">Hotel Financing</a></li>
-                        <li><a href="#services">Nursing Home Facilities</a></li>
-                        <li><a href="#services">South America Hotel Financing</a></li>
+                    <ul id="service-links">
+                        <!-- Service links will be dynamically inserted here -->
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
                     <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, NY 10005</li>
-                        <li><i class="fas fa-phone-alt"></i> +1 (212) 555-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@dcmfinancing.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="footer-address">123 Financial District, NY 10005</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span id="footer-phone">+1 (212) 555-7890</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="footer-email">info@dcmfinancing.com</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DCM Financing. All Rights Reserved.</p>
+                <p id="copyright">&copy; 2025 DCM Financing. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
     <script>
-        // Blog search functionality
+        // Fetch and display blog content from JSON
         document.addEventListener('DOMContentLoaded', function() {
+            // Fetch the JSON data
+            fetch('blog.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Populate page header
+                    document.getElementById('page-title').textContent = data.page_header.title;
+                    document.getElementById('page-description').textContent = data.page_header.description;
+
+                    // Populate featured post
+                    const featuredPost = data.featured_post;
+                    document.getElementById('featured-image').src = featuredPost.image;
+                    document.getElementById('featured-image').alt = featuredPost.alt;
+                    document.getElementById('featured-category').textContent = featuredPost.category;
+                    document.getElementById('featured-title').textContent = featuredPost.title;
+                    document.getElementById('featured-meta').innerHTML = `By <strong>${featuredPost.author}</strong> | ${featuredPost.date} | ${featuredPost.reading_time}`;
+                    document.getElementById('featured-excerpt').innerHTML = `<p>${featuredPost.excerpt}</p>`;
+                    
+                    // Featured post toggle functionality
+                    const featuredToggle = document.getElementById('featured-toggle');
+                    const featuredExcerpt = document.getElementById('featured-excerpt');
+                    
+                    featuredToggle.addEventListener('click', function() {
+                        if (featuredExcerpt.classList.contains('collapsed')) {
+                            featuredExcerpt.classList.remove('collapsed');
+                            featuredExcerpt.classList.add('expanded');
+                            featuredToggle.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                            featuredToggle.classList.add('expanded');
+                        } else {
+                            featuredExcerpt.classList.remove('expanded');
+                            featuredExcerpt.classList.add('collapsed');
+                            featuredToggle.innerHTML = 'Show Full Article <i class="fas fa-chevron-down"></i>';
+                            featuredToggle.classList.remove('expanded');
+                        }
+                    });
+
+                    // Populate blog posts grid
+                    const blogGrid = document.getElementById('blog-grid');
+                    data.blog_posts.forEach(post => {
+                        const postElement = document.createElement('article');
+                        postElement.className = 'blog-post';
+                        postElement.innerHTML = `
+                            <div class="post-image">
+                                <img src="${post.image}" alt="${post.alt}">
+                            </div>
+                            <div class="post-content">
+                                <span class="post-category">${post.category}</span>
+                                <h3>${post.title}</h3>
+                                <p class="post-meta">By <strong>${post.author}</strong> | ${post.date} | ${post.reading_time}</p>
+                                <div class="post-excerpt collapsed">
+                                    <p>${post.excerpt}</p>
+                                </div>
+                                <button class="toggle-btn">
+                                    Show More <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                        `;
+                        blogGrid.appendChild(postElement);
+                    });
+
+                    // Add toggle functionality to all blog posts
+                    const toggleButtons = document.querySelectorAll('.toggle-btn');
+                    toggleButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            const postExcerpt = this.previousElementSibling;
+                            
+                            if (postExcerpt.classList.contains('collapsed')) {
+                                postExcerpt.classList.remove('collapsed');
+                                postExcerpt.classList.add('expanded');
+                                this.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                                this.classList.add('expanded');
+                            } else {
+                                postExcerpt.classList.remove('expanded');
+                                postExcerpt.classList.add('collapsed');
+                                this.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+                                this.classList.remove('expanded');
+                            }
+                        });
+                    });
+
+                    // Populate categories
+                    const categoriesList = document.getElementById('categories-list');
+                    data.sidebar.categories.forEach(category => {
+                        const categoryElement = document.createElement('li');
+                        categoryElement.innerHTML = `<a href="#" data-category="${category.slug}">${category.name} <span>${category.count}</span></a>`;
+                        categoriesList.appendChild(categoryElement);
+                    });
+
+                    // Populate popular posts
+                    const popularPosts = document.getElementById('popular-posts');
+                    data.sidebar.popular_posts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.className = 'popular-post';
+                        postElement.innerHTML = `
+                            <div class="popular-image">
+                                <img src="${post.image}" alt="${post.alt}">
+                            </div>
+                            <div class="popular-content">
+                                <h4><a href="blog/${post.slug}.html">${post.title}</a></h4>
+                                <span class="post-date">${post.date}</span>
+                            </div>
+                        `;
+                        popularPosts.appendChild(postElement);
+                    });
+
+                    // Populate newsletter sidebar
+                    document.getElementById('newsletter-title').textContent = data.sidebar.newsletter.title;
+                    document.getElementById('newsletter-description').textContent = data.sidebar.newsletter.description;
+
+                    // Populate tags
+                    const tagsContainer = document.getElementById('popular-tags');
+                    data.sidebar.popular_tags.forEach(tag => {
+                        const tagElement = document.createElement('a');
+                        tagElement.href = '#';
+                        tagElement.className = 'tag';
+                        tagElement.textContent = tag;
+                        tagElement.dataset.tag = tag.toLowerCase().replace(/\s+/g, '-');
+                        tagsContainer.appendChild(tagElement);
+                    });
+
+                    // Populate newsletter section
+                    document.getElementById('newsletter-section-title').textContent = data.newsletter_section.title;
+                    document.getElementById('newsletter-section-description').textContent = data.newsletter_section.description;
+                    document.getElementById('newsletter-button').textContent = data.newsletter_section.button_text;
+
+                    // Populate footer
+                    document.getElementById('footer-description').textContent = data.footer.description;
+                    document.getElementById('footer-address').textContent = data.footer.address;
+                    document.getElementById('footer-phone').textContent = data.footer.phone;
+                    document.getElementById('footer-email').textContent = data.footer.email;
+                    
+                    // Populate social links
+                    const socialLinks = document.getElementById('social-links');
+                    data.footer.social_links.forEach(link => {
+                        const linkElement = document.createElement('a');
+                        linkElement.href = link.url;
+                        linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                        socialLinks.appendChild(linkElement);
+                    });
+                    
+                    // Populate quick links
+                    const quickLinks = document.getElementById('quick-links');
+                    data.footer.quick_links.forEach(link => {
+                        const linkElement = document.createElement('li');
+                        linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
+                        quickLinks.appendChild(linkElement);
+                    });
+                    
+                    // Populate service links
+                    const serviceLinks = document.getElementById('service-links');
+                    data.footer.service_links.forEach(link => {
+                        const linkElement = document.createElement('li');
+                        linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
+                        serviceLinks.appendChild(linkElement);
+                    });
+                    
+                    document.getElementById('copyright').innerHTML = data.footer.copyright;
+                })
+                .catch(error => {
+                    console.error('Error fetching blog data:', error);
+                    document.getElementById('page-title').textContent = 'Error Loading Content';
+                    document.getElementById('page-description').textContent = 'Please try again later.';
+                });
+
+            // Blog search functionality
             const searchForm = document.querySelector('.search-form');
-            const searchInput = searchForm.querySelector('input');
+            const searchInput = document.getElementById('search-input');
             
             searchForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -332,25 +492,23 @@
             });
 
             // Category filtering
-            const categoryLinks = document.querySelectorAll('.categories-list a');
-            categoryLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.categories-list a')) {
                     e.preventDefault();
-                    const category = this.textContent.split(' ')[0];
+                    const category = e.target.closest('.categories-list a').dataset.category;
                     alert(`Filtering by category: ${category}`);
                     // In production, this would filter blog posts
-                });
+                }
             });
 
             // Tag filtering
-            const tagLinks = document.querySelectorAll('.tag');
-            tagLinks.forEach(tag => {
-                tag.addEventListener('click', function(e) {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('tag')) {
                     e.preventDefault();
-                    const tagName = this.textContent;
+                    const tagName = e.target.textContent;
                     alert(`Filtering by tag: ${tagName}`);
                     // In production, this would filter blog posts
-                });
+                }
             });
         });
     </script>
