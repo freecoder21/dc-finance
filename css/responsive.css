@@ -438,6 +438,7 @@
     /* border: 2px solid red; */
     position: relative;
     top: 0;
+    height: 50%;
   }
   
   .main-nav .btn-primary {
