@@ -435,7 +435,9 @@
   
   .main-nav ul {
     padding: 15px 15px 0 15px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    position: relative;
+    top: 0;
   }
   
   .main-nav .btn-primary {
