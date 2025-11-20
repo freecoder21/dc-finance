@@ -646,5 +646,18 @@
 });
 
  </script>
+ <script>
+// Override problematic smooth scrolling for blog links
+document.addEventListener('DOMContentLoaded', function() {
+    // Prevent the main smooth scrolling script from interfering with blog links
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (link && link.href && link.href.includes('blog-post.html')) {
+            // Let these links navigate normally without smooth scrolling interference
+            e.stopPropagation();
+        }
+    }, true); // Use capture phase to intercept early
+});
+</script>
 </body>
 </html>
