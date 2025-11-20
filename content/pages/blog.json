@@ -37,6 +37,18 @@
       "title": "The Strategic Advantage of Adaptive Reuse: Financing Complex Office-to-Residential Conversions",
       "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
       "category": "Property Conversions"
+    },
+    {
+      "reading_time": "10 mins read",
+      "excerpt": "hello world",
+      "body": "n﻿o content yet",
+      "alt": "test",
+      "author": "yann",
+      "slug": "test",
+      "date": "March 8, 2025",
+      "title": "test blog",
+      "image": "/assets/uploads/istockphoto-1393750072-612x612.jpg",
+      "category": "test"
     }
   ],
   "sidebar": {
