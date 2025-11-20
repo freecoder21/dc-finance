@@ -263,12 +263,15 @@
     </footer>
 
     <script src="js/script.js"></script>
-   <script>
+ <script>
    document.addEventListener('DOMContentLoaded', function() {
     let allBlogPosts = [];
     let currentPage = 1;
     const postsPerPage = 2;
     let currentFilter = 'all'; // Track current filter
+
+    // Debug logging
+    console.log('Script loaded, waiting for JSON data...');
 
     // Fetch the JSON data
     fetch('/content/pages/blog.json')
@@ -298,6 +301,10 @@
 
             // Store all blog posts and initialize
             allBlogPosts = data.blog_posts;
+            
+            // Debug logging
+            console.log('Total blog posts loaded:', allBlogPosts.length);
+            console.log('Categories found:', [...new Set(allBlogPosts.map(post => post.category))]);
             
             // Initialize categories FIRST
             initializeCategories();
@@ -417,7 +424,7 @@
 
         // Create "All" category
         const allCategoryElement = document.createElement('li');
-        allCategoryElement.innerHTML = `<a href="#" data-category="all" class="active">All <span>${allBlogPosts.length}</span></a>`;
+        allCategoryElement.innerHTML = `<a href="#" data-category="all" class="active">All <span>(${allBlogPosts.length})</span></a>`;
         categoriesList.appendChild(allCategoryElement);
 
         // Add event listener for "All" category
@@ -430,7 +437,7 @@
         Object.keys(categoryCounts).forEach(category => {
             const categoryElement = document.createElement('li');
             const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
-            categoryElement.innerHTML = `<a href="#" data-category="${categorySlug}">${category} <span>${categoryCounts[category]}</span></a>`;
+            categoryElement.innerHTML = `<a href="#" data-category="${categorySlug}">${category} <span>(${categoryCounts[category]})</span></a>`;
             categoriesList.appendChild(categoryElement);
 
             // Add click event to filter by category
@@ -443,16 +450,18 @@
 
     // Function to filter posts by category
     function filterPostsByCategory(category) {
+        console.log('Filtering by category:', category); // Debug log
+        
         // Update active state in categories
         document.querySelectorAll('.categories-list a').forEach(link => {
             link.classList.remove('active');
         });
         
-        // Find and activate the clicked category
+        // Activate the clicked category
         document.querySelectorAll('.categories-list a').forEach(link => {
             if (category === 'all' && link.dataset.category === 'all') {
                 link.classList.add('active');
-            } else if (link.textContent.includes(category)) {
+            } else if (link.dataset.category === category.toLowerCase().replace(/\s+/g, '-')) {
                 link.classList.add('active');
             }
         });
@@ -468,6 +477,7 @@
             postsToDisplay = allBlogPosts.filter(post => post.category === category);
         }
 
+        console.log('Posts to display:', postsToDisplay.length); // Debug log
         displayBlogPosts(currentPage, postsToDisplay);
         initializePagination(postsToDisplay);
     }
@@ -610,6 +620,6 @@
         }
     });
 });
-   </script>
+ </script>
 </body>
 </html>
