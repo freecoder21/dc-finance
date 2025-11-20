@@ -2206,7 +2206,7 @@ html, body {
 }
 @media (max-width: 768px) {
   .main-nav.active {
-    background: red; /* Temporary to see if panel opens */
+    /* background: red; Temporary to see if panel opens */
   }
   
   .main-nav.active ul {
