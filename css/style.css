@@ -2118,3 +2118,89 @@ html, body {
     margin-bottom: 30px;
     font-size: 1.1rem;
 }
+/* ===== HEADER FIXES ===== */
+.site-header {
+    background-color: var(--white) !important;
+}
+
+.main-nav a {
+    color: var(--primary-color) !important;
+    font-weight: 500;
+}
+
+.main-nav a:hover, 
+.main-nav a.active {
+    color: var(--secondary-color) !important;
+}
+
+/* Mobile menu responsiveness */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+    
+    .main-nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-nav.active ul {
+        display: flex;
+    }
+    
+    .main-nav li {
+        margin: 10px 0;
+        margin-left: 0;
+    }
+}
+
+/* ===== FOOTER FIXES ===== */
+.footer-logo img {
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+/* Ensure footer text visibility */
+.footer-section p,
+.footer-section a,
+.contact-info li {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color) !important;
+}
+
+/* ===== BLOG POST SPECIFIC FIXES ===== */
+.blog-post-page {
+    padding: 150px 0 80px !important; /* Match your inline style */
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+}
+
+.page-header h1,
+.page-header p {
+    color: var(--white) !important;
+}
+
+/* Newsletter section fixes */
+.newsletter-section {
+    background-color: var(--light-bg) !important;
+}
+
+.newsletter-content h2 {
+    color: var(--white) !important;
+}
+
+.newsletter-content p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
