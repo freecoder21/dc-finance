@@ -264,7 +264,7 @@
 
     <script src="js/script.js"></script>
  <script>
-   document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     let allBlogPosts = [];
     let currentPage = 1;
     const postsPerPage = 2;
@@ -480,6 +480,20 @@
         console.log('Posts to display:', postsToDisplay.length); // Debug log
         displayBlogPosts(currentPage, postsToDisplay);
         initializePagination(postsToDisplay);
+        
+        // Scroll to blog grid section for better UX
+        setTimeout(() => {
+            const blogGrid = document.querySelector('.blog-grid');
+            if (blogGrid) {
+                const yOffset = -80; // Adjust this value to control how much to scroll down
+                const y = blogGrid.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100); // Small delay to ensure content is rendered
     }
 
     // Function to display blog posts
@@ -591,10 +605,18 @@
         initializePagination(postsToDisplay);
         
         // Scroll to blog grid section for better UX
-        document.querySelector('.blog-grid').scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
+        setTimeout(() => {
+            const blogGrid = document.querySelector('.blog-grid');
+            if (blogGrid) {
+                const yOffset = -80; // Adjust this value to control how much to scroll down
+                const y = blogGrid.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
     }
 
     // Blog search functionality
