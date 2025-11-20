@@ -43,6 +43,7 @@
         .post-header h1 {
             font-size: 2.6rem;
             color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
         .post-meta {
@@ -51,6 +52,7 @@
             gap: 25px;
             color: #666;
             font-size: 0.95rem;
+            flex-wrap: wrap;
         }
 
         .featured-image img {
@@ -70,6 +72,21 @@
         .post-content h3 {
             color: var(--primary-color);
             margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .post-content ul, 
+        .post-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 8px;
         }
 
         .post-tags {
@@ -91,12 +108,28 @@
             font-size: 0.85rem;
             color: var(--primary-color);
             transition: 0.2s;
+            text-decoration: none;
         }
 
         .tag:hover {
             background: var(--secondary-color);
             color: white;
             transform: translateY(-2px);
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .error-message h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .error-message p {
+            color: #666;
+            margin-bottom: 30px;
         }
 
         @media (max-width: 768px) {
@@ -106,13 +139,41 @@
             .post-header h1 {
                 font-size: 2rem;
             }
+            .post-meta {
+                gap: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NO HEADER -->
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/dcm_logo.png" alt="DCM Financing">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="news-updates.html">News & Updates</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -164,22 +225,59 @@
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-content">
-                <h2>Never Miss an Update</h2>
-                <p>Subscribe to receive insights and analysis.</p>
+                <h2 id="newsletter-section-title">Never Miss an Update</h2>
+                <p id="newsletter-section-description">Subscribe to our newsletter for expert commercial lending insights and market analysis for seasoned investors.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required />
-                    <button class="btn-primary">Subscribe Now</button>
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn-primary" id="newsletter-button">Subscribe Now</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Dynamic Footer -->
-    <footer class="site-footer" id="site-footer"></footer>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/dcm_logo.png" alt="DCM Financing">
+                    </div>
+                    <p id="footer-description">Providing innovative commercial financing solutions for seasoned investors and developers.</p>
+                    <div class="social-links" id="social-links">
+                        <!-- Social links will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul id="quick-links">
+                        <!-- Quick links will be dynamically inserted here -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul id="service-links">
+                        <!-- Service links will be dynamically inserted here -->
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="footer-address">123 Financial District, NY 10005</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span id="footer-phone">+1 (212) 555-7890</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="footer-email">info@dcmfinancing.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="copyright">&copy; 2025 DCM Financing. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Script -->
     <script>
@@ -191,59 +289,16 @@
     document.addEventListener('DOMContentLoaded', function () {
         const slug = getSlugFromURL();
 
-        /* Load FOOTER dynamically from home.json */
-        fetch('content/pages/home.json')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('site-footer').innerHTML = `
-                    <div class="container">
-                        <div class="footer-content">
-                            <div class="footer-section">
-                                <div class="footer-logo">
-                                    <img src="assets/dcm_logo.png" alt="DCM Financing">
-                                </div>
-                                <p>${data.footer.description}</p>
-                                <div class="social-links">
-                                    ${data.footer.social_links
-                                        .map(s => `<a href="${s.url}"><i class="${s.icon}"></i></a>`)
-                                        .join("")}
-                                </div>
-                            </div>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
 
-                            <div class="footer-section">
-                                <h3>Quick Links</h3>
-                                <ul>
-                                    ${data.footer.quick_links
-                                        .map(l => `<li><a href="${l.url}">${l.label}</a></li>`)
-                                        .join("")}
-                                </ul>
-                            </div>
-
-                            <div class="footer-section">
-                                <h3>Services</h3>
-                                <ul>
-                                    ${data.footer.service_links
-                                        .map(s => `<li><a href="${s.url}">${s.label}</a></li>`)
-                                        .join("")}
-                                </ul>
-                            </div>
-
-                            <div class="footer-section">
-                                <h3>Contact Us</h3>
-                                <ul class="contact-info">
-                                    <li><i class="fas fa-map-marker-alt"></i> ${data.footer.address}</li>
-                                    <li><i class="fas fa-phone-alt"></i> ${data.footer.phone}</li>
-                                    <li><i class="fas fa-envelope"></i> ${data.footer.email}</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="footer-bottom">
-                            <p>${data.footer.copyright}</p>
-                        </div>
-                    </div>
-                `;
+        if (mobileMenuToggle && mainNav) {
+            mobileMenuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mainNav.classList.toggle('active');
             });
+        }
 
         /* Load Blog Post from blog.json */
         fetch('/content/pages/blog.json')
@@ -261,12 +316,6 @@
                     post = data.blog_posts.find(p => p.slug === slug);
                 }
 
-                // Then check popular posts (which are just recent blog posts)
-                if (!post && data.blog_posts) {
-                    // Popular posts are just the most recent blog posts, so they're already in blog_posts
-                    post = data.blog_posts.find(p => p.slug === slug);
-                }
-
                 if (!post) {
                     document.querySelector('.single-blog-post').innerHTML = `
                         <div class="error-message">
@@ -277,6 +326,7 @@
                     return;
                 }
 
+                // Populate blog post content
                 document.getElementById('post-category').textContent = post.category;
                 document.getElementById('post-title').textContent = post.title;
                 document.getElementById('post-author').textContent = post.author;
@@ -299,7 +349,49 @@
                 document.getElementById('post-tags').innerHTML =
                     post.tags?.map(t => `<span class="tag">${t}</span>`).join('') || "";
 
+                // Update page title
                 document.title = `${post.title} - DCM Financing Blog`;
+
+                // Populate newsletter and footer from blog.json data
+                document.getElementById('newsletter-section-title').textContent = data.newsletter_section.title;
+                document.getElementById('newsletter-section-description').textContent = data.newsletter_section.description;
+                document.getElementById('newsletter-button').textContent = data.newsletter_section.button_text;
+
+                // Populate footer
+                document.getElementById('footer-description').textContent = data.footer.description;
+                document.getElementById('footer-address').textContent = data.footer.address;
+                document.getElementById('footer-phone').textContent = data.footer.phone;
+                document.getElementById('footer-email').textContent = data.footer.email;
+                
+                // Populate social links
+                const socialLinks = document.getElementById('social-links');
+                socialLinks.innerHTML = ''; // Clear existing
+                data.footer.social_links.forEach(link => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = link.url;
+                    linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                    socialLinks.appendChild(linkElement);
+                });
+                
+                // Populate quick links
+                const quickLinks = document.getElementById('quick-links');
+                quickLinks.innerHTML = ''; // Clear existing
+                data.footer.quick_links.forEach(link => {
+                    const linkElement = document.createElement('li');
+                    linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
+                    quickLinks.appendChild(linkElement);
+                });
+                
+                // Populate service links
+                const serviceLinks = document.getElementById('service-links');
+                serviceLinks.innerHTML = ''; // Clear existing
+                data.footer.service_links.forEach(link => {
+                    const linkElement = document.createElement('li');
+                    linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
+                    serviceLinks.appendChild(linkElement);
+                });
+                
+                document.getElementById('copyright').innerHTML = data.footer.copyright;
             })
             .catch(error => {
                 console.error('Error loading blog post:', error);
@@ -311,9 +403,9 @@
                     </div>`;
             });
     });
-</script>
+    </script>
 
-    <!-- Mobile Nav Script (still needed for menu toggle on blog.html link) -->
+    <!-- Mobile Nav Script -->
     <script src="js/script.js"></script>
 </body>
 </html>
