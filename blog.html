@@ -256,176 +256,262 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        // Fetch and display blog content from JSON
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fetch the JSON data
-            fetch('/content/pages/blog.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Populate page header
-                    document.getElementById('page-title').textContent = data.page_header.title;
-                    document.getElementById('page-description').textContent = data.page_header.description;
+   <script>
+    // Fetch and display blog content from JSON
+    document.addEventListener('DOMContentLoaded', function() {
+        let allBlogPosts = [];
+        let currentPage = 1;
+        const postsPerPage = 2;
 
-                    // Populate featured post
-                    const featuredPost = data.featured_post;
-                    document.getElementById('featured-image').src = featuredPost.image;
-                    document.getElementById('featured-image').alt = featuredPost.alt;
-                    document.getElementById('featured-category').textContent = featuredPost.category;
-                    document.getElementById('featured-title').textContent = featuredPost.title;
-                    document.getElementById('featured-meta').innerHTML = `By <strong>${featuredPost.author}</strong> | ${featuredPost.date} | ${featuredPost.reading_time}`;
-                    document.getElementById('featured-excerpt').innerHTML = `<p>${featuredPost.excerpt}</p>`;
-                    
-                    // Set featured post read more link
-                    const featuredReadMore = document.getElementById('featured-read-more');
-                    featuredReadMore.href = `blog/${featuredPost.slug}.html`;
+        // Fetch the JSON data
+        fetch('/content/pages/blog.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Populate page header
+                document.getElementById('page-title').textContent = data.page_header.title;
+                document.getElementById('page-description').textContent = data.page_header.description;
 
-                    // Populate blog posts grid
-                    const blogGrid = document.getElementById('blog-grid');
-                    data.blog_posts.forEach(post => {
-                        const postElement = document.createElement('article');
-                        postElement.className = 'blog-post';
-                        postElement.innerHTML = `
-                            <div class="post-image">
-                                <img src="${post.image}" alt="${post.alt}">
-                            </div>
-                            <div class="post-content">
-                                <span class="post-category">${post.category}</span>
-                                <h3>${post.title}</h3>
-                                <p class="post-meta">By <strong>${post.author}</strong> | ${post.date} | ${post.reading_time}</p>
-                                <div class="post-excerpt">
-                                    <p>${post.excerpt}</p>
-                                </div>
-                                <a href="blog/${post.slug}.html" class="read-more">
-                                    Read More <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        `;
-                        blogGrid.appendChild(postElement);
-                    });
+                // Populate featured post
+                const featuredPost = data.featured_post;
+                document.getElementById('featured-image').src = featuredPost.image;
+                document.getElementById('featured-image').alt = featuredPost.alt;
+                document.getElementById('featured-category').textContent = featuredPost.category;
+                document.getElementById('featured-title').textContent = featuredPost.title;
+                document.getElementById('featured-meta').innerHTML = `By <strong>${featuredPost.author}</strong> | ${featuredPost.date} | ${featuredPost.reading_time}`;
+                document.getElementById('featured-excerpt').innerHTML = `<p>${featuredPost.excerpt}</p>`;
+                
+                // Set featured post read more link
+                const featuredReadMore = document.getElementById('featured-read-more');
+                featuredReadMore.href = `blog/${featuredPost.slug}.html`;
 
-                    // Populate categories
-                    const categoriesList = document.getElementById('categories-list');
-                    data.sidebar.categories.forEach(category => {
-                        const categoryElement = document.createElement('li');
-                        categoryElement.innerHTML = `<a href="#" data-category="${category.slug}">${category.name} <span>${category.count}</span></a>`;
-                        categoriesList.appendChild(categoryElement);
-                    });
+                // Store all blog posts and initialize pagination
+                allBlogPosts = data.blog_posts;
+                initializePagination();
+                displayBlogPosts(currentPage);
 
-                    // Populate popular posts
-                    const popularPosts = document.getElementById('popular-posts');
-                    data.sidebar.popular_posts.forEach(post => {
-                        const postElement = document.createElement('div');
-                        postElement.className = 'popular-post';
-                        postElement.innerHTML = `
-                            <div class="popular-image">
-                                <img src="${post.image}" alt="${post.alt}">
-                            </div>
-                            <div class="popular-content">
-                                <h4><a href="blog/${post.slug}.html">${post.title}</a></h4>
-                                <span class="post-date">${post.date}</span>
-                            </div>
-                        `;
-                        popularPosts.appendChild(postElement);
-                    });
-
-                    // Populate newsletter sidebar
-                    document.getElementById('newsletter-title').textContent = data.sidebar.newsletter.title;
-                    document.getElementById('newsletter-description').textContent = data.sidebar.newsletter.description;
-
-                    // Populate tags
-                    const tagsContainer = document.getElementById('popular-tags');
-                    data.sidebar.popular_tags.forEach(tag => {
-                        const tagElement = document.createElement('a');
-                        tagElement.href = '#';
-                        tagElement.className = 'tag';
-                        tagElement.textContent = tag;
-                        tagElement.dataset.tag = tag.toLowerCase().replace(/\s+/g, '-');
-                        tagsContainer.appendChild(tagElement);
-                    });
-
-                    // Populate newsletter section
-                    document.getElementById('newsletter-section-title').textContent = data.newsletter_section.title;
-                    document.getElementById('newsletter-section-description').textContent = data.newsletter_section.description;
-                    document.getElementById('newsletter-button').textContent = data.newsletter_section.button_text;
-
-                    // Populate footer
-                    document.getElementById('footer-description').textContent = data.footer.description;
-                    document.getElementById('footer-address').textContent = data.footer.address;
-                    document.getElementById('footer-phone').textContent = data.footer.phone;
-                    document.getElementById('footer-email').textContent = data.footer.email;
-                    
-                    // Populate social links
-                    const socialLinks = document.getElementById('social-links');
-                    data.footer.social_links.forEach(link => {
-                        const linkElement = document.createElement('a');
-                        linkElement.href = link.url;
-                        linkElement.innerHTML = `<i class="${link.icon}"></i>`;
-                        socialLinks.appendChild(linkElement);
-                    });
-                    
-                    // Populate quick links
-                    const quickLinks = document.getElementById('quick-links');
-                    data.footer.quick_links.forEach(link => {
-                        const linkElement = document.createElement('li');
-                        linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
-                        quickLinks.appendChild(linkElement);
-                    });
-                    
-                    // Populate service links
-                    const serviceLinks = document.getElementById('service-links');
-                    data.footer.service_links.forEach(link => {
-                        const linkElement = document.createElement('li');
-                        linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
-                        serviceLinks.appendChild(linkElement);
-                    });
-                    
-                    document.getElementById('copyright').innerHTML = data.footer.copyright;
-                })
-                .catch(error => {
-                    console.error('Error fetching blog data:', error);
-                    document.getElementById('page-title').textContent = 'Error Loading Content';
-                    document.getElementById('page-description').textContent = 'Please try again later.';
+                // Populate categories
+                const categoriesList = document.getElementById('categories-list');
+                data.sidebar.categories.forEach(category => {
+                    const categoryElement = document.createElement('li');
+                    categoryElement.innerHTML = `<a href="#" data-category="${category.slug}">${category.name} <span>${category.count}</span></a>`;
+                    categoriesList.appendChild(categoryElement);
                 });
 
-            // Blog search functionality
-            const searchForm = document.querySelector('.search-form');
-            const searchInput = document.getElementById('search-input');
+                // Populate popular posts
+                const popularPosts = document.getElementById('popular-posts');
+                data.sidebar.popular_posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'popular-post';
+                    postElement.innerHTML = `
+                        <div class="popular-image">
+                            <img src="${post.image}" alt="${post.alt}">
+                        </div>
+                        <div class="popular-content">
+                            <h4><a href="blog/${post.slug}.html">${post.title}</a></h4>
+                            <span class="post-date">${post.date}</span>
+                        </div>
+                    `;
+                    popularPosts.appendChild(postElement);
+                });
+
+                // Populate newsletter sidebar
+                document.getElementById('newsletter-title').textContent = data.sidebar.newsletter.title;
+                document.getElementById('newsletter-description').textContent = data.sidebar.newsletter.description;
+
+                // Populate tags
+                const tagsContainer = document.getElementById('popular-tags');
+                data.sidebar.popular_tags.forEach(tag => {
+                    const tagElement = document.createElement('a');
+                    tagElement.href = '#';
+                    tagElement.className = 'tag';
+                    tagElement.textContent = tag;
+                    tagElement.dataset.tag = tag.toLowerCase().replace(/\s+/g, '-');
+                    tagsContainer.appendChild(tagElement);
+                });
+
+                // Populate newsletter section
+                document.getElementById('newsletter-section-title').textContent = data.newsletter_section.title;
+                document.getElementById('newsletter-section-description').textContent = data.newsletter_section.description;
+                document.getElementById('newsletter-button').textContent = data.newsletter_section.button_text;
+
+                // Populate footer
+                document.getElementById('footer-description').textContent = data.footer.description;
+                document.getElementById('footer-address').textContent = data.footer.address;
+                document.getElementById('footer-phone').textContent = data.footer.phone;
+                document.getElementById('footer-email').textContent = data.footer.email;
+                
+                // Populate social links
+                const socialLinks = document.getElementById('social-links');
+                data.footer.social_links.forEach(link => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = link.url;
+                    linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                    socialLinks.appendChild(linkElement);
+                });
+                
+                // Populate quick links
+                const quickLinks = document.getElementById('quick-links');
+                data.footer.quick_links.forEach(link => {
+                    const linkElement = document.createElement('li');
+                    linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
+                    quickLinks.appendChild(linkElement);
+                });
+                
+                // Populate service links
+                const serviceLinks = document.getElementById('service-links');
+                data.footer.service_links.forEach(link => {
+                    const linkElement = document.createElement('li');
+                    linkElement.innerHTML = `<a href="${link.url}">${link.label}</a>`;
+                    serviceLinks.appendChild(linkElement);
+                });
+                
+                document.getElementById('copyright').innerHTML = data.footer.copyright;
+            })
+            .catch(error => {
+                console.error('Error fetching blog data:', error);
+                document.getElementById('page-title').textContent = 'Error Loading Content';
+                document.getElementById('page-description').textContent = 'Please try again later.';
+            });
+
+        // Function to initialize pagination
+        function initializePagination() {
+            const totalPages = Math.ceil(allBlogPosts.length / postsPerPage);
+            const paginationContainer = document.querySelector('.pagination');
             
-            searchForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const searchTerm = searchInput.value.trim();
-                if (searchTerm) {
-                    alert(`Searching for: ${searchTerm}`);
-                    // In production, this would redirect to search results
-                }
-            });
-
-            // Category filtering
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('.categories-list a')) {
+            // Clear existing pagination
+            paginationContainer.innerHTML = '';
+            
+            // Only show pagination if there's more than one page
+            if (totalPages <= 1) {
+                paginationContainer.style.display = 'none';
+                return;
+            }
+            
+            paginationContainer.style.display = 'flex';
+            
+            // Previous button
+            if (currentPage > 1) {
+                const prevBtn = document.createElement('a');
+                prevBtn.href = '#';
+                prevBtn.className = 'page-btn prev';
+                prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i> Prev';
+                prevBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const category = e.target.closest('.categories-list a').dataset.category;
-                    alert(`Filtering by category: ${category}`);
-                    // In production, this would filter blog posts
-                }
-            });
-
-            // Tag filtering
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('tag')) {
+                    goToPage(currentPage - 1);
+                });
+                paginationContainer.appendChild(prevBtn);
+            }
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('a');
+                pageBtn.href = '#';
+                pageBtn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+                pageBtn.textContent = i;
+                pageBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const tagName = e.target.textContent;
-                    alert(`Filtering by tag: ${tagName}`);
-                    // In production, this would filter blog posts
-                }
+                    goToPage(i);
+                });
+                paginationContainer.appendChild(pageBtn);
+            }
+            
+            // Next button
+            if (currentPage < totalPages) {
+                const nextBtn = document.createElement('a');
+                nextBtn.href = '#';
+                nextBtn.className = 'page-btn next';
+                nextBtn.innerHTML = 'Next <i class="fas fa-chevron-right"></i>';
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    goToPage(currentPage + 1);
+                });
+                paginationContainer.appendChild(nextBtn);
+            }
+        }
+
+        // Function to display blog posts for a specific page
+        function displayBlogPosts(page) {
+            const blogGrid = document.getElementById('blog-grid');
+            blogGrid.innerHTML = '';
+            
+            const startIndex = (page - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = allBlogPosts.slice(startIndex, endIndex);
+            
+            postsToShow.forEach(post => {
+                const postElement = document.createElement('article');
+                postElement.className = 'blog-post';
+                postElement.innerHTML = `
+                    <div class="post-image">
+                        <img src="${post.image}" alt="${post.alt}">
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">${post.category}</span>
+                        <h3>${post.title}</h3>
+                        <p class="post-meta">By <strong>${post.author}</strong> | ${post.date} | ${post.reading_time}</p>
+                        <div class="post-excerpt">
+                            <p>${post.excerpt}</p>
+                        </div>
+                        <a href="blog/${post.slug}.html" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                `;
+                blogGrid.appendChild(postElement);
             });
+        }
+
+        // Function to navigate to a specific page
+        function goToPage(page) {
+            currentPage = page;
+            displayBlogPosts(currentPage);
+            initializePagination();
+            
+            // Scroll to blog grid section for better UX
+            document.querySelector('.blog-grid').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Blog search functionality
+        const searchForm = document.querySelector('.search-form');
+        const searchInput = document.getElementById('search-input');
+        
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                alert(`Searching for: ${searchTerm}`);
+                // In production, this would redirect to search results
+            }
         });
-    </script>
+
+        // Category filtering
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.categories-list a')) {
+                e.preventDefault();
+                const category = e.target.closest('.categories-list a').dataset.category;
+                alert(`Filtering by category: ${category}`);
+                // In production, this would filter blog posts
+            }
+        });
+
+        // Tag filtering
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('tag')) {
+                e.preventDefault();
+                const tagName = e.target.textContent;
+                alert(`Filtering by tag: ${tagName}`);
+                // In production, this would filter blog posts
+            }
+        });
+    });
+</script>
 </body>
 </html>
