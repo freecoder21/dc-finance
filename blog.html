@@ -295,9 +295,9 @@
             document.getElementById('featured-meta').innerHTML = `By <strong>${featuredPost.author}</strong> | ${featuredPost.date} | ${featuredPost.reading_time}`;
             document.getElementById('featured-excerpt').innerHTML = `<p>${featuredPost.excerpt}</p>`;
             
-            // Set featured post read more link
+            // ✅ UPDATED: Set featured post read more link to use URL parameters
             const featuredReadMore = document.getElementById('featured-read-more');
-            featuredReadMore.href = `blog/${featuredPost.slug}.html`;
+            featuredReadMore.href = `blog-post.html?slug=${featuredPost.slug}`;
 
             // Store all blog posts and initialize
             allBlogPosts = data.blog_posts;
@@ -333,7 +333,8 @@
                         <img src="${post.image}" alt="${post.alt || post.title}">
                     </div>
                     <div class="popular-content">
-                        <h4><a href="blog/${post.slug}.html">${post.title}</a></h4>
+                        <!-- ✅ UPDATED: Popular posts links to use URL parameters -->
+                        <h4><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h4>
                         <span class="post-date">${post.date}</span>
                     </div>
                 `;
@@ -524,7 +525,8 @@
                     <div class="post-excerpt">
                         <p>${post.excerpt}</p>
                     </div>
-                    <a href="blog/${post.slug}.html" class="read-more">
+                    <!-- ✅ UPDATED: Regular post links to use URL parameters -->
+                    <a href="blog-post.html?slug=${post.slug}" class="read-more">
                         Read More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>

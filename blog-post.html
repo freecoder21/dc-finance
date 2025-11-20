@@ -719,8 +719,17 @@
     </footer>
 
     <!-- Script -->
-    <script>
+   <script>
     function getSlugFromURL() {
+        // First try to get slug from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const slugFromParams = urlParams.get('slug');
+        
+        if (slugFromParams) {
+            return slugFromParams;
+        }
+        
+        // If no URL parameter, try to get from filename (backward compatibility)
         const filename = window.location.pathname.split('/').pop();
         return filename.replace('.html', '');
     }
@@ -842,6 +851,6 @@
                     </div>`;
             });
     });
-    </script>
+</script>
 </body>
 </html>
