@@ -311,7 +311,7 @@
         // Fetch and display blog content from JSON
         document.addEventListener('DOMContentLoaded', function() {
             // Fetch the JSON data
-            fetch('blog.json')
+             fetch('/content/pages/blog.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
