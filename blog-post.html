@@ -79,31 +79,96 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <!-- Your existing footer code -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/dcm_logo.png" alt="DCM Financing">
+                    </div>
+                    <p>Providing innovative commercial financing solutions for seasoned investors and developers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="news-updates.html">Recent Loans</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Commercial Real Estate Acquisition</a></li>
+                        <li><a href="#services">Ground-Up Development</a></li>
+                        <li><a href="#services">Conversions</a></li>
+                        <li><a href="#services">Hotel Financing</a></li>
+                        <li><a href="#services">Nursing Home Facilities</a></li>
+                        <li><a href="#services">South America Hotel Financing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, NY 10005</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (212) 555-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@dcmfinancing.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DCM Financing. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
         // Get the slug from the URL
         function getSlugFromURL() {
             const path = window.location.pathname;
-            const slug = path.split('/').pop().replace('.html', '');
+            const filename = path.split('/').pop();
+            const slug = filename.replace('.html', '');
             return slug;
         }
 
         // Load blog post content
         document.addEventListener('DOMContentLoaded', function() {
             const slug = getSlugFromURL();
+            console.log('Looking for blog post with slug:', slug);
             
             fetch('/content/pages/blog.json')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    // Find the post with matching slug
-                    let post = data.featured_post;
-                    let allPosts = [data.featured_post, ...data.blog_posts];
+                    console.log('Blog data loaded:', data);
                     
-                    const foundPost = allPosts.find(p => p.slug === slug);
+                    // Find the post with matching slug
+                    let foundPost = null;
+                    
+                    // Check featured post
+                    if (data.featured_post && data.featured_post.slug === slug) {
+                        foundPost = data.featured_post;
+                    }
+                    
+                    // Check blog posts
+                    if (!foundPost && data.blog_posts) {
+                        foundPost = data.blog_posts.find(post => post.slug === slug);
+                    }
                     
                     if (foundPost) {
+                        console.log('Found post:', foundPost);
+                        
                         // Populate the blog post page
                         document.getElementById('post-category').textContent = foundPost.category;
                         document.getElementById('post-title').textContent = foundPost.title;
@@ -113,17 +178,20 @@
                         document.getElementById('post-featured-image').src = foundPost.image;
                         document.getElementById('post-featured-image').alt = foundPost.alt;
                         
-                        // For now, we'll just show the excerpt as full content
-                        // In a real implementation, you'd have a separate full_content field
+                        // For now, we'll show the excerpt as full content
+                        // In the future, you can add a 'content' field to your blog.json
                         document.getElementById('post-full-content').innerHTML = `
                             <p>${foundPost.excerpt}</p>
-                            <p>This is additional content that would appear when reading the full article. In a real implementation, your client would add this full content in the CMS.</p>
-                            <p>More detailed analysis and insights would go here...</p>
+                            <h3>Additional Content</h3>
+                            <p>This is where the full article content would appear. In a complete implementation, you would add a 'content' field to your blog posts in the CMS that contains the full article text.</p>
+                            <p>For now, we're displaying the excerpt along with this placeholder text to demonstrate how the individual blog post pages work.</p>
+                            <p>When you implement the full content management system, each blog post will have its own complete article content here.</p>
                         `;
                         
                         // Update page title
                         document.title = `${foundPost.title} - DCM Financing Blog`;
                     } else {
+                        console.log('Post not found for slug:', slug);
                         document.querySelector('.single-blog-post').innerHTML = `
                             <div class="error-message">
                                 <h2>Post Not Found</h2>
