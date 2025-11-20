@@ -112,8 +112,7 @@
 
 <body>
 
-    <!-- Dynamic Header (Populated by JS) -->
-    <header class="site-header"></header>
+    <!-- NO HEADER -->
 
     <!-- Page Header -->
     <section class="page-header">
@@ -182,7 +181,7 @@
     <!-- Dynamic Footer -->
     <footer class="site-footer" id="site-footer"></footer>
 
-    <!-- Blog Loader Script -->
+    <!-- Script -->
     <script>
         function getSlugFromURL() {
             const filename = window.location.pathname.split('/').pop();
@@ -192,11 +191,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const slug = getSlugFromURL();
 
-            // Load Header + Footer from home.json
+            /* Load FOOTER dynamically from home.json */
             fetch('content/pages/home.json')
                 .then(res => res.json())
                 .then(data => {
-                    // FOOTER dynamic
                     document.getElementById('site-footer').innerHTML = `
                         <div class="container">
                             <div class="footer-content">
@@ -206,21 +204,27 @@
                                     </div>
                                     <p>${data.footer.description}</p>
                                     <div class="social-links">
-                                        ${data.footer.social_links.map(s => `<a href="${s.url}"><i class="${s.icon}"></i></a>`).join('')}
+                                        ${data.footer.social_links
+                                            .map(s => `<a href="${s.url}"><i class="${s.icon}"></i></a>`)
+                                            .join("")}
                                     </div>
                                 </div>
 
                                 <div class="footer-section">
                                     <h3>Quick Links</h3>
                                     <ul>
-                                        ${data.footer.quick_links.map(l => `<li><a href="${l.url}">${l.label}</a></li>`).join('')}
+                                        ${data.footer.quick_links
+                                            .map(l => `<li><a href="${l.url}">${l.label}</a></li>`)
+                                            .join("")}
                                     </ul>
                                 </div>
 
                                 <div class="footer-section">
                                     <h3>Services</h3>
                                     <ul>
-                                        ${data.footer.service_links.map(s => `<li><a href="${s.url}">${s.label}</a></li>`).join('')}
+                                        ${data.footer.service_links
+                                            .map(s => `<li><a href="${s.url}">${s.label}</a></li>`)
+                                            .join("")}
                                     </ul>
                                 </div>
 
@@ -241,7 +245,7 @@
                     `;
                 });
 
-            // Load Blog JSON
+            /* Load Blog Post */
             fetch('/content/pages/blog.json')
                 .then(res => res.json())
                 .then(data => {
@@ -256,8 +260,7 @@
                                 <h2>Post Not Found</h2>
                                 <p>This blog post does not exist.</p>
                                 <a href="blog.html" class="btn-primary">Return to Blog</a>
-                            </div>
-                        `;
+                            </div>`;
                         return;
                     }
 
@@ -268,22 +271,21 @@
                     document.getElementById('post-reading-time').textContent = post.reading_time;
                     document.getElementById('post-featured-image').src = post.image;
 
-                    // Replace with real content later
                     document.getElementById('post-full-content').innerHTML = `
                         <p>${post.excerpt}</p>
                         <h3>Full Article Coming Soon</h3>
-                        <p>This dynamic system currently displays excerpts. When you add a "content" field in CMS, the full article will appear here.</p>
+                        <p>The complete content will appear once added in CMS.</p>
                     `;
 
                     document.getElementById('post-tags').innerHTML =
-                        post.tags?.map(t => `<span class="tag">${t}</span>`).join('') || '';
+                        post.tags?.map(t => `<span class="tag">${t}</span>`).join('') || "";
 
                     document.title = `${post.title} - DCM Financing Blog`;
                 });
         });
     </script>
 
-    <!-- Global Mobile Nav Script -->
+    <!-- Mobile Nav Script (still needed for menu toggle on blog.html link) -->
     <script src="js/script.js"></script>
 </body>
 </html>
