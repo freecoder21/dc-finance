@@ -448,3 +448,16 @@
     padding: 25px;
   }
 }
+@media (max-width: 768px) {
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding-top: 20px; /* optional but recommended */
+  }
+
+  .main-nav ul {
+    margin-top: 0 !important;
+  }
+}
