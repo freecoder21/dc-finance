@@ -302,9 +302,14 @@
                     categoriesList.appendChild(categoryElement);
                 });
 
-                // Populate popular posts
+                // Populate popular posts with actual blog posts (most recent first)
                 const popularPosts = document.getElementById('popular-posts');
-                data.sidebar.popular_posts.forEach(post => {
+                // Get the 3 most recent blog posts for popular posts
+                const recentPosts = [...allBlogPosts]
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .slice(0, 3);
+                
+                recentPosts.forEach(post => {
                     const postElement = document.createElement('div');
                     postElement.className = 'popular-post';
                     postElement.innerHTML = `
@@ -323,9 +328,19 @@
                 document.getElementById('newsletter-title').textContent = data.sidebar.newsletter.title;
                 document.getElementById('newsletter-description').textContent = data.sidebar.newsletter.description;
 
-                // Populate tags
+                // Populate tags with actual tags from blog posts
                 const tagsContainer = document.getElementById('popular-tags');
-                data.sidebar.popular_tags.forEach(tag => {
+                // Extract unique tags from all blog posts
+                const allTags = new Set();
+                allBlogPosts.forEach(post => {
+                    if (post.tags && Array.isArray(post.tags)) {
+                        post.tags.forEach(tag => allTags.add(tag));
+                    }
+                });
+                
+                // Convert Set to array and take first 8 tags
+                const uniqueTags = Array.from(allTags).slice(0, 8);
+                uniqueTags.forEach(tag => {
                     const tagElement = document.createElement('a');
                     tagElement.href = '#';
                     tagElement.className = 'tag';
