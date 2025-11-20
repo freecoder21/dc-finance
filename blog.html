@@ -644,13 +644,7 @@
         }
     });
 });
-document.querySelectorAll('a[href*="blog-post.html"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Stop the event from bubbling up to the smooth scrolling handler
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-    }, true);
-});
+
  </script>
 </body>
 </html>
