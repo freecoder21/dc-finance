@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Post - DCM Financing</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Additional Blog Post Styles */
+        /* Blog Post Layout */
         .blog-post-page {
             padding: 150px 0 80px;
             background-color: var(--white);
         }
 
         .single-blog-post {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -25,109 +30,52 @@
             margin-bottom: 40px;
         }
 
-        .post-header .post-category {
+        .post-category {
             background-color: var(--secondary-color);
-            color: var(--white);
+            color: white;
             padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
             display: inline-block;
+            margin-bottom: 20px;
         }
 
         .post-header h1 {
-            color: var(--primary-color) !important;
-            font-size: 2.5rem;
-            line-height: 1.3;
-            margin-bottom: 20px;
+            font-size: 2.6rem;
+            color: var(--primary-color);
         }
 
         .post-meta {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             color: #666;
             font-size: 0.95rem;
         }
 
-        .author-info, .post-details {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .featured-image {
-            margin-bottom: 40px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
         .featured-image img {
             width: 100%;
-            height: auto;
-            display: block;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
         }
 
         .post-content {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #333;
-            margin-bottom: 40px;
+            color: #444;
         }
 
-        .post-content h2, 
-        .post-content h3, 
-        .post-content h4 {
+        .post-content h2,
+        .post-content h3 {
             color: var(--primary-color);
             margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        .post-content h2 {
-            font-size: 1.8rem;
-        }
-
-        .post-content h3 {
-            font-size: 1.5rem;
-        }
-
-        .post-content p {
-            margin-bottom: 20px;
-            color: #555 !important;
-        }
-
-        .post-content ul, .post-content ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-
-        .post-content li {
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        .post-content blockquote {
-            border-left: 4px solid var(--secondary-color);
-            padding-left: 20px;
-            margin: 30px 0;
-            font-style: italic;
-            color: #666;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
         }
 
         .post-tags {
-            margin-bottom: 40px;
-            padding-top: 30px;
+            margin-top: 40px;
             border-top: 1px solid var(--border-color);
-        }
-
-        .post-tags h4 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
+            padding-top: 25px;
         }
 
         .tags {
@@ -137,314 +85,205 @@
         }
 
         .tag {
-            background-color: var(--light-bg);
-            color: var(--primary-color) !important;
-            padding: 6px 12px;
+            background: var(--light-bg);
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            transition: var(--transition);
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            transition: 0.2s;
         }
 
         .tag:hover {
-            background-color: var(--secondary-color);
-            color: var(--white) !important;
+            background: var(--secondary-color);
+            color: white;
             transform: translateY(-2px);
         }
 
-        .post-navigation {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .error-message {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .error-message h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .error-message p {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .blog-post-page {
                 padding: 120px 0 60px;
             }
-
             .post-header h1 {
                 font-size: 2rem;
-            }
-
-            .post-meta {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .post-content {
-                font-size: 1rem;
-            }
-
-            .post-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .post-content h3 {
-                font-size: 1.3rem;
             }
         }
     </style>
 </head>
-<body>
-    <!-- Header - Consistent with index.html -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-inner">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/dcm_logo.png" alt="DCM Financing">
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="news-updates.html">News & Updates</a></li>
-                        <li><a href="blog.html" class="active">Blog</a></li>
-                        <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
-                    </ul>
-                </nav>
-                <div class="mobile-menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <!-- Page Header - Consistent styling with other pages -->
+<body>
+
+    <!-- Dynamic Header (Populated by JS) -->
+    <header class="site-header"></header>
+
+    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1 id="page-title">Blog Post</h1>
-            <p id="page-description">Expert insights for seasoned investors</p>
+            <p id="page-description">Commercial Real Estate Insights</p>
         </div>
     </section>
 
-    <!-- Blog Post Content -->
+    <!-- Blog Content -->
     <section class="blog-post-page">
         <div class="container">
             <div class="single-blog-post">
+
+                <!-- Header -->
                 <div class="post-header">
                     <span class="post-category" id="post-category"></span>
                     <h1 id="post-title"></h1>
+
                     <div class="post-meta">
-                        <div class="author-info">
-                            <span>By <strong id="post-author"></strong></span>
-                        </div>
-                        <div class="post-details">
-                            <span id="post-date"></span>
-                            <span id="post-reading-time"></span>
-                        </div>
+                        <div>By <strong id="post-author"></strong></div>
+                        <div id="post-date"></div>
+                        <div id="post-reading-time"></div>
                     </div>
                 </div>
-                
+
+                <!-- Featured Image -->
                 <div class="featured-image">
                     <img id="post-featured-image" src="" alt="">
                 </div>
-                
-                <div class="post-content" id="post-full-content">
-                    <!-- Full content will be loaded here -->
-                </div>
-                
+
+                <!-- Content -->
+                <div class="post-content" id="post-full-content"></div>
+
+                <!-- Tags -->
                 <div class="post-tags">
                     <h4>Tags</h4>
-                    <div class="tags" id="post-tags">
-                        <!-- Tags will be populated by JavaScript -->
-                    </div>
+                    <div class="tags" id="post-tags"></div>
                 </div>
-                
-                <div class="post-navigation">
+
+                <!-- Back Button -->
+                <div class="post-navigation" style="text-align: center; margin-top:40px;">
                     <a href="blog.html" class="btn-secondary">
                         <i class="fas fa-arrow-left"></i> Back to Blog
                     </a>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Section - Consistent with index.html -->
+    <!-- Newsletter -->
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-content">
                 <h2>Never Miss an Update</h2>
-                <p>Subscribe to our newsletter for expert commercial lending insights and market analysis for seasoned investors.</p>
+                <p>Subscribe to receive insights and analysis.</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn-primary">Subscribe Now</button>
+                    <input type="email" placeholder="Your email address" required />
+                    <button class="btn-primary">Subscribe Now</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer - Consistent structure and classes with index.html -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="assets/dcm_logo.png" alt="DCM Financing">
-                    </div>
-                    <p>Providing innovative commercial financing solutions for seasoned investors and developers.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="news-updates.html">Recent Loans</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#services">Commercial Real Estate Acquisition</a></li>
-                        <li><a href="#services">Ground-Up Development</a></li>
-                        <li><a href="#services">Conversions</a></li>
-                        <li><a href="#services">Hotel Financing</a></li>
-                        <li><a href="#services">Nursing Home Facilities</a></li>
-                        <li><a href="#services">South America Hotel Financing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, NY 10005</li>
-                        <li><i class="fas fa-phone-alt"></i> +1 (212) 555-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@dcmfinancing.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 DCM Financing. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Dynamic Footer -->
+    <footer class="site-footer" id="site-footer"></footer>
 
+    <!-- Blog Loader Script -->
     <script>
-        // Get the slug from the URL
         function getSlugFromURL() {
-            const path = window.location.pathname;
-            const filename = path.split('/').pop();
-            const slug = filename.replace('.html', '');
-            return slug;
+            const filename = window.location.pathname.split('/').pop();
+            return filename.replace('.html', '');
         }
 
-        // Load blog post content
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const slug = getSlugFromURL();
-            console.log('Looking for blog post with slug:', slug);
-            
-            fetch('/content/pages/blog.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
+
+            // Load Header + Footer from home.json
+            fetch('content/pages/home.json')
+                .then(res => res.json())
                 .then(data => {
-                    console.log('Blog data loaded:', data);
-                    
-                    // Find the post with matching slug
-                    let foundPost = null;
-                    
-                    // Check featured post
-                    if (data.featured_post && data.featured_post.slug === slug) {
-                        foundPost = data.featured_post;
-                    }
-                    
-                    // Check blog posts
-                    if (!foundPost && data.blog_posts) {
-                        foundPost = data.blog_posts.find(post => post.slug === slug);
-                    }
-                    
-                    if (foundPost) {
-                        console.log('Found post:', foundPost);
-                        
-                        // Populate the blog post page
-                        document.getElementById('post-category').textContent = foundPost.category;
-                        document.getElementById('post-title').textContent = foundPost.title;
-                        document.getElementById('post-author').textContent = foundPost.author;
-                        document.getElementById('post-date').textContent = foundPost.date;
-                        document.getElementById('post-reading-time').textContent = foundPost.reading_time;
-                        document.getElementById('post-featured-image').src = foundPost.image;
-                        document.getElementById('post-featured-image').alt = foundPost.alt;
-                        
-                        // Update page header
-                        document.getElementById('page-title').textContent = foundPost.title;
-                        document.getElementById('page-description').textContent = foundPost.category;
-                        
-                        // For now, we'll show the excerpt as full content
-                        document.getElementById('post-full-content').innerHTML = `
-                            <p>${foundPost.excerpt}</p>
-                            <h3>Additional Content</h3>
-                            <p>This is where the full article content would appear. In a complete implementation, you would add a 'content' field to your blog posts in the CMS that contains the full article text.</p>
-                            <p>For now, we're displaying the excerpt along with this placeholder text to demonstrate how the individual blog post pages work.</p>
-                            <p>When you implement the full content management system, each blog post will have its own complete article content here.</p>
-                            <blockquote>
-                                "This is an example blockquote that would contain important insights or quotes from the article."
-                            </blockquote>
-                            <p>Additional paragraphs of content would continue here with detailed analysis, case studies, and expert insights relevant to the topic.</p>
-                        `;
-                        
-                        // Populate tags
-                        if (foundPost.tags && foundPost.tags.length > 0) {
-                            const tagsContainer = document.getElementById('post-tags');
-                            tagsContainer.innerHTML = foundPost.tags.map(tag => 
-                                `<a href="#" class="tag">${tag}</a>`
-                            ).join('');
-                        }
-                        
-                        // Update page title
-                        document.title = `${foundPost.title} - DCM Financing Blog`;
-                    } else {
-                        console.log('Post not found for slug:', slug);
-                        document.querySelector('.single-blog-post').innerHTML = `
-                            <div class="error-message">
-                                <h2>Post Not Found</h2>
-                                <p>The blog post you're looking for doesn't exist.</p>
-                                <a href="blog.html" class="btn-primary">Back to Blog</a>
+                    // FOOTER dynamic
+                    document.getElementById('site-footer').innerHTML = `
+                        <div class="container">
+                            <div class="footer-content">
+                                <div class="footer-section">
+                                    <div class="footer-logo">
+                                        <img src="assets/dcm_logo.png" alt="DCM Financing">
+                                    </div>
+                                    <p>${data.footer.description}</p>
+                                    <div class="social-links">
+                                        ${data.footer.social_links.map(s => `<a href="${s.url}"><i class="${s.icon}"></i></a>`).join('')}
+                                    </div>
+                                </div>
+
+                                <div class="footer-section">
+                                    <h3>Quick Links</h3>
+                                    <ul>
+                                        ${data.footer.quick_links.map(l => `<li><a href="${l.url}">${l.label}</a></li>`).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="footer-section">
+                                    <h3>Services</h3>
+                                    <ul>
+                                        ${data.footer.service_links.map(s => `<li><a href="${s.url}">${s.label}</a></li>`).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="footer-section">
+                                    <h3>Contact Us</h3>
+                                    <ul class="contact-info">
+                                        <li><i class="fas fa-map-marker-alt"></i> ${data.footer.address}</li>
+                                        <li><i class="fas fa-phone-alt"></i> ${data.footer.phone}</li>
+                                        <li><i class="fas fa-envelope"></i> ${data.footer.email}</li>
+                                    </ul>
+                                </div>
                             </div>
-                        `;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading blog post:', error);
-                    document.querySelector('.single-blog-post').innerHTML = `
-                        <div class="error-message">
-                            <h2>Error Loading Post</h2>
-                            <p>There was an error loading the blog post. Please try again later.</p>
-                            <a href="blog.html" class="btn-primary">Back to Blog</a>
+
+                            <div class="footer-bottom">
+                                <p>${data.footer.copyright}</p>
+                            </div>
                         </div>
                     `;
                 });
+
+            // Load Blog JSON
+            fetch('/content/pages/blog.json')
+                .then(res => res.json())
+                .then(data => {
+                    let post =
+                        data.featured_post?.slug === slug
+                            ? data.featured_post
+                            : data.blog_posts.find(p => p.slug === slug);
+
+                    if (!post) {
+                        document.querySelector('.single-blog-post').innerHTML = `
+                            <div class="error-message">
+                                <h2>Post Not Found</h2>
+                                <p>This blog post does not exist.</p>
+                                <a href="blog.html" class="btn-primary">Return to Blog</a>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    document.getElementById('post-category').textContent = post.category;
+                    document.getElementById('post-title').textContent = post.title;
+                    document.getElementById('post-author').textContent = post.author;
+                    document.getElementById('post-date').textContent = post.date;
+                    document.getElementById('post-reading-time').textContent = post.reading_time;
+                    document.getElementById('post-featured-image').src = post.image;
+
+                    // Replace with real content later
+                    document.getElementById('post-full-content').innerHTML = `
+                        <p>${post.excerpt}</p>
+                        <h3>Full Article Coming Soon</h3>
+                        <p>This dynamic system currently displays excerpts. When you add a "content" field in CMS, the full article will appear here.</p>
+                    `;
+
+                    document.getElementById('post-tags').innerHTML =
+                        post.tags?.map(t => `<span class="tag">${t}</span>`).join('') || '';
+
+                    document.title = `${post.title} - DCM Financing Blog`;
+                });
         });
     </script>
+
+    <!-- Global Mobile Nav Script -->
     <script src="js/script.js"></script>
 </body>
 </html>
