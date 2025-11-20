@@ -2204,3 +2204,25 @@ html, body {
 .newsletter-content p {
     color: rgba(255, 255, 255, 0.9) !important;
 }
+@media (max-width: 768px) {
+  .main-nav.active {
+    left: 0;
+    display: block !important;
+  }
+  
+  .main-nav.active ul {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .main-nav.active li {
+    display: block !important;
+  }
+  
+  .main-nav.active a {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
