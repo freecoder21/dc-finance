@@ -183,107 +183,112 @@
 
     <!-- Script -->
     <script>
-        function getSlugFromURL() {
-            const filename = window.location.pathname.split('/').pop();
-            return filename.replace('.html', '');
-        }
+    function getSlugFromURL() {
+        const filename = window.location.pathname.split('/').pop();
+        return filename.replace('.html', '');
+    }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const slug = getSlugFromURL();
+    document.addEventListener('DOMContentLoaded', function () {
+        const slug = getSlugFromURL();
 
-            /* Load FOOTER dynamically from home.json */
-            fetch('content/pages/home.json')
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('site-footer').innerHTML = `
-                        <div class="container">
-                            <div class="footer-content">
-                                <div class="footer-section">
-                                    <div class="footer-logo">
-                                        <img src="assets/dcm_logo.png" alt="DCM Financing">
-                                    </div>
-                                    <p>${data.footer.description}</p>
-                                    <div class="social-links">
-                                        ${data.footer.social_links
-                                            .map(s => `<a href="${s.url}"><i class="${s.icon}"></i></a>`)
-                                            .join("")}
-                                    </div>
+        /* Load FOOTER dynamically from home.json */
+        fetch('content/pages/home.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('site-footer').innerHTML = `
+                    <div class="container">
+                        <div class="footer-content">
+                            <div class="footer-section">
+                                <div class="footer-logo">
+                                    <img src="assets/dcm_logo.png" alt="DCM Financing">
                                 </div>
-
-                                <div class="footer-section">
-                                    <h3>Quick Links</h3>
-                                    <ul>
-                                        ${data.footer.quick_links
-                                            .map(l => `<li><a href="${l.url}">${l.label}</a></li>`)
-                                            .join("")}
-                                    </ul>
-                                </div>
-
-                                <div class="footer-section">
-                                    <h3>Services</h3>
-                                    <ul>
-                                        ${data.footer.service_links
-                                            .map(s => `<li><a href="${s.url}">${s.label}</a></li>`)
-                                            .join("")}
-                                    </ul>
-                                </div>
-
-                                <div class="footer-section">
-                                    <h3>Contact Us</h3>
-                                    <ul class="contact-info">
-                                        <li><i class="fas fa-map-marker-alt"></i> ${data.footer.address}</li>
-                                        <li><i class="fas fa-phone-alt"></i> ${data.footer.phone}</li>
-                                        <li><i class="fas fa-envelope"></i> ${data.footer.email}</li>
-                                    </ul>
+                                <p>${data.footer.description}</p>
+                                <div class="social-links">
+                                    ${data.footer.social_links
+                                        .map(s => `<a href="${s.url}"><i class="${s.icon}"></i></a>`)
+                                        .join("")}
                                 </div>
                             </div>
 
-                            <div class="footer-bottom">
-                                <p>${data.footer.copyright}</p>
+                            <div class="footer-section">
+                                <h3>Quick Links</h3>
+                                <ul>
+                                    ${data.footer.quick_links
+                                        .map(l => `<li><a href="${l.url}">${l.label}</a></li>`)
+                                        .join("")}
+                                </ul>
+                            </div>
+
+                            <div class="footer-section">
+                                <h3>Services</h3>
+                                <ul>
+                                    ${data.footer.service_links
+                                        .map(s => `<li><a href="${s.url}">${s.label}</a></li>`)
+                                        .join("")}
+                                </ul>
+                            </div>
+
+                            <div class="footer-section">
+                                <h3>Contact Us</h3>
+                                <ul class="contact-info">
+                                    <li><i class="fas fa-map-marker-alt"></i> ${data.footer.address}</li>
+                                    <li><i class="fas fa-phone-alt"></i> ${data.footer.phone}</li>
+                                    <li><i class="fas fa-envelope"></i> ${data.footer.email}</li>
+                                </ul>
                             </div>
                         </div>
-                    `;
-                });
 
-            /* Load Blog Post */
-            fetch('/content/pages/blog.json')
-                .then(res => res.json())
-                .then(data => {
-                    let post =
-                        data.featured_post?.slug === slug
-                            ? data.featured_post
-                            : data.blog_posts.find(p => p.slug === slug);
+                        <div class="footer-bottom">
+                            <p>${data.footer.copyright}</p>
+                        </div>
+                    </div>
+                `;
+            });
 
-                    if (!post) {
-                        document.querySelector('.single-blog-post').innerHTML = `
-                            <div class="error-message">
-                                <h2>Post Not Found</h2>
-                                <p>This blog post does not exist.</p>
-                                <a href="blog.html" class="btn-primary">Return to Blog</a>
-                            </div>`;
-                        return;
-                    }
+        /* Load Blog Post from blog.json */
+        fetch('/content/pages/blog.json')
+            .then(res => res.json())
+            .then(data => {
+                let post =
+                    data.featured_post?.slug === slug
+                        ? data.featured_post
+                        : data.blog_posts.find(p => p.slug === slug);
 
-                    document.getElementById('post-category').textContent = post.category;
-                    document.getElementById('post-title').textContent = post.title;
-                    document.getElementById('post-author').textContent = post.author;
-                    document.getElementById('post-date').textContent = post.date;
-                    document.getElementById('post-reading-time').textContent = post.reading_time;
-                    document.getElementById('post-featured-image').src = post.image;
+                if (!post) {
+                    document.querySelector('.single-blog-post').innerHTML = `
+                        <div class="error-message">
+                            <h2>Post Not Found</h2>
+                            <p>This blog post does not exist.</p>
+                            <a href="blog.html" class="btn-primary">Return to Blog</a>
+                        </div>`;
+                    return;
+                }
 
+                document.getElementById('post-category').textContent = post.category;
+                document.getElementById('post-title').textContent = post.title;
+                document.getElementById('post-author').textContent = post.author;
+                document.getElementById('post-date').textContent = post.date;
+                document.getElementById('post-reading-time').textContent = post.reading_time;
+                document.getElementById('post-featured-image').src = post.image;
+
+                // Check if full content exists, otherwise show placeholder
+                if (post.body && post.body.trim() !== '') {
+                    document.getElementById('post-full-content').innerHTML = post.body;
+                } else {
                     document.getElementById('post-full-content').innerHTML = `
                         <p>${post.excerpt}</p>
                         <h3>Full Article Coming Soon</h3>
                         <p>The complete content will appear once added in CMS.</p>
                     `;
+                }
 
-                    document.getElementById('post-tags').innerHTML =
-                        post.tags?.map(t => `<span class="tag">${t}</span>`).join('') || "";
+                document.getElementById('post-tags').innerHTML =
+                    post.tags?.map(t => `<span class="tag">${t}</span>`).join('') || "";
 
-                    document.title = `${post.title} - DCM Financing Blog`;
-                });
-        });
-    </script>
+                document.title = `${post.title} - DCM Financing Blog`;
+            });
+    });
+</script>
 
     <!-- Mobile Nav Script (still needed for menu toggle on blog.html link) -->
     <script src="js/script.js"></script>
