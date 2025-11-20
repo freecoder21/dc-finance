@@ -1,60 +1,99 @@
 {
   "page_header": {
-    "title": "DCM Financing Blog", 
+    "title": "DCM Financing Blog",
     "description": "Expert insights for seasoned investors on commercial real estate acquisition, development, and specialized property financing"
   },
   "featured_post": {
-    "slug": "strategic-approaches-commercial-real-estate",
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-    "alt": "Commercial Real Estate Acquisition",
-    "category": "Commercial Acquisition",
-    "title": "Strategic Approaches to Commercial Real Estate Acquisition for Seasoned Investors",
-    "author": "Michael Rodriguez", 
-    "date": "March 18, 2025",
     "reading_time": "8 min read",
-    "excerpt": "Explore advanced strategies for successful commercial real estate acquisitions, including sophisticated due diligence practices, market timing for maximum ROI, and creative financing structures for office, retail, and mixed-use properties designed for experienced investors."
+    "excerpt": "Explore advanced strategies for successful commercial real estate acquisitions, including sophisticated due diligence practices, market timing for maximum ROI, and creative financing structures for office, retail, and mixed-use properties designed for experienced investors.",
+    "alt": "Commercial Real Estate Acquisition",
+    "author": "Michael Rodriguez",
+    "slug": "strategic-approaches-commercial-real-estate",
+    "date": "March 18, 2025",
+    "title": "Strategic Approaches to Commercial Real Estate Acquisition for Seasoned Investors",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    "category": "Commercial Acquisition"
   },
   "blog_posts": [
     {
-      "slug": "navigating-ground-up-development-financing",
-      "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
-      "alt": "Ground-Up Development", 
-      "category": "Ground-Up Development",
-      "title": "Navigating Complex Ground-Up Development Financing: From Land Acquisition to Completion",
-      "author": "Sarah Chen",
-      "date": "March 12, 2025", 
       "reading_time": "6 min read",
-      "excerpt": "Comprehensive guide to sophisticated ground-up development financing strategies, covering land acquisition loans, construction financing optimization, take-out loan structures, and managing the complete development lifecycle for complex projects."
+      "excerpt": "Comprehensive guide to sophisticated ground-up development financing strategies, covering land acquisition loans, construction financing optimization, take-out loan structures, and managing the complete development lifecycle for complex projects.",
+      "alt": "Ground-Up Development",
+      "author": "Sarah Chen",
+      "slug": "navigating-ground-up-development-financing",
+      "date": "March 12, 2025",
+      "title": "Navigating Complex Ground-Up Development Financing: From Land Acquisition to Completion",
+      "image": "https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80",
+      "category": "Ground-Up Development"
     },
     {
-      "slug": "adaptive-reuse-office-residential-conversions",
-      "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
+      "reading_time": "10 min read",
+      "excerpt": "Exploring the sophisticated financing strategies for converting underutilized office spaces into residential units, including navigating complex zoning challenges, creative capital stacking, and successful conversion case studies for experienced developers.",
       "alt": "Property Conversions",
-      "category": "Property Conversions", 
-      "title": "The Strategic Advantage of Adaptive Reuse: Financing Complex Office-to-Residential Conversions",
       "author": "David Thompson",
+      "slug": "adaptive-reuse-office-residential-conversions",
       "date": "March 8, 2025",
-      "reading_time": "10 min read", 
-      "excerpt": "Exploring the sophisticated financing strategies for converting underutilized office spaces into residential units, including navigating complex zoning challenges, creative capital stacking, and successful conversion case studies for experienced developers."
+      "title": "The Strategic Advantage of Adaptive Reuse: Financing Complex Office-to-Residential Conversions",
+      "image": "https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg",
+      "category": "Property Conversions"
+    },
+    {
+      "reading_time": "5",
+      "excerpt": "loroafonaodfajkdsflasdfjkasbdjfkbasjdbfjsbdjfbsjdfbjsbdjfbsf",
+      "alt": "jew",
+      "author": "yann",
+      "slug": "blog-test",
+      "date": "March 13, 2025",
+      "title": "my blog",
+      "image": "/assets/uploads/1747620824123.jpeg",
+      "category": "test"
     }
   ],
   "sidebar": {
     "search_placeholder": "Search articles...",
     "categories": [
-      { "name": "Commercial Acquisition", "count": 8, "slug": "commercial-acquisition" },
-      { "name": "Ground-Up Development", "count": 6, "slug": "ground-up-development" }, 
-      { "name": "Property Conversions", "count": 5, "slug": "property-conversions" },
-      { "name": "Hotel Financing", "count": 7, "slug": "hotel-financing" },
-      { "name": "Healthcare Financing", "count": 4, "slug": "healthcare-financing" },
-      { "name": "International Financing", "count": 3, "slug": "international-financing" },
-      { "name": "Market Analysis", "count": 9, "slug": "market-analysis" }
+      {
+        "name": "Commercial Acquisition",
+        "count": 8,
+        "slug": "commercial-acquisition"
+      },
+      {
+        "name": "Ground-Up Development",
+        "count": 6,
+        "slug": "ground-up-development"
+      },
+      {
+        "name": "Property Conversions",
+        "count": 5,
+        "slug": "property-conversions"
+      },
+      {
+        "name": "Hotel Financing",
+        "count": 7,
+        "slug": "hotel-financing"
+      },
+      {
+        "name": "Healthcare Financing",
+        "count": 4,
+        "slug": "healthcare-financing"
+      },
+      {
+        "name": "International Financing",
+        "count": 3,
+        "slug": "international-financing"
+      },
+      {
+        "name": "Market Analysis",
+        "count": 9,
+        "slug": "market-analysis"
+      }
     ],
     "popular_posts": [
       {
         "slug": "advanced-due-diligence-strategies",
         "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
         "alt": "Commercial Acquisition",
-        "title": "Advanced Due Diligence Strategies for Complex Commercial Real Estate Acquisitions", 
+        "title": "Advanced Due Diligence Strategies for Complex Commercial Real Estate Acquisitions",
         "date": "Feb 10, 2025"
       },
       {
@@ -71,12 +110,12 @@
     },
     "popular_tags": [
       "Commercial Acquisition",
-      "Ground-Up Development", 
+      "Ground-Up Development",
       "Property Conversions",
       "Hotel Financing",
       "Healthcare Facilities",
       "South America",
-      "Development", 
+      "Development",
       "Due Diligence"
     ]
   },
@@ -87,29 +126,78 @@
   },
   "footer": {
     "description": "Providing innovative commercial financing solutions for seasoned investors and developers.",
-    "address": "123 Financial District, NY 10005", 
+    "address": "123 Financial District, NY 10005",
     "phone": "+1 (212) 555-7890",
     "email": "info@dcmfinancing.com",
     "social_links": [
-      { "platform": "LinkedIn", "url": "#", "icon": "fab fa-linkedin" },
-      { "platform": "Twitter", "url": "#", "icon": "fab fa-twitter" },
-      { "platform": "Facebook", "url": "#", "icon": "fab fa-facebook" },
-      { "platform": "Instagram", "url": "#", "icon": "fab fa-instagram" }
+      {
+        "platform": "LinkedIn",
+        "url": "#",
+        "icon": "fab fa-linkedin"
+      },
+      {
+        "platform": "Twitter",
+        "url": "#",
+        "icon": "fab fa-twitter"
+      },
+      {
+        "platform": "Facebook",
+        "url": "#",
+        "icon": "fab fa-facebook"
+      },
+      {
+        "platform": "Instagram",
+        "url": "#",
+        "icon": "fab fa-instagram"
+      }
     ],
     "quick_links": [
-      { "label": "Home", "url": "index.html" },
-      { "label": "About Us", "url": "about.html" }, 
-      { "label": "Services", "url": "index.html#services" },
-      { "label": "Recent Loans", "url": "news-updates.html" },
-      { "label": "Blog", "url": "blog.html" }
+      {
+        "label": "Home",
+        "url": "index.html"
+      },
+      {
+        "label": "About Us",
+        "url": "about.html"
+      },
+      {
+        "label": "Services",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Recent Loans",
+        "url": "news-updates.html"
+      },
+      {
+        "label": "Blog",
+        "url": "blog.html"
+      }
     ],
     "service_links": [
-      { "label": "Commercial Real Estate Acquisition", "url": "index.html#services" },
-      { "label": "Ground-Up Development", "url": "index.html#services" },
-      { "label": "Conversions", "url": "index.html#services" }, 
-      { "label": "Hotel Financing", "url": "index.html#services" },
-      { "label": "Nursing Home Facilities", "url": "index.html#services" },
-      { "label": "South America Hotel Financing", "url": "index.html#services" }
+      {
+        "label": "Commercial Real Estate Acquisition",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Ground-Up Development",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Conversions",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Hotel Financing",
+        "url": "index.html#services"
+      },
+      {
+        "label": "Nursing Home Facilities",
+        "url": "index.html#services"
+      },
+      {
+        "label": "South America Hotel Financing",
+        "url": "index.html#services"
+      }
     ],
     "copyright": "&copy; 2025 DCM Financing. All Rights Reserved."
   }
