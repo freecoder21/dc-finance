@@ -346,6 +346,7 @@ collections:
             name: "featured_post"
             widget: "object"
             fields:
+              - { label: "Slug", name: "slug", widget: "string" }
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Image Alt Text", name: "alt", widget: "string" }
               - { label: "Category", name: "category", widget: "string" }
@@ -354,13 +355,13 @@ collections:
               - { label: "Date", name: "date", widget: "string" }
               - { label: "Reading Time", name: "reading_time", widget: "string" }
               - { label: "Excerpt", name: "excerpt", widget: "text" }
-              - { label: "Read More Link", name: "read_more_link", widget: "string" }
 
           # Blog Posts
           - label: "Blog Posts"
             name: "blog_posts"
             widget: "list"
             fields:
+              - { label: "Slug", name: "slug", widget: "string" }
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Image Alt Text", name: "alt", widget: "string" }
               - { label: "Category", name: "category", widget: "string" }
@@ -369,7 +370,6 @@ collections:
               - { label: "Date", name: "date", widget: "string" }
               - { label: "Reading Time", name: "reading_time", widget: "string" }
               - { label: "Excerpt", name: "excerpt", widget: "text" }
-              - { label: "Read More Link", name: "read_more_link", widget: "string" }
 
           # Sidebar
           - label: "Sidebar"
@@ -383,10 +383,12 @@ collections:
                 fields:
                   - { label: "Name", name: "name", widget: "string" }
                   - { label: "Count", name: "count", widget: "number" }
+                  - { label: "Slug", name: "slug", widget: "string" }
               - label: "Popular Posts"
                 name: "popular_posts"
                 widget: "list"
                 fields:
+                  - { label: "Slug", name: "slug", widget: "string" }
                   - { label: "Image", name: "image", widget: "image" }
                   - { label: "Image Alt Text", name: "alt", widget: "string" }
                   - { label: "Title", name: "title", widget: "string" }
@@ -441,7 +443,7 @@ collections:
                   - { label: "URL", name: "url", widget: "string" }
               - { label: "Copyright Text", name: "copyright", widget: "string" }
 
-  # ADD BLOGS COLLECTION AS A SEPARATE COLLECTION (not inside pages)
+  # BLOGS COLLECTION FOR INDIVIDUAL BLOG POSTS
   - name: "blogs"
     label: "Blog Posts"
     folder: "content/blogs"

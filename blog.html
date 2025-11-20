@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Additional Blog Styles */
+        /* Blog Post Styles */
         .blog-post {
             position: relative;
             overflow: hidden;
@@ -21,64 +21,28 @@
         
         .post-excerpt {
             position: relative;
-            max-height: 100px;
-            overflow: hidden;
-            transition: max-height 0.5s ease, opacity 0.3s ease;
+            margin-bottom: 20px;
         }
         
-        .post-excerpt.collapsed {
-            max-height: 100px;
+        .post-excerpt p {
+            color: #555555 !important;
+            line-height: 1.6;
+            margin-bottom: 0;
         }
         
-        .post-excerpt.expanded {
-            max-height: 500px;
-        }
-        
-        .post-excerpt::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: linear-gradient(transparent, rgba(255,255,255,0.9));
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-        
-        .post-excerpt.expanded::after {
-            opacity: 0;
-        }
-        
-        .toggle-btn {
+        .read-more {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 25px;
+            color: var(--secondary-color);
             font-weight: 600;
-            font-family: 'Roboto', sans-serif;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin-top: 15px;
-            font-size: 0.9rem;
+            transition: var(--transition);
+            margin-top: auto;
         }
         
-        .toggle-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-        }
-        
-        .toggle-btn i {
-            transition: transform 0.3s ease;
-        }
-        
-        .toggle-btn.expanded i {
-            transform: rotate(180deg);
+        .read-more:hover {
+            color: var(--primary-color);
+            gap: 12px;
         }
         
         /* Featured Post Styles */
@@ -91,43 +55,28 @@
             background-color: var(--white);
         }
         
-        .featured-post .post-excerpt {
-            max-height: 120px;
-        }
-        
-        .featured-post .post-excerpt.expanded {
-            max-height: 600px;
-        }
-        
-        .featured-post .toggle-btn {
+        .featured-post .read-more {
             padding: 12px 25px;
-            font-size: 1rem;
-        }
-        
-        /* Animation for expanding content */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .post-excerpt.expanded p {
-            animation: fadeIn 0.5s ease;
-        }
-        
-        /* Loading States */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        
-        .loading::after {
-            content: 'Loading...';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--secondary-color);
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 25px;
             font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .featured-post .read-more:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            color: var(--white);
+            gap: 12px;
         }
     </style>
 </head>
@@ -182,10 +131,10 @@
                             <span class="post-category" id="featured-category"></span>
                             <h2 id="featured-title"></h2>
                             <p class="post-meta" id="featured-meta"></p>
-                            <div class="post-excerpt collapsed" id="featured-excerpt"></div>
-                            <button class="toggle-btn" id="featured-toggle">
-                                Show Full Article <i class="fas fa-chevron-down"></i>
-                            </button>
+                            <div class="post-excerpt" id="featured-excerpt"></div>
+                            <a href="#" class="read-more" id="featured-read-more">
+                                Read Full Article <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -311,7 +260,7 @@
         // Fetch and display blog content from JSON
         document.addEventListener('DOMContentLoaded', function() {
             // Fetch the JSON data
-             fetch('/content/pages/blog.json')
+            fetch('/content/pages/blog.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -332,23 +281,9 @@
                     document.getElementById('featured-meta').innerHTML = `By <strong>${featuredPost.author}</strong> | ${featuredPost.date} | ${featuredPost.reading_time}`;
                     document.getElementById('featured-excerpt').innerHTML = `<p>${featuredPost.excerpt}</p>`;
                     
-                    // Featured post toggle functionality
-                    const featuredToggle = document.getElementById('featured-toggle');
-                    const featuredExcerpt = document.getElementById('featured-excerpt');
-                    
-                    featuredToggle.addEventListener('click', function() {
-                        if (featuredExcerpt.classList.contains('collapsed')) {
-                            featuredExcerpt.classList.remove('collapsed');
-                            featuredExcerpt.classList.add('expanded');
-                            featuredToggle.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
-                            featuredToggle.classList.add('expanded');
-                        } else {
-                            featuredExcerpt.classList.remove('expanded');
-                            featuredExcerpt.classList.add('collapsed');
-                            featuredToggle.innerHTML = 'Show Full Article <i class="fas fa-chevron-down"></i>';
-                            featuredToggle.classList.remove('expanded');
-                        }
-                    });
+                    // Set featured post read more link
+                    const featuredReadMore = document.getElementById('featured-read-more');
+                    featuredReadMore.href = `blog/${featuredPost.slug}.html`;
 
                     // Populate blog posts grid
                     const blogGrid = document.getElementById('blog-grid');
@@ -363,35 +298,15 @@
                                 <span class="post-category">${post.category}</span>
                                 <h3>${post.title}</h3>
                                 <p class="post-meta">By <strong>${post.author}</strong> | ${post.date} | ${post.reading_time}</p>
-                                <div class="post-excerpt collapsed">
+                                <div class="post-excerpt">
                                     <p>${post.excerpt}</p>
                                 </div>
-                                <button class="toggle-btn">
-                                    Show More <i class="fas fa-chevron-down"></i>
-                                </button>
+                                <a href="blog/${post.slug}.html" class="read-more">
+                                    Read More <i class="fas fa-arrow-right"></i>
+                                </a>
                             </div>
                         `;
                         blogGrid.appendChild(postElement);
-                    });
-
-                    // Add toggle functionality to all blog posts
-                    const toggleButtons = document.querySelectorAll('.toggle-btn');
-                    toggleButtons.forEach(button => {
-                        button.addEventListener('click', function() {
-                            const postExcerpt = this.previousElementSibling;
-                            
-                            if (postExcerpt.classList.contains('collapsed')) {
-                                postExcerpt.classList.remove('collapsed');
-                                postExcerpt.classList.add('expanded');
-                                this.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
-                                this.classList.add('expanded');
-                            } else {
-                                postExcerpt.classList.remove('expanded');
-                                postExcerpt.classList.add('collapsed');
-                                this.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
-                                this.classList.remove('expanded');
-                            }
-                        });
                     });
 
                     // Populate categories
