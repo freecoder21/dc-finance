@@ -249,10 +249,23 @@
         fetch('/content/pages/blog.json')
             .then(res => res.json())
             .then(data => {
-                let post =
-                    data.featured_post?.slug === slug
-                        ? data.featured_post
-                        : data.blog_posts.find(p => p.slug === slug);
+                let post = null;
+
+                // First check featured post
+                if (data.featured_post && data.featured_post.slug === slug) {
+                    post = data.featured_post;
+                }
+                
+                // Then check regular blog posts
+                if (!post && data.blog_posts) {
+                    post = data.blog_posts.find(p => p.slug === slug);
+                }
+
+                // Then check popular posts (which are just recent blog posts)
+                if (!post && data.blog_posts) {
+                    // Popular posts are just the most recent blog posts, so they're already in blog_posts
+                    post = data.blog_posts.find(p => p.slug === slug);
+                }
 
                 if (!post) {
                     document.querySelector('.single-blog-post').innerHTML = `
@@ -270,6 +283,7 @@
                 document.getElementById('post-date').textContent = post.date;
                 document.getElementById('post-reading-time').textContent = post.reading_time;
                 document.getElementById('post-featured-image').src = post.image;
+                document.getElementById('post-featured-image').alt = post.alt || post.title;
 
                 // Check if full content exists, otherwise show placeholder
                 if (post.body && post.body.trim() !== '') {
@@ -286,6 +300,15 @@
                     post.tags?.map(t => `<span class="tag">${t}</span>`).join('') || "";
 
                 document.title = `${post.title} - DCM Financing Blog`;
+            })
+            .catch(error => {
+                console.error('Error loading blog post:', error);
+                document.querySelector('.single-blog-post').innerHTML = `
+                    <div class="error-message">
+                        <h2>Error Loading Post</h2>
+                        <p>There was an error loading the blog post. Please try again later.</p>
+                        <a href="blog.html" class="btn-primary">Return to Blog</a>
+                    </div>`;
             });
     });
 </script>
