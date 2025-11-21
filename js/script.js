@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Formspree Form Handling
-   // Formspree Form Handling
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('form-status');
 
@@ -142,19 +141,20 @@ function showFormStatus(message, type) {
 
 // Optional: Add a little celebration effect
 function celebrateSubmission() {
-    // Add a subtle confetti effect using emojis
     const confetti = ['🎉', '✨', '👍', '🚀', '💫'];
     const button = contactForm.querySelector('button[type="submit"]');
-    
-    // Create temporary celebration text
-    const originalText = button.textContent;
-    button.textContent = 'Message Sent! ' + confetti[Math.floor(Math.random() * confetti.length)];
-    
-    // Return to normal after 2 seconds
+
+    // Just temporarily show celebration text
+    const tempText = 'Message Sent! ' + confetti[Math.floor(Math.random() * confetti.length)];
+    const savedText = button.textContent; // save the current button text
+
+    button.textContent = tempText;
+
     setTimeout(() => {
-        button.textContent = originalText;
+        button.textContent = savedText; // restore it
     }, 2000);
 }
+
     
     // Add scroll effect to header
     window.addEventListener('scroll', function() {
