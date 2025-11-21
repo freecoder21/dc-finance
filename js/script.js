@@ -40,27 +40,79 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission
+    // Formspree Form Handling
     const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('form-status');
+    
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            // Get form elements
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
             
-            if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
-                return;
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Hide previous status messages
+            if (formStatus) {
+                formStatus.style.display = 'none';
             }
             
-            // In a real implementation, you would send the form data to a server
-            // For this demo, we'll just show a success message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
+            try {
+                // Send form data to Formspree
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success message
+                    showFormStatus('Thank you for your message! We will get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    // Error message
+                    showFormStatus('There was a problem sending your message. Please try again.', 'error');
+                }
+            } catch (error) {
+                // Network error
+                showFormStatus('There was a problem sending your message. Please check your connection and try again.', 'error');
+            } finally {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
+    }
+    
+    function showFormStatus(message, type) {
+        if (!formStatus) return;
+        
+        formStatus.textContent = message;
+        formStatus.style.display = 'block';
+        
+        // Set styles based on message type
+        if (type === 'success') {
+            formStatus.style.backgroundColor = '#d4edda';
+            formStatus.style.color = '#155724';
+            formStatus.style.border = '1px solid #c3e6cb';
+        } else {
+            formStatus.style.backgroundColor = '#f8d7da';
+            formStatus.style.color = '#721c24';
+            formStatus.style.border = '1px solid #f5c6cb';
+        }
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+        }
     }
     
     // Add scroll effect to header
