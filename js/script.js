@@ -41,79 +41,120 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Formspree Form Handling
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('form-status');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Get form elements
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Hide previous status messages
-            if (formStatus) {
-                formStatus.style.display = 'none';
-            }
-            
-            try {
-                // Send form data to Formspree
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: new FormData(contactForm),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    // Success message
-                    showFormStatus('Thank you for your message! We will get back to you soon.', 'success');
-                    contactForm.reset();
-                } else {
-                    // Error message
-                    showFormStatus('There was a problem sending your message. Please try again.', 'error');
-                }
-            } catch (error) {
-                // Network error
-                showFormStatus('There was a problem sending your message. Please check your connection and try again.', 'error');
-            } finally {
-                // Reset button state
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
-    
-    function showFormStatus(message, type) {
-        if (!formStatus) return;
+   // Formspree Form Handling
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('form-status');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
         
-        formStatus.textContent = message;
-        formStatus.style.display = 'block';
+        // Get form elements
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
         
-        // Set styles based on message type
-        if (type === 'success') {
-            formStatus.style.backgroundColor = '#d4edda';
-            formStatus.style.color = '#155724';
-            formStatus.style.border = '1px solid #c3e6cb';
-        } else {
-            formStatus.style.backgroundColor = '#f8d7da';
-            formStatus.style.color = '#721c24';
-            formStatus.style.border = '1px solid #f5c6cb';
+        // Show loading state with animation
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        submitBtn.classList.add('sending');
+        
+        // Hide previous status messages
+        if (formStatus) {
+            formStatus.style.display = 'none';
+            formStatus.classList.remove('show');
         }
         
-        // Auto-hide success messages after 5 seconds
-        if (type === 'success') {
+        try {
+            // Send form data to Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Success message with enhanced styling
+                showFormStatus('Thank you for your message! We will get back to you soon.', 'success');
+                contactForm.reset();
+                
+                // Add a little celebration effect
+                celebrateSubmission();
+            } else {
+                // Error message
+                showFormStatus('There was a problem sending your message. Please try again.', 'error');
+            }
+        } catch (error) {
+            // Network error
+            showFormStatus('There was a problem sending your message. Please check your connection and try again.', 'error');
+        } finally {
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('sending');
+        }
+    });
+}
+
+function showFormStatus(message, type) {
+    if (!formStatus) return;
+    
+    // Create different HTML based on message type
+    if (type === 'success') {
+        formStatus.innerHTML = `
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        formStatus.style.backgroundColor = '#d4edda';
+        formStatus.style.color = '#155724';
+        formStatus.style.border = '1px solid #c3e6cb';
+    } else {
+        formStatus.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        formStatus.style.backgroundColor = '#f8d7da';
+        formStatus.style.color = '#721c24';
+        formStatus.style.border = '1px solid #f5c6cb';
+    }
+    
+    // Show with animation
+    formStatus.style.display = 'block';
+    setTimeout(() => {
+        formStatus.classList.add('show');
+    }, 10);
+    
+    // Auto-hide success messages after 8 seconds
+    if (type === 'success') {
+        setTimeout(() => {
+            formStatus.classList.remove('show');
             setTimeout(() => {
                 formStatus.style.display = 'none';
-            }, 5000);
-        }
+            }, 500);
+        }, 8000);
     }
+}
+
+// Optional: Add a little celebration effect
+function celebrateSubmission() {
+    // Add a subtle confetti effect using emojis
+    const confetti = ['🎉', '✨', '👍', '🚀', '💫'];
+    const button = contactForm.querySelector('button[type="submit"]');
+    
+    // Create temporary celebration text
+    const originalText = button.textContent;
+    button.textContent = 'Message Sent! ' + confetti[Math.floor(Math.random() * confetti.length)];
+    
+    // Return to normal after 2 seconds
+    setTimeout(() => {
+        button.textContent = originalText;
+    }, 2000);
+}
     
     // Add scroll effect to header
     window.addEventListener('scroll', function() {
